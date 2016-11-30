@@ -1,12 +1,12 @@
---temp-output:C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneyMoonShop\obj\Release\netcoreapp1.0\
---out:C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneyMoonShop\bin\Release\netcoreapp1.0\HoneyMoonShop.dll
---define:RELEASE
+--temp-output:C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneyMoonShop\obj\Debug\netcoreapp1.0\
+--out:C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneyMoonShop\bin\Debug\netcoreapp1.0\HoneyMoonShop.dll
+--define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
 --suppress-warning:CS1701
 --suppress-warning:CS1702
 --suppress-warning:CS1705
---optimize:True
+--optimize:False
 --emit-entry-point:True
 --output-name:HoneyMoonShop
 --file-version:1.0.0.0
@@ -190,7 +190,7 @@
 --reference:C:\Users\Jiri\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\Jiri\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\Jiri\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
---resource:"C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneyMoonShop\obj\Release\netcoreapp1.0\HoneyMoonShopdotnet-compile.deps.json",HoneyMoonShop.deps.json
+--resource:"C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneyMoonShop\obj\Debug\netcoreapp1.0\HoneyMoonShopdotnet-compile.deps.json",HoneyMoonShop.deps.json
 C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneyMoonShop\Program.cs
 C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneyMoonShop\Startup.cs
 C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneyMoonShop\Controllers\HomeController.cs

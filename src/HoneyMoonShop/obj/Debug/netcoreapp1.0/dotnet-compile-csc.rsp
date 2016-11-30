@@ -1,15 +1,14 @@
-﻿-d:RELEASE
+﻿-d:DEBUG
 -d:TRACE
 -d:NETCOREAPP1_0
 -nowarn:CS1701
 -nowarn:CS1702
 -nowarn:CS1705
--optimize
 -debug:full
 -nostdlib
 -nologo
-"C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneyMoonShop\obj\Release\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
--out:"C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneyMoonShop\bin\Release\netcoreapp1.0\HoneyMoonShop.dll"
+"C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneyMoonShop\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
+-out:"C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneyMoonShop\bin\Debug\netcoreapp1.0\HoneyMoonShop.dll"
 -r:"C:\Users\Jiri\.nuget\packages\Microsoft.AspNetCore.Antiforgery\1.0.1\lib\netstandard1.3\Microsoft.AspNetCore.Antiforgery.dll"
 -r:"C:\Users\Jiri\.nuget\packages\Microsoft.AspNetCore.Authorization\1.0.0\lib\netstandard1.3\Microsoft.AspNetCore.Authorization.dll"
 -r:"C:\Users\Jiri\.nuget\packages\Microsoft.AspNetCore.Cors\1.0.0\lib\netstandard1.3\Microsoft.AspNetCore.Cors.dll"
@@ -187,7 +186,7 @@
 -r:"C:\Users\Jiri\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll"
 -r:"C:\Users\Jiri\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\Jiri\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll"
--resource:"C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneyMoonShop\obj\Release\netcoreapp1.0\HoneyMoonShopdotnet-compile.deps.json",HoneyMoonShop.deps.json
+-resource:"C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneyMoonShop\obj\Debug\netcoreapp1.0\HoneyMoonShopdotnet-compile.deps.json",HoneyMoonShop.deps.json
 "C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneyMoonShop\Program.cs"
 "C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneyMoonShop\Startup.cs"
 "C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneyMoonShop\Controllers\HomeController.cs"
