@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using HoneymoonShop.Models;
 
 namespace HoneymoonShop
 {
@@ -29,6 +31,9 @@ namespace HoneymoonShop
         {
             // Add framework services.
             services.AddMvc();
+            String ConnectionString =
+                @"Data Source=honeymoonshop.database.windows.net;Initial Catalog=HoneyMoonDatabase;Integrated Security=False;User ID=Project6;Password=Honeymoon1;Connect Timeout=15;";
+            services.AddDbContext<HoneyMoonShopContext>(options => options.UseSqlServer(ConnectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

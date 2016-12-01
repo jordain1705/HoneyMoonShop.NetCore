@@ -173,3 +173,9 @@
 F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Program.cs
 F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Startup.cs
 F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Controllers\HomeController.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Migrations\20161201151934_Initial-Migration.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Migrations\20161201151934_Initial-Migration.Designer.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Migrations\HoneyMoonShopContextModelSnapshot.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\Contact.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\Customer.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\HoneyMoonShopContext.cs
