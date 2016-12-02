@@ -2,3 +2,5 @@
 .vs/HoneyMoonShop/v14/.suo
 *.suo
 .vs/HoneyMoonShop/v14/.suo
+*.config
+.vs/config/applicationhost.config
