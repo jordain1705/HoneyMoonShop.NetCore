@@ -39,6 +39,20 @@ namespace HoneymoonShop.Migrations
 
                     b.ToTable("Customers");
                 });
+
+            modelBuilder.Entity("HoneymoonShop.Models.Example", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Example1");
+
+                    b.Property<int>("Example2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Examples");
+                });
         }
     }
 }
