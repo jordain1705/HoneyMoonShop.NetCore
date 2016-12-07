@@ -5,13 +5,35 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - HoneymoonShopNieuw</title>
+    <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 </head>
-<header>
-    
-</header>
-<body>
-    <div>
-        @RenderBody()
+<body style="background:#FCE8E7 ">
+    <div class="container">
+        <nav class="navbar navbar-light bg-faded" style="background:#FAC9C4">
+            <ul class="nav navbar-nav col-md-8">
+                <li class="nav-item active text-uppercase">
+                    <a class="nav-link" href="#"><strong>website</strong> <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item text-uppercase">
+                    <a class="nav-link" href="#"><strong style="color: #F0597A">webshop</strong></a>
+                </li>
+            </ul>
+            <div class="col-md-2 text-uppercase" style="margin-top: 15px">
+                <p><strong>T </strong>(010) 4126143</p>
+            </div>
+            <div class="col-md-2">
+                <input class="form-control" type="text" placeholder="Wat zoek je?">
+
+            </div>
+        </nav>
+        <div>
+            @RenderBody()
+        </div>
     </div>
 </body>
 </html>
+
+
+
+<!--css normalize(all de css word door elke browser goed weergeven): <link rel="stylesheet" src ="//normalize-css.googlecode.com/svn/trunk/normalize.css"/>-->
