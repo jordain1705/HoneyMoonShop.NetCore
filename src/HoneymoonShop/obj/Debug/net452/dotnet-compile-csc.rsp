@@ -8,8 +8,8 @@
 -debug:full
 -nostdlib
 -nologo
-"F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\obj\Debug\net452\dotnet-compile.assemblyinfo.cs"
--out:"F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\bin\Debug\net452\HoneymoonShop.exe"
+"C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\obj\Debug\net452\dotnet-compile.assemblyinfo.cs"
+-out:"C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\bin\Debug\net452\HoneymoonShop.exe"
 -r:"C:\Users\Jiri\.nuget\packages\Microsoft.AspNetCore.Antiforgery\1.0.1\lib\net451\Microsoft.AspNetCore.Antiforgery.dll"
 -r:"C:\Users\Jiri\.nuget\packages\Microsoft.AspNetCore.Authorization\1.0.0\lib\net451\Microsoft.AspNetCore.Authorization.dll"
 -r:"C:\Users\Jiri\.nuget\packages\Microsoft.AspNetCore.Cors\1.0.0\lib\net451\Microsoft.AspNetCore.Cors.dll"
@@ -165,12 +165,12 @@
 -r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.IdentityModel.dll"
 -r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Net.Http.WebRequest.dll"
 -r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.ServiceModel.dll"
--resource:"F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\obj\Debug\net452\HoneymoonShopdotnet-compile.deps.json",HoneymoonShop.deps.json
-"F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Program.cs"
-"F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Startup.cs"
-"F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Controllers\HomeController.cs"
-"F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Migrations\HoneyMoonShopContextModelSnapshot.cs"
-"F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\Contact.cs"
-"F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\Customer.cs"
-"F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\HoneyMoonShopContext.cs"
-"F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\test.cs"
+-resource:"C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\obj\Debug\net452\HoneymoonShopdotnet-compile.deps.json",HoneymoonShop.deps.json
+"C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Program.cs"
+"C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Startup.cs"
+"C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Controllers\HomeController.cs"
+"C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Migrations\HoneyMoonShopContextModelSnapshot.cs"
+"C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\Contact.cs"
+"C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\Customer.cs"
+"C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\HoneyMoonShopContext.cs"
+"C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\test.cs"
