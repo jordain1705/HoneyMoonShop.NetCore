@@ -8194,16 +8194,16 @@ button.close {
     .test {
         background: white;
     }
-
+}
     .box1{
 
-	background-color: #F0597C ;
-  font-size:80%;
-  height:200px;
+  background-color: #F0597C ;
+  font-size:170%;
+  height:150px;
   list-style: none;
   float: left;
-  width: 200px;
-  margin-left: 140px;
+   width: 250px;
+  margin-left: 60px;
   margin-top: 10px;
   padding: 40px;
   border: 2px;
@@ -8211,34 +8211,38 @@ button.close {
 }
 .box2{
 
-height:200px;
-	background-color: #F0597C ;
-  font-size:80%;
-    list-style: none;
-  font-family: 'Pacifico', cursive;
 
-
+  background-color: #F0597C ;
+  font-size:170%;
+  height:150px;
+  list-style: none;
   float: left;
-    width: 200px;
-    margin-left: 140px;
-    margin-top: 10px;
-    padding: 40px;
-    border: 2px ;
+  width: 250px;
+  padding-left:20px; 
+  margin-left: 60px;
+  margin-top: 10px;
+  padding: 20px;
+  border: 2px;
+  font-family: 'Pacifico', cursive;
 }
 .box3{
 
-height:200px;
-  list-style: none;
-	background-color: #F0597C ;
-  font-size:80%;
-  font-family: 'Pacifico', cursive;
 
+  background-color: #F0597C ;
+  font-size:170%;
+  height:150px;
+  list-style: none;
   float: left;
-    width: 200px;
-    margin-left: 140px;
-    margin-top: 10px;
-    padding: 40px;
-    border: 2px ;
+   width: 250px;
+  margin-left: 60px;
+  margin-top: 10px;
+  
+  padding: 40px;
+  border: 2px;
+  font-family: 'Pacifico', cursive;
 }
+#a li {
+    list-style-type: none;
 }
+
 /*# sourceMappingURL=bootstrap.css.map */
