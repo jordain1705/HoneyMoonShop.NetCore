@@ -8241,6 +8241,20 @@ button.close {
   border: 2px;
   font-family: 'Pacifico', cursive;
 }
+
+.dressfinder{
+ height:300px;
+  list-style: none;
+  float: right;
+   width: 180px;
+  margin-left: 2px;
+  
+  
+  
+  
+}
+
+
 #a li {
     list-style-type: none;
 }
