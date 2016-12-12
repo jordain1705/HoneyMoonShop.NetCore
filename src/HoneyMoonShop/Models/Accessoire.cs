@@ -19,5 +19,7 @@ namespace HoneymoonShop.Models
         public String KledingArtikelnummer { get; set; }
         [ForeignKey("KledingArtikelnummer")]
         public Kleding Kleding { get; set; }
+
+        public ICollection<AccessoireAfbeelding> AccessoireAfbeeldingen { get; set; }
     }
 }

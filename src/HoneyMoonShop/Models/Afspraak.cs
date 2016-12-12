@@ -12,6 +12,7 @@ namespace HoneymoonShop.Models
     {
         [Key]
         public int Id { get; set; }
+
         public String Voornaam { get; set; }
         public String Achternaam { get; set; }
         public EmailAddressAttribute EmailAdres { get; set; }
@@ -21,7 +22,10 @@ namespace HoneymoonShop.Models
         public DateTime DatumTijd { get; set; }
 
         public int Artikelnummer { get; set; }
+
         [ForeignKey("Artikelnummer")]
         public Kleding Kleding { get; set; }
+
+        public ICollection<Kleding> Kledingen { get; set; }
     }
 }

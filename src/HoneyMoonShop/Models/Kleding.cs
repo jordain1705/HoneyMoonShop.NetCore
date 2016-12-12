@@ -25,6 +25,6 @@ namespace HoneymoonShop.Models
         public ICollection<Jurk> Jurken { get; set; }
         public ICollection<KledingAfbeelding> KledingAfbeeldingen { get; set; }
         public ICollection<KledingKleur> KledingKleuren { get; set; }
-
+        public ICollection<Accessoire> Accessoires { get; set; }
     }
 }
