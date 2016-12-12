@@ -16,7 +16,7 @@ namespace HoneymoonShop.Models
         public int Prijs { get; set; }
         public String Omschrijving { get; set; }
 
-        public int Id { get; set; }
+        public int? Id { get; set; } //can be null
         [ForeignKey("Id")]
         public Afspraak Afspraak { get; set; }
 

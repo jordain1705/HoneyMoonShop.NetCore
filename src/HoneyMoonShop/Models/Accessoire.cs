@@ -16,7 +16,7 @@ namespace HoneymoonShop.Models
         public String Geslacht { get; set; }
         public String LinkNaarWebshop { get; set; }
         
-        public String KledingArtikelnummer { get; set; }
+        public String KledingArtikelnummer { get; set; } //String is already nullable
         [ForeignKey("KledingArtikelnummer")]
         public Kleding Kleding { get; set; }
 
