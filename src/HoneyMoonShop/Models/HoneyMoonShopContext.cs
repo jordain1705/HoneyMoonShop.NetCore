@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using HoneyMoonShop.Models;
+using HoneymoonShop.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace HoneymoonShop.Models
@@ -18,8 +18,13 @@ namespace HoneymoonShop.Models
         {
         }
 
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<Contact> Contacts { get; set; }
-        public DbSet<Test> Tests { get; set; }
+        public DbSet<Accessoire> AccessoireDbSet { get; set; }
+        public DbSet<AccessoireAfbeelding> AccessoireAfbeeldingDbSet { get; set; }
+        public DbSet<Afspraak> AfspraakDbSet { get; set; }
+        public DbSet<Jurk> JurkDbSet { get; set; }
+        public DbSet<Pak> PakDbSet { get; set; }
+        public DbSet<Kleding> KledingDbSet { get; set; }
+        public DbSet<KledingAfbeelding> KledingAfbeeldingDbSet { get; set; }
+        public DbSet<KledingKleur> KledingKleurDbSet { get; set; }
     }
 }
