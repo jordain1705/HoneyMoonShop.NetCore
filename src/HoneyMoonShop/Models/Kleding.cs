@@ -15,5 +15,6 @@ namespace HoneymoonShop.Models
         public int Prijs { get; set; }
 
         public List<KledingAfspraak> KledingAfspraken { get; set; }
+        public List<Accessoire> Accessoires { get; set; }
     }
 }

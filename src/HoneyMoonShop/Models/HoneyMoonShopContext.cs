@@ -21,8 +21,11 @@ namespace HoneymoonShop.Models
         {
         }
 
-        public DbSet<Afspraak> AfspraakDbSet { get; set; }
-        public DbSet<Kleding> KledingDbSet { get; set; }
+        public DbSet<Afspraak> Afspraak { get; set; }
+        public DbSet<Kleding> Kleding { get; set; }
+        public DbSet<Jurk> Jurk { get; set; }
+        public DbSet<Pak> Pak { get; set; }
+        public DbSet<Accessoire> Accessoire { get; set; }
         
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
