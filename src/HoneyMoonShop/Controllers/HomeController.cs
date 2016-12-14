@@ -20,6 +20,13 @@ namespace HoneymoonShop.Controllers
             merken.Add("gucci");
             merken.Add("zeeman");
             ViewData["merken"] = merken;
+            
+            List<string> stijlen = new List<string>();
+            merken.Add("cool");
+            merken.Add("stoer");
+            merken.Add("mooi");
+            ViewData["stijlen"] = stijlen;
+                        
             return View(merken);
         }
 
