@@ -10,7 +10,7 @@ namespace HoneymoonShop.Models
 {
     public class HoneyMoonShopContext : DbContext
     {
-        /* comands:
+        /* commands:
          * add-migration "name-migration" -context HoneyMoonShopContext
          * remove-migration = commit verwijderen
          * update-database -context HoneyMoonShopContext = push naar database
