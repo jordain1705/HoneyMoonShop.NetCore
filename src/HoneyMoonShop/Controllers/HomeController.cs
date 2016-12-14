@@ -15,7 +15,12 @@ namespace HoneymoonShop.Controllers
 
         public IActionResult Dressfinder()
         {
-            return View();
+            List<string> merken = new List<string>();
+            merken.Add("dolce");
+            merken.Add("gucci");
+            merken.Add("zeeman");
+            ViewData["merken"] = merken;
+            return View(merken);
         }
 
         public IActionResult About()

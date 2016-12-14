@@ -2,50 +2,136 @@
     Layout = "_HoneyMoon";
     ViewData["Title"] = "Home Page";
 }
+<!--In deze view is gebruik gemaakt van 2 stukken java script. De documentatie daarvan is te vinden op en https://jqueryui.com/slider/-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Slider - Range slider</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#slider-range").slider({
+                range: true,
+                min: 100,
+                max: 500,
+                values: [75, 300],
+                slide: function (event, ui) {
+                    $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+                }
+            });
+            $("#amount").val("$" + $("#slider-range").slider("values", 0) +
+              " - $" + $("#slider-range").slider("values", 1));
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-3 filter">
+            <!--<img src="https://placekitten.com/150/800" class="pull-left img-responsive" alt="placeholder">-->
+            Categorien<br>
+            <button type="button" onclick="alert('Hello World!')">SUMMER SALE</button> <br>
+            <button type="button" onclick="alert('Hello World!')">Nieuwe collectie</button> <br>
+            <button type="button" onclick="alert('Hello World!')">Alle jurken bekijken</button> <br>
+                <br>
+            <div class="bla">
+                merk
+                <form>       
+                    @{List<string> merken = (List<string>)ViewData["merken"]; }
+                    @for(var i = 0; i < merken.Count() ; i++){
+                        <p><input type="checkbox" name="stijl" value=@merken[i] style="height:8px;" checked />@merken[i]</p>
+                    }
+                    </form>
+            </div>
+            <div >
+                Stijl<br>
+                <form>
+                    @for (var i = 0; i < merken.Count(); i++)
+                    {
+                        <p><input type="checkbox" name="stijl" value=@merken[i] style="height:8px;" checked />@merken[i]</p>
+                    }
+                </form>
+            </div>
+                <p>
+                    <label for="amount">Prijs</label>
+                    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                </p>
+                <div id="slider-range"></div>
 
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 dressfinder">
-            <img src="~/Images/Dress.png" class="pull-left img-responsive" alt="Screenshot">
-        </div>
-        <div class="col-md-4 dressfinder">
-            <img src="~/Images/Dress.png" class="pull-left img-responsive" alt="Screenshot">
-        </div>
-        <div class="col-md-4 dressfinder">
-            <img src="~/Images/Dress.png" class="pull-left img-responsive" alt="Screenshot">
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4 dressfinder">
-            <img src="~/Images/Dress.png" class="pull-left img-responsive" alt="Screenshot">
-        </div>
-        <div class="col-md-4 dressfinder">
-            <img src="~/Images/Dress.png" class="pull-left img-responsive" alt="Screenshot">
-        </div>
-        <div class="col-md-4 dressfinder">
-            <img src="~/Images/Dress.png" class="pull-left img-responsive" alt="Screenshot">
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4 dressfinder">
-            <img src="~/Images/Dress.png" class="pull-left img-responsive" alt="Screenshot">
-        </div>
-        <div class="col-md-4 dressfinder">
-            <img src="~/Images/Dress.png" class="pull-left img-responsive" alt="Screenshot">
-        </div>
-        <div class="col-md-4 dressfinder">
-            <img src="~/Images/Dress.png" class="pull-left img-responsive" alt="Screenshot">
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-8">
-        </div>
-        <div class="col-md-4">
-        </div>
-
-    </div>
+                filters verfijnen:
+            <div>
+                <br>
+                <select name="Neklijn" onchange="if (this.selectedIndex) doSomething();""> <!--does something when its selected(like get the dresses and reload them)-->
+                    <option value="volvo">neklijn</option>
+                    <option value="saab">a</option>
+                    <option value="fiat">b</option>
+                    <option value="audi">c</option>
+                </select>
+                <br>
+                <select name="Silhouette">
+                    <option value="volvo">Silhouette</option>
+                    <option value="saab">a</option>
+                    <option value="fiat">b</option>
+                    <option value="audi">c</option>
+                </select>
+                <br>
+                <select name="Kleuren">
+                    <option value="volvo">kleur</option>
+                    <option value="saab">rood</option>
+                    <option value="fiat">groen</option>
+                    <option value="audi">blauw</option>
+                </select>
+            </div>
 </div>
+        <div class="col-md-9 finder">
+            <div class="row">
+                <div class="col-md-4 dressfinder">     
+                    <a href="http://www.google.com">
+                        <img src="~/Images/Dress.png" class="pull-left img-responsive" alt="Screenshot">                          
+                    </a>
+                </div>
+                <div class="col-md-4 dressfinder">
+                    <img src="~/Images/Dress.png" class="pull-left img-responsive" alt="Screenshot">
+                </div>
+                <div class="col-md-4 dressfinder">
+                    <img src="~/Images/Dress.png" class="pull-left img-responsive" alt="Screenshot">
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 dressfinder">
+                    <img src="~/Images/Dress.png" class="pull-left img-responsive" alt="Screenshot">
+                </div>
+                <div class="col-md-4 dressfinder">
+                    <img src="~/Images/Dress.png" class="pull-left img-responsive" alt="Screenshot">
+                </div>
+                <div class="col-md-4 dressfinder">
+                    <img src="~/Images/Dress.png" class="pull-left img-responsive" alt="Screenshot">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 dressfinder">
+                    <img src="~/Images/Dress.png" class="pull-left img-responsive" alt="Screenshot">
+                </div>
+                <div class="col-md-4 dressfinder">
+                    <img src="~/Images/Dress.png" class="pull-left img-responsive" alt="Screenshot">
+                </div>
+                <div class="col-md-4 dressfinder">
+                    <img src="~/Images/Dress.png" class="pull-left img-responsive" alt="Screenshot">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
