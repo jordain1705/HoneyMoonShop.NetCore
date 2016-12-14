@@ -9,8 +9,7 @@ namespace HoneymoonShop.Models
 {
     public class Accessoire
     {
-        [Key]
-        public int Artikelnummer { get; set; }
+        public int AccessoireId { get; set; }
         public String Categorie { get; set; }
         public String Merk { get; set; }
         public String Geslacht { get; set; }

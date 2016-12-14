@@ -13,6 +13,7 @@ namespace HoneymoonShop.Models
         public int Artikelnummer { get; set; }
         public String Merk { get; set; }
         public int Prijs { get; set; }
+        public String Omschrijving { get; set; }
 
         public List<KledingAfspraak> KledingAfspraken { get; set; }
         public List<Accessoire> Accessoires { get; set; }

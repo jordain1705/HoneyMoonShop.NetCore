@@ -23,8 +23,8 @@ namespace HoneymoonShop.Models
 
         public DbSet<Afspraak> Afspraak { get; set; }
         public DbSet<Kleding> Kleding { get; set; }
-        public DbSet<Jurk> Jurk { get; set; }
-        public DbSet<Pak> Pak { get; set; }
+       // public DbSet<Jurk> Jurk { get; set; }
+        //public DbSet<Pak> Pak { get; set; }
         public DbSet<Accessoire> Accessoire { get; set; }
         
 
@@ -32,6 +32,7 @@ namespace HoneymoonShop.Models
         {
             modelBuilder.Entity<Kleding>().HasKey(p => p.Artikelnummer);
             modelBuilder.Entity<Afspraak>().HasKey(p => p.Id);
+            modelBuilder.Entity<Accessoire>().HasKey(p => p.AccessoireId);
 
             modelBuilder.Entity<KledingAfspraak>()
                 .HasKey(t => new {t.Artikelnummer, t.Id});
@@ -45,6 +46,17 @@ namespace HoneymoonShop.Models
                 .HasOne(ka => ka.Afspraak)
                 .WithMany(a => a.KledingAfspraken)
                 .HasForeignKey(ka => ka.Id);
+
+            modelBuilder.Entity<Accessoire>()
+                .HasOne(k => k.Kleding)
+                .WithMany(a => a.Accessoires)
+                .HasForeignKey(a => a.AccessoireId);
+
+            modelBuilder.Entity<Kleding>()
+                .HasDiscriminator<string>("Kleding_type")
+                .HasValue<Kleding>("Kleding")
+                .HasValue<Jurk>("Kleding_jurk")
+                .HasValue<Pak>("Kleding_pak");
         }
     }
 }
