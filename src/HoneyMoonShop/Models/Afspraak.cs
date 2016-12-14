@@ -9,23 +9,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HoneymoonShop.Models
 {
     public class Afspraak
-    {
-        [Key]
+    { 
         public int Id { get; set; }
 
         public String Voornaam { get; set; }
         public String Achternaam { get; set; }
-        public EmailAddressAttribute EmailAdres { get; set; }
+        public String EmailAdres { get; set; }
         public String SoortAfspraak { get; set; }
         public int TelefoonNummer { get; set; }
         public DateTime Trouwdatum { get; set; }
         public DateTime DatumTijd { get; set; }
 
-        public int Artikelnummer { get; set; }
-
-        [ForeignKey("Artikelnummer")]
-        public virtual Kleding Kleding { get; set; }
-
-        public virtual ICollection<Kleding> Kledingen { get; set; }
+        public List<KledingAfspraak> KledingAfspraken { get; set; }
     }
 }

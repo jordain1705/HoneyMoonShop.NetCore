@@ -7,13 +7,8 @@ using System.Threading.Tasks;
 
 namespace HoneymoonShop.Models
 {
-    public class Pak
+    public class Pak : Kleding
     {
-        [Key]
-        public int Artikelnummer { get; set; }
         public String Model { get; set; }
-
-        [ForeignKey("Artikelnummer")]
-        public virtual Kleding Kleding { get; set; }
     }
 }
