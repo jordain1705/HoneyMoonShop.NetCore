@@ -14,6 +14,6 @@ namespace HoneymoonShop.Models
         public String Model { get; set; }
 
         [ForeignKey("Artikelnummer")]
-        public Kleding Kleding { get; set; }
+        public virtual Kleding Kleding { get; set; }
     }
 }

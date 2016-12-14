@@ -24,8 +24,8 @@ namespace HoneymoonShop.Models
         public int Artikelnummer { get; set; }
 
         [ForeignKey("Artikelnummer")]
-        public Kleding Kleding { get; set; }
+        public virtual Kleding Kleding { get; set; }
 
-        public ICollection<Kleding> Kledingen { get; set; }
+        public virtual ICollection<Kleding> Kledingen { get; set; }
     }
 }

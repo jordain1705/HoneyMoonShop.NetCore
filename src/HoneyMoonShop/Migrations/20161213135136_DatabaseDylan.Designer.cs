@@ -8,9 +8,10 @@ using HoneymoonShop.Models;
 namespace HoneymoonShop.Migrations
 {
     [DbContext(typeof(HoneyMoonShopContext))]
-    partial class HoneyMoonShopContextModelSnapshot : ModelSnapshot
+    [Migration("20161213135136_DatabaseDylan")]
+    partial class DatabaseDylan
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.0-rtm-22752")
