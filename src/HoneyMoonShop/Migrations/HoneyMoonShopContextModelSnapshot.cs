@@ -18,13 +18,12 @@ namespace HoneymoonShop.Migrations
 
             modelBuilder.Entity("HoneymoonShop.Models.Accessoire", b =>
                 {
-                    b.Property<int>("AccessoireId");
+                    b.Property<int>("AccessoireId")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Categorie");
 
                     b.Property<string>("Geslacht");
-
-                    b.Property<string>("KledingArtikelnummer");
 
                     b.Property<string>("LinkNaarWebshop");
 
@@ -80,6 +79,19 @@ namespace HoneymoonShop.Migrations
                     b.HasDiscriminator<string>("Kleding_type").HasValue("Kleding");
                 });
 
+            modelBuilder.Entity("HoneymoonShop.Models.KledingAccessoire", b =>
+                {
+                    b.Property<int>("Artikelnummer");
+
+                    b.Property<int>("AccessoireId");
+
+                    b.HasKey("Artikelnummer", "AccessoireId");
+
+                    b.HasIndex("AccessoireId");
+
+                    b.ToTable("KledingAccessoire");
+                });
+
             modelBuilder.Entity("HoneymoonShop.Models.KledingAfspraak", b =>
                 {
                     b.Property<int>("Artikelnummer");
@@ -121,11 +133,16 @@ namespace HoneymoonShop.Migrations
                     b.HasDiscriminator().HasValue("Kleding_pak");
                 });
 
-            modelBuilder.Entity("HoneymoonShop.Models.Accessoire", b =>
+            modelBuilder.Entity("HoneymoonShop.Models.KledingAccessoire", b =>
                 {
-                    b.HasOne("HoneymoonShop.Models.Kleding", "Kleding")
-                        .WithMany("Accessoires")
+                    b.HasOne("HoneymoonShop.Models.Accessoire", "Accessoire")
+                        .WithMany("KledingAccessoires")
                         .HasForeignKey("AccessoireId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("HoneymoonShop.Models.Kleding", "Kleding")
+                        .WithMany("KledingAccessoires")
+                        .HasForeignKey("Artikelnummer")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

@@ -5,10 +5,26 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace HoneymoonShop.Migrations
 {
-    public partial class DatabaseV13Test : Migration
+    public partial class DatabaseV15 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Accessoire",
+                columns: table => new
+                {
+                    AccessoireId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Categorie = table.Column<string>(nullable: true),
+                    Geslacht = table.Column<string>(nullable: true),
+                    LinkNaarWebshop = table.Column<string>(nullable: true),
+                    Merk = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Accessoire", x => x.AccessoireId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Afspraak",
                 columns: table => new
@@ -36,6 +52,7 @@ namespace HoneymoonShop.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Kleding_type = table.Column<string>(nullable: false),
                     Merk = table.Column<string>(nullable: true),
+                    Omschrijving = table.Column<string>(nullable: true),
                     Prijs = table.Column<int>(nullable: false),
                     Materiaal = table.Column<string>(nullable: true),
                     Neklijn = table.Column<string>(nullable: true),
@@ -49,22 +66,24 @@ namespace HoneymoonShop.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Accessoire",
+                name: "KledingAccessoire",
                 columns: table => new
                 {
-                    AccessoireId = table.Column<int>(nullable: false),
-                    Categorie = table.Column<string>(nullable: true),
-                    Geslacht = table.Column<string>(nullable: true),
-                    KledingArtikelnummer = table.Column<string>(nullable: true),
-                    LinkNaarWebshop = table.Column<string>(nullable: true),
-                    Merk = table.Column<string>(nullable: true)
+                    Artikelnummer = table.Column<int>(nullable: false),
+                    AccessoireId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Accessoire", x => x.AccessoireId);
+                    table.PrimaryKey("PK_KledingAccessoire", x => new { x.Artikelnummer, x.AccessoireId });
                     table.ForeignKey(
-                        name: "FK_Accessoire_Kleding_AccessoireId",
+                        name: "FK_KledingAccessoire_Accessoire_AccessoireId",
                         column: x => x.AccessoireId,
+                        principalTable: "Accessoire",
+                        principalColumn: "AccessoireId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_KledingAccessoire_Kleding_Artikelnummer",
+                        column: x => x.Artikelnummer,
                         principalTable: "Kleding",
                         principalColumn: "Artikelnummer",
                         onDelete: ReferentialAction.Cascade);
@@ -95,6 +114,11 @@ namespace HoneymoonShop.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_KledingAccessoire_AccessoireId",
+                table: "KledingAccessoire",
+                column: "AccessoireId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_KledingAfspraak_Id",
                 table: "KledingAfspraak",
                 column: "Id");
@@ -103,10 +127,13 @@ namespace HoneymoonShop.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Accessoire");
+                name: "KledingAccessoire");
 
             migrationBuilder.DropTable(
                 name: "KledingAfspraak");
+
+            migrationBuilder.DropTable(
+                name: "Accessoire");
 
             migrationBuilder.DropTable(
                 name: "Kleding");
