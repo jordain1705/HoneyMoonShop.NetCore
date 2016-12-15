@@ -30,10 +30,12 @@ namespace HoneymoonShop.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //set primary keys
             modelBuilder.Entity<Kleding>().HasKey(p => p.Artikelnummer);
             modelBuilder.Entity<Afspraak>().HasKey(p => p.Id);
             modelBuilder.Entity<Accessoire>().HasKey(p => p.AccessoireId);
 
+            //relatie: kleding-afspraak
             modelBuilder.Entity<KledingAfspraak>()
                 .HasKey(t => new {t.Artikelnummer, t.Id});
 
@@ -47,11 +49,21 @@ namespace HoneymoonShop.Models
                 .WithMany(a => a.KledingAfspraken)
                 .HasForeignKey(ka => ka.Id);
 
-            modelBuilder.Entity<Accessoire>()
-                .HasOne(k => k.Kleding)
-                .WithMany(a => a.Accessoires)
-                .HasForeignKey(a => a.AccessoireId);
+            //relatie: kleding-accessoire
+            modelBuilder.Entity<KledingAccessoire>()
+                .HasKey(t => new { t.Artikelnummer, t.AccessoireId });
 
+            modelBuilder.Entity<KledingAccessoire>()
+                .HasOne(ka => ka.Kleding)
+                .WithMany(k => k.KledingAccessoires)
+                .HasForeignKey(ka => ka.Artikelnummer);
+
+            modelBuilder.Entity<KledingAccessoire>()
+                .HasOne(ka => ka.Accessoire)
+                .WithMany(a => a.KledingAccessoires)
+                .HasForeignKey(ka => ka.AccessoireId);
+
+            //relatie: overerving kleding-jas-pak
             modelBuilder.Entity<Kleding>()
                 .HasDiscriminator<string>("Kleding_type")
                 .HasValue<Kleding>("Kleding")

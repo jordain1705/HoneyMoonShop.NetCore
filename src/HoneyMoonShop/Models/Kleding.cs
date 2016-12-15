@@ -16,6 +16,6 @@ namespace HoneymoonShop.Models
         public String Omschrijving { get; set; }
 
         public List<KledingAfspraak> KledingAfspraken { get; set; }
-        public List<Accessoire> Accessoires { get; set; }
+        public List<KledingAccessoire> KledingAccessoires { get; set; }
     }
 }
