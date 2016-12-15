@@ -17,15 +17,23 @@
         $(function () {
             $("#slider-range").slider({
                 range: true,
-                min: 100,
-                max: 500,
-                values: [75, 300],
+                @{var minprijs = (int)(ViewData["minprijs"]); }
+                @{var maxprijs = (int)(ViewData["maxprijs"])+1; }
+                min: @minprijs,
+                max: @maxprijs,
+                values: [@minprijs, @maxprijs],
                 slide: function (event, ui) {
                     $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-                }
+                     }
             });
             $("#amount").val("$" + $("#slider-range").slider("values", 0) +
               " - $" + $("#slider-range").slider("values", 1));
+            $( ".selector" ).slider({
+                change: function( event, ui ) {}
+            });
+            $( ".selector" ).on( "slidechange", function( event, ui ) {
+                alert('Hello World!')
+            } );
         });
     </script>
 </head>
@@ -69,25 +77,31 @@
                 filters verfijnen:
             <div>
                 <br>
-                <select name="Neklijn" onchange="if (this.selectedIndex) doSomething();""> <!--does something when its selected(like get the dresses and reload them)-->
-                    <option value="volvo">neklijn</option>
-                    <option value="saab">a</option>
-                    <option value="fiat">b</option>
-                    <option value="audi">c</option>
+                @{var neklijn = (List<string>)ViewData["neklijnen"]; }
+                <select name="Neklijn" onchange="if (this.selectedIndex) doSomething()"";> <!--does something when its selected(like get the dresses and reload them)-->     
+                    <option value=0>Neklijn </option>
+                 @foreach (var item in neklijn){
+                      <option value=@item> @item </option>
+                     }
                 </select>
                 <br>
-                <select name="Silhouette">
-                    <option value="volvo">Silhouette</option>
-                    <option value="saab">a</option>
-                    <option value="fiat">b</option>
-                    <option value="audi">c</option>
+                @{var silhouette = (List<string>)ViewData["silhouette"]; }
+                <select name="Silhouette" onchange="if (this.selectedIndex) doSomething();""> <!--does something when its selected(like get the dresses and reload them)-->
+                    <option value=0>Silhouette</option>
+                    @foreach (var item in silhouette)
+                    {
+                        <option value=@item> @item </option>
+                    }
                 </select>
                 <br>
-                <select name="Kleuren">
-                    <option value="volvo">kleur</option>
-                    <option value="saab">rood</option>
-                    <option value="fiat">groen</option>
-                    <option value="audi">blauw</option>
+                @{var kleuren = (List<string>)ViewData["kleuren"]; }
+                <select name="Kleuren" onchange="if (this.selectedIndex) doSomething();"">
+                    <!--does something when its selected(like get the dresses and reload them)-->
+                    <option value=0>Kleuren </option>
+                    @foreach (var item in kleuren)
+                    {
+                        <option value=@item> @item </option>
+                    }
                 </select>
             </div>
 </div>
