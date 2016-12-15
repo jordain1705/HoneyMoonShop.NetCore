@@ -6,6 +6,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>jQuery UI Slider - Range slider</title>
@@ -33,32 +35,37 @@
     <div class="container">
         <div class="col-md-3 filter">
             <!--<img src="https://placekitten.com/150/800" class="pull-left img-responsive" alt="placeholder">-->
-            Categorien<br>
-            <button type="button" onclick="alert('Hello World!')">SUMMER SALE</button> <br>
-            <button type="button" onclick="alert('Hello World!')">Nieuwe collectie</button> <br>
-            <button type="button" onclick="alert('Hello World!')">Alle jurken bekijken</button> <br>
+            <p font-family: 'Pacifico' , cursive;> Catogorien</p> 
+          <br>
+            <button class="button" onclick="alert('Hello World!')">SUMMER SALE</button> <br>
+            <button class="button" onclick="alert('Hello World!')">Nieuwe collectie</button> <br>
+            <button class="button" onclick="alert('Hello World!')">Alle jurken bekijken</button> <br>
                 <br>
             
             <div class="bla">
                 merk
                 <form> 
-                    @{var merken = (List<string>)ViewData["merken"]; }         
-                    @foreach (var item in merken)
-                    {
-                     <p><input type="checkbox" name="stijl" value=@item style="height:12px;" checked />@item</p>
-                    }
-                    </form>
+                    @{var merken = (List<string>)ViewData["merken"]; }
+                    <div class="checkboxcontainer">
+                        @foreach (var item in merken)
+                        {
+                            <p><input type="radio" name="stijl" value=@item style="height:12px;" checked />@item</p>
+                        }
+                    </div>
+</form>
             </div>
             
-            <div>  
+            <div >  
                 Stijl
                 <form>
                     @{var stijlen = (List<string>)ViewData["stijlen"]; }
-                    @foreach (var item in stijlen)
-                    {
-                        <p><input type="checkbox" name="stijl" value=@item style="height:12px;" checked />@item</p>
-                    }
-                </form>
+                    <div class="checkboxcontainer">
+                        @foreach (var item in stijlen)
+                        {
+                            <p><input type="radio" name="stijl" value=@item style="height:12px;" checked />@item</p>
+                        }
+                    </div>
+</form>
             </div>
                 <p>
                     <label for="amount">Prijs</label>

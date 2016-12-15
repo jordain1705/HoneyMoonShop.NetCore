@@ -8258,5 +8258,24 @@ button.close {
 #a li {
     list-style-type: none;
 }
+
+.button{ /*http://www.w3schools.com/css/css3_buttons.asp*/
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    background-color: #F0597A;
+    border: none;
+    color: white;
+  font-family: 'Oswald', sans-serif;
+    padding: 12px 20px;
+    text-align: center;
+    margin: 4px 2px;
+    cursor: pointer;
 }
+
+
+
+
+.checkboxcontainer { border:2px solid #ccc; width:300px; height: 100px; overflow-y: scroll; }
+
 /*# sourceMappingURL=bootstrap.css.map */
