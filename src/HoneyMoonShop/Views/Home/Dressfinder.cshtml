@@ -90,7 +90,7 @@
         <div>
             <br>
             @{var neklijn = (List<string>)ViewData["neklijnen"]; }
-            <select name="Neklijn" onchange="if (this.selectedIndex) doSomething()" ";>
+            <select name="Neklijn" onchange="if (this.selectedIndex) doSomething()" ;>
                 <!--does something when its selected(like get the dresses and reload them)-->
                 <option value=0>Neklijn </option>
                 @foreach (var item in neklijn)
@@ -100,7 +100,7 @@
             </select>
             <br>
             @{var silhouette = (List<string>)ViewData["silhouette"]; }
-            <select name="Silhouette" onchange="if (this.selectedIndex) doSomething();" ">
+            <select name="Silhouette" onchange="if (this.selectedIndex) doSomething();" >
                 <!--does something when its selected(like get the dresses and reload them)-->
                 <option value=0>Silhouette</option>
                 @foreach (var item in silhouette)
@@ -110,7 +110,7 @@
             </select>
             <br>
             @{var kleuren = (List<string>)ViewData["kleuren"]; }
-            <select name="Kleuren" onchange="if (this.selectedIndex) doSomething();" ">
+            <select name="Kleuren" onchange="if (this.selectedIndex) doSomething();" >
                 <!--does something when its selected(like get the dresses and reload them)-->
                 <option value=0>Kleuren </option>
                 @foreach (var item in kleuren)
@@ -129,7 +129,7 @@
             @for (int x = 0; x < 3; x++)
             {
                 <div class="col-md-4 dresscontainer">
-                    <a href="http://google.com"><img src=@dresses[x+(y*3)] class="img-responsive" /></a>
+                    <a href="@Url.Action("artikelpagina", "Home")"><img src=@dresses[x+(y*3)] class="img-responsive" /></a>
                     <div class="description">
                         <p><strong style="color: #F0597A">beautiful by enzoani</strong></p>
                         <p><strong style="color: #8C8481">Artikelenummer</strong></p>
