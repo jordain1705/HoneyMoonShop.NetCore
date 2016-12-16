@@ -1,0 +1,236 @@
+﻿
+
+@{
+    Layout = "_HoneyMoon";
+    ViewData["Title"] = "Dressfinder voor bruiden";
+}
+<head>
+
+    <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Slider - Range slider</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#slider-range").slider({
+                range: true,
+                @{var minprijs = (int)(ViewData["minprijs"]); }
+                @{var maxprijs = (int)(ViewData["maxprijs"])+1; }
+                min: @minprijs,
+                max: @maxprijs,
+                values: [@minprijs, @maxprijs],
+                slide: function (event, ui) {
+                    $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+                     }
+            });
+            $("#amount").val("$" + $("#slider-range").slider("values", 0) +
+              " - $" + $("#slider-range").slider("values", 1));
+            $( ".selector" ).slider({
+                change: function( event, ui ) {}
+            });
+            $( ".selector" ).on( "slidechange", function( event, ui ) {
+                alert('Hello World!')
+            } );
+        });
+    </script>
+</head>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12 RareRug">
+            <img src="D:\Fleur\Desktop\webontwikkeling\portfolio\Bruiden\images\rarerug.png" alt="Bruid met rug" />
+
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-3 filter">
+            <!--<img src="https://placekitten.com/150/800" class="pull-left img-responsive" alt="placeholder">-->
+            Categorien<br>
+            <button class="button" onclick="alert('Hello World!')">SUMMER SALE</button> <br>
+            <button class="button" onclick="alert('Hello World!')">Nieuwe collectie</button> <br>
+            <button class="button" onclick="alert('Hello World!')">Alle jurken bekijken</button> <br>
+            <br>
+
+            <div class="bla">
+                merk
+                <form>
+                    @{var merken = (List<string>)ViewData["merken"]; }
+                    <div class="checkboxcontainer">
+                        @foreach (var item in merken)
+                        {
+                            <p><input type="checkbox" name="stijl" value=@item style="height:12px;" checked />@item</p>
+                        }
+                    </div>
+                </form>
+            </div>
+
+            <div>
+                Stijl
+                <form>
+                    @{var stijlen = (List<string>)ViewData["stijlen"]; }
+                    <div class="checkboxcontainer">
+                        @foreach (var item in stijlen)
+                        {
+                            <p><input type="checkbox" name="stijl" value=@item style="height:12px;" checked />@item</p>
+                        }
+                    </div>
+                </form>
+            </div>
+            <p>
+                <label for="amount">Prijs</label>
+                <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+            </p>
+            <div id="slider-range"></div>
+
+            filters verfijnen:
+            <div>
+                <br>
+                @{var neklijn = (List<string>)ViewData["neklijnen"]; }
+                <select name="Neklijn" onchange="if (this.selectedIndex) doSomething()" ";>
+                    <!--does something when its selected(like get the dresses and reload them)-->
+                    <option value=0>Neklijn </option>
+                    @foreach (var item in neklijn)
+                    {
+                        <option value=@item> @item </option>
+                    }
+                </select>
+                <br>
+                @{var silhouette = (List<string>)ViewData["silhouette"]; }
+                <select name="Silhouette" onchange="if (this.selectedIndex) doSomething();" ">
+                    <!--does something when its selected(like get the dresses and reload them)-->
+                    <option value=0>Silhouette</option>
+                    @foreach (var item in silhouette)
+                    {
+                        <option value=@item> @item </option>
+                    }
+                </select>
+                <br>
+                @{var kleuren = (List<string>)ViewData["kleuren"]; }
+                <select name="Kleuren" onchange="if (this.selectedIndex) doSomething();" ">
+                    <!--does something when its selected(like get the dresses and reload them)-->
+                    <option value=0>Kleuren </option>
+                    @foreach (var item in kleuren)
+                    {
+                        <option value=@item> @item </option>
+                    }
+                </select>
+            </div>
+        </div>
+
+
+        <div class="col-md-9 BruidDFHeadline" style="padding-left: 45px">
+            <a href="http://google.com"> <img src="D:\Fleur\Desktop\webontwikkeling\portfolio\Bruiden\images\aboutdress.png" alt="aboutdress" class="img-responsive" width="780" /> </a>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+
+
+        <div class="col-md-3 BruidDFLink" align="right">
+            <a href="http://google.com">
+                <img src="D:\Fleur\Desktop\webontwikkeling\portfolio\Bruiden\images\GOTreference.png" alt="Nieuwe collectie" opacity=0.5 width="230" />
+            </a>
+        </div>
+
+        <div class="col-md-3 BruidDFLink" align="right">
+            <a href="http://google.com">
+                <img src="D:\Fleur\Desktop\webontwikkeling\portfolio\Bruiden\images\maggiesot.png" alt="maggie sot" opacity=0.5 width="230" />
+            </a>
+        </div>
+
+        <div class="col-md-3 BruidDFLink" class="pull-right">
+            <a href="http://google.com">
+                <img src="D:\Fleur\Desktop\webontwikkeling\portfolio\Bruiden\images\webshop.png" alt="Nieuwe collectie" opacity=0.5 width="230" />
+            </a>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-4 dresscontainer">
+        <a href="http://google.com"><img src="~/Images/Dress.png" class="img-responsive" /></a>
+        <div class="description">
+            <p><strong style="color: #F0597A">By jordain</strong></p>
+            <p><strong style="color: #8C8481">artikel nr. 40201</strong></p>
+            <a>  <img src="~/Images/dots.png" height="20" width="40"></a>
+        </div>
+    </div>
+    <div class="col-md-4 dresscontainer">
+        <a href="http://google.com"><img src="~/Images/Dress.png" class="img-responsive" /></a>
+        <div class="description">
+            <p><strong style="color: #F0597A">By jordain</strong></p>
+            <p><strong style="color: #8C8481">artikel nr. 40201</strong></p>
+            <a>  <img src="~/Images/dots.png" height="20" width="40"></a>
+        </div>
+    </div>
+    <div class="col-md-4 dresscontainer">
+        <a href="http://google.com"><img src="~/Images/Dress.png" class="img-responsive" /></a>
+        <div class="description">
+            <p><strong style="color: #F0597A">By jordain</strong></p>
+            <p><strong style="color: #8C8481">artikel nr. 40201</strong></p>
+            <a>  <img src="~/Images/dots.png" height="20" width="40"></a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 dresscontainer">
+        <a href="http://google.com"><img src="~/Images/Dress.png" class="img-responsive" /></a>
+        <div class="description">
+            <p><strong style="color: #F0597A">By jordain</strong></p>
+            <p><strong style="color: #8C8481">By jordain</strong></p>
+            <a>  <img src="~/Images/dots.png" height="20" width="40"></a>
+        </div>
+    </div>
+    <div class="col-md-4 dresscontainer">
+        <a href="http://google.com"><img src="~/Images/Dress.png" class="img-responsive" /></a>
+        <div class="description">
+            <p><strong style="color: #F0597A">By jordain</strong></p>
+            <p><strong style="color: #8C8481">By jordain</strong></p>
+            <a>  <img src="~/Images/dots.png" height="20" width="40"></a>
+        </div>
+    </div>
+
+    <div class="col-md-4 dresscontainer">
+        <a href="http://google.com"><img src="~/Images/Dress.png" class="img-responsive" /></a>
+        <div class="description">
+            <p><strong style="color: #F0597A">By jordain</strong></p>
+            <p><strong style="color: #8C8481">By jordain</strong></p>
+            <a>  <img src="~/Images/dots.png" height="20" width="40"></a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 dresscontainer">
+        <a href="http://google.com"><img src="~/Images/Dress.png" class="img-responsive" /></a>
+        <div class="description">
+            <p><strong style="color: #F0597A">By jordain</strong></p>
+            <p><strong style="color: #8C8481">By jordain</strong></p>
+            <a>  <img src="~/Images/dots.png" height="20" width="40"></a>
+        </div>
+    </div>
+    <div class="col-md-4 dresscontainer">
+        <a href="http://google.com"><img src="~/Images/Dress.png" class="img-responsive" /></a>
+        <div class="description">
+            <p><strong style="color: #F0597A">By jordain</strong></p>
+            <p><strong style="color: #8C8481">By jordain</strong></p>
+            <a>  <img src="~/Images/dots.png" height="20" width="40"></a>
+        </div>
+    </div>
+    <div class="col-md-4 dresscontainer">
+        <a href="http://google.com"><img src="~/Images/Dress.png" class="img-responsive" /></a>
+        <div class="description">
+            <p><strong style="color: #F0597A">By jordain</strong></p>
+            <p><strong style="color: #8C8481">By jordain</strong></p>
+            <a>  <img src="~/Images/dots.png" height="20" width="40"></a>
+        </div>
+    </div>
+</div>
