@@ -52,7 +52,17 @@ namespace HoneymoonShop.Controllers
             kleuren.Add("gekleurd");
             ViewData["kleuren"] = kleuren;
 
-
+            List<string> dresses = new List<String>();
+            dresses.Add("/Images/Dress.png");
+            dresses.Add("/Images/Dres2.png");
+            dresses.Add("/Images/Dres3.png");
+            dresses.Add("/Images/Dress.png");
+            dresses.Add("/Images/Dres2.png");
+            dresses.Add("/Images/Dres3.png");
+            dresses.Add("/Images/Dress.png");
+            dresses.Add("/Images/Dres2.png");
+            dresses.Add("/Images/Dres3.png");
+            ViewData["dresses"] = dresses;
 
             return View(merken);
         }
