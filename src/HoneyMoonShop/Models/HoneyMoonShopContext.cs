@@ -21,7 +21,7 @@ namespace HoneymoonShop.Models
         {
         }
 
-        public DbSet<Afspraak> Afspraak { get; set; }
+        public DbSet<Afspraak> Afspraak { get; set; }   
         public DbSet<Kleding> Kleding { get; set; }
        // public DbSet<Jurk> Jurk { get; set; }
         //public DbSet<Pak> Pak { get; set; }
@@ -49,6 +49,18 @@ namespace HoneymoonShop.Models
                 .WithMany(a => a.KledingAfspraken)
                 .HasForeignKey(ka => ka.Id);
 
+            //relatie: multivalued attribuut Afbeelding
+            modelBuilder.Entity<KledingAfbeelding>()
+                .HasOne(kb => kb.Kleding)
+                .WithMany(kp => kp.KledingAfbeeldingen)
+                .HasForeignKey(kb => kb.Artikelnummer);
+
+            //relatie: mutivalued attribuut Kleur
+            modelBuilder.Entity<KledingKleur>()
+                .HasOne(kb => kb.Kleding)
+                .WithMany(kp => kp.KledingKleuren)
+                .HasForeignKey(kb => kb.Artikelnummer);
+
             //relatie: kleding-accessoire
             modelBuilder.Entity<KledingAccessoire>()
                 .HasKey(t => new { t.Artikelnummer, t.AccessoireId });
@@ -69,6 +81,12 @@ namespace HoneymoonShop.Models
                 .HasValue<Kleding>("Kleding")
                 .HasValue<Jurk>("Kleding_jurk")
                 .HasValue<Pak>("Kleding_pak");
+
+            //relatie: multivalued attribuut Afbeelding
+            modelBuilder.Entity<AccessoireAfbeelding>()
+                .HasOne(ak => ak.Accessoire)
+                .WithMany(ak => ak.AccessoireAfbeeldingen)
+                .HasForeignKey(ak => ak.AccessoireId);
         }
     }
 }

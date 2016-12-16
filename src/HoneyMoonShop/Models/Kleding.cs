@@ -17,5 +17,7 @@ namespace HoneymoonShop.Models
 
         public List<KledingAfspraak> KledingAfspraken { get; set; }
         public List<KledingAccessoire> KledingAccessoires { get; set; }
+        public List<KledingAfbeelding> KledingAfbeeldingen { get; set; }
+        public List<KledingKleur> KledingKleuren { get; set; }
     }
 }
