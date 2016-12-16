@@ -16,7 +16,7 @@ namespace HoneymoonShop.Models
         public String LinkNaarWebshop { get; set; }
         
         public List<KledingAccessoire> KledingAccessoires { get; set; }
-        public List<AccessoireAfbeelding> AccessoireAfbeeldingen { get; set; }
+        public List<AccessoireAfbeeldingen> AccessoireAfbeeldingen { get; set; }
 
     }
 }

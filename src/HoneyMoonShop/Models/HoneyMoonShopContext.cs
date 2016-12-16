@@ -26,6 +26,9 @@ namespace HoneymoonShop.Models
        // public DbSet<Jurk> Jurk { get; set; }
         //public DbSet<Pak> Pak { get; set; }
         public DbSet<Accessoire> Accessoire { get; set; }
+        public DbSet<AccessoireAfbeeldingen> AccessoireAfbeeldingenen { get; set; }
+        public DbSet<KledingAfbeeldingen> KledingAfbeeldingenen { get; set; }
+        public DbSet<KledingKleuren> KledingKleurenen { get; set; }
         
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -50,13 +53,19 @@ namespace HoneymoonShop.Models
                 .HasForeignKey(ka => ka.Id);
 
             //relatie: multivalued attribuut Afbeelding
-            modelBuilder.Entity<KledingAfbeelding>()
+            modelBuilder.Entity<KledingAfbeeldingen>().HasKey(ka => ka.KledingAfbeelding);
+            modelBuilder.Entity<KledingAfbeeldingen>().HasKey(ka => ka.Artikelnummer);
+            
+            modelBuilder.Entity<KledingAfbeeldingen>()
                 .HasOne(kb => kb.Kleding)
                 .WithMany(kp => kp.KledingAfbeeldingen)
                 .HasForeignKey(kb => kb.Artikelnummer);
 
             //relatie: mutivalued attribuut Kleur
-            modelBuilder.Entity<KledingKleur>()
+            modelBuilder.Entity<KledingKleuren>().HasKey(kk => kk.KledingKleur);
+            modelBuilder.Entity<KledingKleuren>().HasKey(kk => kk.Artikelnummer);
+
+            modelBuilder.Entity<KledingKleuren>()
                 .HasOne(kb => kb.Kleding)
                 .WithMany(kp => kp.KledingKleuren)
                 .HasForeignKey(kb => kb.Artikelnummer);
@@ -81,9 +90,12 @@ namespace HoneymoonShop.Models
                 .HasValue<Kleding>("Kleding")
                 .HasValue<Jurk>("Kleding_jurk")
                 .HasValue<Pak>("Kleding_pak");
-
+            
             //relatie: multivalued attribuut Afbeelding
-            modelBuilder.Entity<AccessoireAfbeelding>()
+            modelBuilder.Entity<AccessoireAfbeeldingen>().HasKey(aa => aa.AccessoireId);
+            modelBuilder.Entity<AccessoireAfbeeldingen>().HasKey(aa => aa.AccessoireAfbeelding);
+
+            modelBuilder.Entity<AccessoireAfbeeldingen>()
                 .HasOne(ak => ak.Accessoire)
                 .WithMany(ak => ak.AccessoireAfbeeldingen)
                 .HasForeignKey(ak => ak.AccessoireId);

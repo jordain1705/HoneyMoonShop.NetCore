@@ -34,6 +34,22 @@ namespace HoneymoonShop.Migrations
                     b.ToTable("Accessoire");
                 });
 
+            modelBuilder.Entity("HoneymoonShop.Models.AccessoireAfbeeldingen", b =>
+                {
+                    b.Property<string>("AccessoireAfbeelding")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AccessoireId");
+
+                    b.Property<string>("SourceLocation");
+
+                    b.HasKey("AccessoireAfbeelding");
+
+                    b.HasAlternateKey("AccessoireId");
+
+                    b.ToTable("AccessoireAfbeeldingenen");
+                });
+
             modelBuilder.Entity("HoneymoonShop.Models.Afspraak", b =>
                 {
                     b.Property<int>("Id")
@@ -92,6 +108,22 @@ namespace HoneymoonShop.Migrations
                     b.ToTable("KledingAccessoire");
                 });
 
+            modelBuilder.Entity("HoneymoonShop.Models.KledingAfbeeldingen", b =>
+                {
+                    b.Property<int>("Artikelnummer");
+
+                    b.Property<string>("KledingAfbeelding")
+                        .IsRequired();
+
+                    b.Property<string>("SourceLocation");
+
+                    b.HasKey("Artikelnummer");
+
+                    b.HasAlternateKey("KledingAfbeelding");
+
+                    b.ToTable("KledingAfbeeldingenen");
+                });
+
             modelBuilder.Entity("HoneymoonShop.Models.KledingAfspraak", b =>
                 {
                     b.Property<int>("Artikelnummer");
@@ -103,6 +135,20 @@ namespace HoneymoonShop.Migrations
                     b.HasIndex("Id");
 
                     b.ToTable("KledingAfspraak");
+                });
+
+            modelBuilder.Entity("HoneymoonShop.Models.KledingKleuren", b =>
+                {
+                    b.Property<int>("Artikelnummer");
+
+                    b.Property<string>("KledingKleur")
+                        .IsRequired();
+
+                    b.HasKey("Artikelnummer");
+
+                    b.HasAlternateKey("KledingKleur");
+
+                    b.ToTable("KledingKleurenen");
                 });
 
             modelBuilder.Entity("HoneymoonShop.Models.Jurk", b =>
@@ -133,6 +179,14 @@ namespace HoneymoonShop.Migrations
                     b.HasDiscriminator().HasValue("Kleding_pak");
                 });
 
+            modelBuilder.Entity("HoneymoonShop.Models.AccessoireAfbeeldingen", b =>
+                {
+                    b.HasOne("HoneymoonShop.Models.Accessoire", "Accessoire")
+                        .WithMany("AccessoireAfbeeldingen")
+                        .HasForeignKey("AccessoireId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("HoneymoonShop.Models.KledingAccessoire", b =>
                 {
                     b.HasOne("HoneymoonShop.Models.Accessoire", "Accessoire")
@@ -142,6 +196,14 @@ namespace HoneymoonShop.Migrations
 
                     b.HasOne("HoneymoonShop.Models.Kleding", "Kleding")
                         .WithMany("KledingAccessoires")
+                        .HasForeignKey("Artikelnummer")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("HoneymoonShop.Models.KledingAfbeeldingen", b =>
+                {
+                    b.HasOne("HoneymoonShop.Models.Kleding", "Kleding")
+                        .WithMany("KledingAfbeeldingen")
                         .HasForeignKey("Artikelnummer")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -156,6 +218,14 @@ namespace HoneymoonShop.Migrations
                     b.HasOne("HoneymoonShop.Models.Afspraak", "Afspraak")
                         .WithMany("KledingAfspraken")
                         .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("HoneymoonShop.Models.KledingKleuren", b =>
+                {
+                    b.HasOne("HoneymoonShop.Models.Kleding", "Kleding")
+                        .WithMany("KledingKleuren")
+                        .HasForeignKey("Artikelnummer")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
         }

@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 
 namespace HoneymoonShop.Models
 {
-    public class AccessoireAfbeelding
+    public class AccessoireAfbeeldingen
     {
         public String SourceLocation { get; set; }
-        public String AccessoireId { get; set; }
+        public String AccessoireAfbeelding { get; set; }
+        public int AccessoireId { get; set; }
         public Accessoire Accessoire { get; set; }
     }
 }
