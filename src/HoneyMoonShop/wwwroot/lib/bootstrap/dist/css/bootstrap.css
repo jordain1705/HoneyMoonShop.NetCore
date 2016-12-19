@@ -291,7 +291,7 @@ th {
     .navbar {
         display: none;
         padding: 10px;
-        background: #FAC9C4;
+       
     }
 
     .btn > .caret,
@@ -5125,7 +5125,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
     .navbar {
         border-radius: 0px;
-        background: #FAC9C4;
     }
 }
 
@@ -8208,7 +8207,9 @@ button.close {
   padding: 40px;
   border: 2px;
   font-family: 'Pacifico', cursive;
+  
 }
+
 .box2{
 
 
@@ -8226,8 +8227,6 @@ button.close {
   font-family: 'Pacifico', cursive;
 }
 .box3{
-
-
   background-color: #F0597C ;
   font-size:170%;
   height:150px;
@@ -8242,21 +8241,104 @@ button.close {
   font-family: 'Pacifico', cursive;
 }
 
-.dressfinder{
- height:300px;
-  list-style: none;
-  float: right;
-   width: 180px;
-  margin-left: 2px;
-  
-  
-  
-  
+.dresscontainer{
+   width: 230px;
+    height: 390px;
+    float: right;
+    padding-left: 20px;
+    padding-right: 0px;
+
+
 }
 
+
+.collorpicker {
+    width: 2px;  height: 3px;
+}
+.description {
+    display: none;
+    background-color: #FFFFFF ;
+   font-family: 'Pacifico', cursive;
+    height:80px;
+    width:180px;
+   
+
+}
+#share-buttons img {
+width: 35px;
+
+border: 0;
+box-shadow: 0;
+
+}
+
+
+a:hover + .description {
+    display: block;
+   
+}
+
+.footerrow{
+    padding-top:40px;
+    padding-bottom:40px;
+}
 
 #a li {
     list-style-type: none;
 }
 
+
+.pink-button {
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 15px 25px;
+  background-color: #F0597A;
+  text-align: center;
+  text-transform: uppercase;
+
+}
+.pink-button:hover {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.btn-colors, .btn-colors:hover, .btn-colors:active, .btn-colors:visited {
+    background-color: #FFF;
+}
+.btn-circle-micro {
+  width: 19px;
+  height: 19px;
+  text-align: center;
+  padding: 1px 0;
+  font-size: 13px;
+  line-height: 0.1;
+  border-radius: 30px;
+}
+
+#btn-colors-red{
+  background-color: #831E22;
+}
+
+#btn-colors-pink{
+  background-color: #FFC4BC;
+}
+
+
+.button1{ /*http://www.w3schools.com/css/css3_buttons.asp */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    background-color: #F0597A;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    margin: 4px 2px;
+    cursor: pointer;
+
+    font-family: 'Oswald', sans-serif;
+}
+
+
+.checkboxcontainer { border:2px solid #ccc; width:300px; height: 100px; overflow-y: scroll; }
 /*# sourceMappingURL=bootstrap.css.map */
