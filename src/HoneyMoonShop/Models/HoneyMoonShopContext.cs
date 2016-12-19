@@ -21,15 +21,13 @@ namespace HoneymoonShop.Models
         {
         }
 
-        public DbSet<Afspraak> Afspraak { get; set; }   
+        public DbSet<Afspraak> Afspraak { get; set; }
         public DbSet<Kleding> Kleding { get; set; }
-       // public DbSet<Jurk> Jurk { get; set; }
-        //public DbSet<Pak> Pak { get; set; }
         public DbSet<Accessoire> Accessoire { get; set; }
         public DbSet<AccessoireAfbeeldingen> AccessoireAfbeeldingenen { get; set; }
         public DbSet<KledingAfbeeldingen> KledingAfbeeldingenen { get; set; }
         public DbSet<KledingKleuren> KledingKleurenen { get; set; }
-        
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -40,7 +38,7 @@ namespace HoneymoonShop.Models
 
             //relatie: kleding-afspraak
             modelBuilder.Entity<KledingAfspraak>()
-                .HasKey(t => new {t.Artikelnummer, t.Id});
+                .HasKey(t => new { t.Artikelnummer, t.Id });
 
             modelBuilder.Entity<KledingAfspraak>()
                 .HasOne(ka => ka.Kleding)
@@ -55,7 +53,7 @@ namespace HoneymoonShop.Models
             //relatie: multivalued attribuut Afbeelding
             modelBuilder.Entity<KledingAfbeeldingen>().HasKey(ka => ka.KledingAfbeelding);
             modelBuilder.Entity<KledingAfbeeldingen>().HasKey(ka => ka.Artikelnummer);
-            
+
             modelBuilder.Entity<KledingAfbeeldingen>()
                 .HasOne(kb => kb.Kleding)
                 .WithMany(kp => kp.KledingAfbeeldingen)
@@ -90,7 +88,7 @@ namespace HoneymoonShop.Models
                 .HasValue<Kleding>("Kleding")
                 .HasValue<Jurk>("Kleding_jurk")
                 .HasValue<Pak>("Kleding_pak");
-            
+
             //relatie: multivalued attribuut Afbeelding
             modelBuilder.Entity<AccessoireAfbeeldingen>().HasKey(aa => aa.AccessoireId);
             modelBuilder.Entity<AccessoireAfbeeldingen>().HasKey(aa => aa.AccessoireAfbeelding);
