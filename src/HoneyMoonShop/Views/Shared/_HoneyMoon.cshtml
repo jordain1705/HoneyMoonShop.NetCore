@@ -27,9 +27,15 @@
                 <input class="form-control" type="text" placeholder="Wat zoek je?">
             </div>
         </nav>
+       
         <div class="container">
-            <nav class="navbar navbar-light bg-faded" style="background-color : transparent;">
+            <nav class="navbar navbar-light bg-faded" style="background-color : transparent;  position: fixed; top: 10%;  width: 100%;">
                 <ul class="nav navbar-nav col-md-8">
+
+                    <li class="nav-item text-uppercase " style="display: inline;">
+                        <a class="nav-link" href="https://youtube.com"><strong style="font-size: 200%; font-family: 'Times New Roman', Times, serif; color:#000000;">HONEYMOONSHOP </strong> <strong style="color:black;">&#169;</strong></strong></a>
+                    </li>
+                    <li class="nav-item text-uppercase" display: inline;>
                     <li class="nav-item text-uppercase">
                         <a class="nav-link" href="@Url.Action("Index", "Home")"><strong style="color: #F0597A">HOME</strong></a>
                     </li>
@@ -43,20 +49,12 @@
                         <a class="nav-link" href="https://youtube.com"><strong style="color: #000000">DE WINKEL</strong></a>
                     </li>
 
-                    <li class="nav-item text-uppercase">
-                        <a class="nav-link" href="https://youtube.com"><strong style="color: #000000">BLOG</strong></a>
-                    </li>
-                    <li class="nav-item text-uppercase">
-                        <a class="nav-link" href="https://youtube.com"><strong style="color: #000000">CONTACT</strong></a>
-                    </li>
-                    <li class="nav-item text-uppercase pull-right">
-                        <a class="nav-link" href="https://youtube.com"><strong style="color: #000000">AFSPRAAK MAKEN</strong></a>
-                    </li>
-                </ul>
-            </nav>
-            <div>
-                @RenderBody()
-            </div>
+
+
+
+
+                    @RenderBody()
+        </div>
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 box1">
