@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HoneymoonShop.Models
 {
     public class Kleding
     {
+        public int KledingId { get; set; }
         public int Artikelnummer { get; set; }
         public String Merk { get; set; }
-        public int Prijs { get; set; }
+        public int MinPrijs { get; set; }
+        public int MaxPrijs { get; set; }
         public String Omschrijving { get; set; }
 
         public List<KledingAfspraak> KledingAfspraken { get; set; }

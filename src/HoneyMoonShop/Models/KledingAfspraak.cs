@@ -9,7 +9,7 @@ namespace HoneymoonShop.Models
     {
         public int Id { get; set; }
         public Afspraak Afspraak { get; set; }
-        public int Artikelnummer { get; set; }
+        public int KledingId { get; set; }
         public Kleding Kleding { get; set; }
 
     }

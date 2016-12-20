@@ -10,6 +10,7 @@ namespace HoneymoonShop.Models
     public class Accessoire
     {
         public int AccessoireId { get; set; }
+        public int AccessoireCode { get; set; }
         public String Categorie { get; set; }
         public String Merk { get; set; }
         public String Geslacht { get; set; }

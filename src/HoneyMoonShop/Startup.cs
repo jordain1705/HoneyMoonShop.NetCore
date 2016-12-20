@@ -61,7 +61,8 @@ namespace HoneymoonShop
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            app.ApplicationServices.GetRequiredService<HoneyMoonShopContext>().Seed();
+            //call the seed method in the DbContextExtensions class
+            app.ApplicationServices.GetRequiredService<HoneyMoonShopContext>().Seed(); 
         }
     }
 }

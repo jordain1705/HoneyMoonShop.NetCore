@@ -4,5 +4,5 @@
 .vs/HoneyMoonShop/v14/.suo
 *.config
 .vs/config/applicationhost.config
-.vs
+/.vs
 .vs/config/applicationhost.config

@@ -7,8 +7,10 @@ namespace HoneymoonShop.Models
 {
     public class KledingKleuren
     {
+        public int KledingKleurenId { get; set; }
         public String KledingKleur { get; set; }
-        public int Artikelnummer { get; set; }
+        public String Hexacode { get; set; }
+        public int KledingId { get; set; }
         public Kleding Kleding { get; set; }
     }
 }

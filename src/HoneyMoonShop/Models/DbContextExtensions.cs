@@ -15,24 +15,40 @@ namespace HoneymoonShop.Models
         public static void Seed(this HoneyMoonShopContext context)
         {
             // Perform database delete and create
-            //context.Database.EnsureDeleted();
-            //context.Database.EnsureCreated();
+            context.Database.EnsureDeleted();
+            context.Database.EnsureCreated();
 
-            // Perform seed operations
+            // Perform seed functions
             AddKleding(context);
+            AddJurk(context);
+            AddAccessoires(context);
 
             // Save changes and release resources
-            context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT ReferenceThing ON");
             context.SaveChanges();
-            context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT ReferenceThing OFF");
             context.Dispose();
+        }
+
+        private static void AddAccessoires(HoneyMoonShopContext context)
+        {
+            context.AddRange(
+                
+                );
+        }
+
+        private static void AddJurk(HoneyMoonShopContext context)
+        {
+           
         }
 
         private static void AddKleding(HoneyMoonShopContext context)
         {
             context.AddRange(
-                new Kleding { Artikelnummer = 12649, Merk = "Ladybird", Omschrijving = "test Omschrijving", Prijs = 1500 }
-
+                new Kleding { Artikelnummer = 12649, Merk = "Ladybird", Omschrijving = "test Omschrijving", MinPrijs = 1500, MaxPrijs = 1750},
+                new Kleding { Artikelnummer = 12810, Merk = "Diane Legrand", Omschrijving = "Test omschrijving 3", MinPrijs = 1250, MaxPrijs = 1500},
+                new Kleding { Artikelnummer = 12746, Merk = "Pronovias", Omschrijving = "Test Omschrijving 4", MinPrijs = 2250, MaxPrijs = 2500},
+                new Kleding { Artikelnummer = 12695, Merk = "Maggie Sottero", Omschrijving = "Test Omschrijving 5", MinPrijs = 2000, MaxPrijs = 2250},
+                new Kleding { Artikelnummer = 12925, Merk = "Eddy K.", Omschrijving = "TestomSchrijvdkld", MinPrijs = 1750, MaxPrijs = 2000},
+                new Kleding { Artikelnummer = 12627, Merk = "Ladybird", Omschrijving = "zelfde dingen", MinPrijs = 1250, MaxPrijs = 1500}
                 );
         }
     }

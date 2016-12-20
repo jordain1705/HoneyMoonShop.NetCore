@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
-using HoneymoonShop.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
-
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace HoneymoonShop.Models
 {
@@ -26,26 +18,26 @@ namespace HoneymoonShop.Models
         public DbSet<Afspraak> Afspraak { get; set; }
         public DbSet<Kleding> Kleding { get; set; }
         public DbSet<Accessoire> Accessoire { get; set; }
-        public DbSet<AccessoireAfbeeldingen> AccessoireAfbeeldingenen { get; set; }
-        public DbSet<KledingAfbeeldingen> KledingAfbeeldingenen { get; set; }
-        public DbSet<KledingKleuren> KledingKleurenen { get; set; }
+        public DbSet<AccessoireAfbeeldingen> AccessoireAfbeeldingenSet { get; set; }
+        public DbSet<KledingAfbeeldingen> KledingAfbeeldingenSet{ get; set; }
+        public DbSet<KledingKleuren> KledingKleurenSet { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //set primary keys
-            modelBuilder.Entity<Kleding>().HasKey(p => p.Artikelnummer);
-            modelBuilder.Entity<Afspraak>().HasKey(p => p.Id);
+            modelBuilder.Entity<Kleding>().HasKey(p => p.KledingId);
+            modelBuilder.Entity<Afspraak>().HasKey(p => p.AfspraakId);
             modelBuilder.Entity<Accessoire>().HasKey(p => p.AccessoireId);
 
             //relatie: kleding-afspraak
             modelBuilder.Entity<KledingAfspraak>()
-                .HasKey(t => new { t.Artikelnummer, t.Id });
+                .HasKey(t => new { t.KledingId, t.Id });
 
             modelBuilder.Entity<KledingAfspraak>()
                 .HasOne(ka => ka.Kleding)
                 .WithMany(k => k.KledingAfspraken)
-                .HasForeignKey(ka => ka.Artikelnummer);
+                .HasForeignKey(ka => ka.KledingId);
 
             modelBuilder.Entity<KledingAfspraak>()
                 .HasOne(ka => ka.Afspraak)
@@ -53,31 +45,31 @@ namespace HoneymoonShop.Models
                 .HasForeignKey(ka => ka.Id);
 
             //relatie: multivalued attribuut Afbeelding
-            modelBuilder.Entity<KledingAfbeeldingen>().HasKey(ka => ka.KledingAfbeelding);
-            modelBuilder.Entity<KledingAfbeeldingen>().HasKey(ka => ka.Artikelnummer);
+            modelBuilder.Entity<KledingAfbeeldingen>().HasKey(kb => kb.KledingAfbeeldingId);
+            modelBuilder.Entity<KledingAfbeeldingen>().HasKey(kb => kb.KledingId);
 
             modelBuilder.Entity<KledingAfbeeldingen>()
                 .HasOne(kb => kb.Kleding)
                 .WithMany(kp => kp.KledingAfbeeldingen)
-                .HasForeignKey(kb => kb.Artikelnummer);
+                .HasForeignKey(kb => kb.KledingAfbeeldingId);
 
             //relatie: mutivalued attribuut Kleur
-            modelBuilder.Entity<KledingKleuren>().HasKey(kk => kk.KledingKleur);
-            modelBuilder.Entity<KledingKleuren>().HasKey(kk => kk.Artikelnummer);
+            modelBuilder.Entity<KledingKleuren>().HasKey(kk => kk.KledingKleurenId);
+            modelBuilder.Entity<KledingKleuren>().HasKey(kk => kk.KledingId);
 
             modelBuilder.Entity<KledingKleuren>()
                 .HasOne(kb => kb.Kleding)
                 .WithMany(kp => kp.KledingKleuren)
-                .HasForeignKey(kb => kb.Artikelnummer);
+                .HasForeignKey(kb => kb.KledingId);
 
             //relatie: kleding-accessoire
             modelBuilder.Entity<KledingAccessoire>()
-                .HasKey(t => new { t.Artikelnummer, t.AccessoireId });
+                .HasKey(t => new { t.KledingId, t.AccessoireId });
 
             modelBuilder.Entity<KledingAccessoire>()
                 .HasOne(ka => ka.Kleding)
                 .WithMany(k => k.KledingAccessoires)
-                .HasForeignKey(ka => ka.Artikelnummer);
+                .HasForeignKey(ka => ka.KledingId);
 
             modelBuilder.Entity<KledingAccessoire>()
                 .HasOne(ka => ka.Accessoire)
@@ -93,7 +85,7 @@ namespace HoneymoonShop.Models
 
             //relatie: multivalued attribuut Afbeelding
             modelBuilder.Entity<AccessoireAfbeeldingen>().HasKey(aa => aa.AccessoireId);
-            modelBuilder.Entity<AccessoireAfbeeldingen>().HasKey(aa => aa.AccessoireAfbeelding);
+            modelBuilder.Entity<AccessoireAfbeeldingen>().HasKey(aa => aa.AccessoireAfbeeldingId);
 
             modelBuilder.Entity<AccessoireAfbeeldingen>()
                 .HasOne(ak => ak.Accessoire)
