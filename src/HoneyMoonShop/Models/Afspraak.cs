@@ -20,6 +20,7 @@ namespace HoneymoonShop.Models
         public DateTime Trouwdatum { get; set; }
         public DateTime DatumTijd { get; set; }
 
-        public List<KledingAfspraak> KledingAfspraken { get; set; }
+        public List<JurkAfspraak> JurkAfspraken { get; set; }
+        public List<PakAfspraak> PakAfspraken { get; set; }
     }
 }

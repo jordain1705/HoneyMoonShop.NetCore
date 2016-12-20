@@ -15,9 +15,8 @@ namespace HoneymoonShop.Models
         public String Merk { get; set; }
         public String Geslacht { get; set; }
         public String LinkNaarWebshop { get; set; }
-        
-        public List<KledingAccessoire> KledingAccessoires { get; set; }
-        public List<AccessoireAfbeeldingen> AccessoireAfbeeldingen { get; set; }
 
+        public List<PakAccessoire> PakAccessoires { get; set; }
+        public List<JurkAccessoire> JurkAccessoires { get; set; }
     }
 }

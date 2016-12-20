@@ -1,12 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace HoneymoonShop.Models
 {
-    public class Jurk : Kleding
+    public class Jurk
     {
+        public int KledingId { get; set; }
+        public int Artikelnummer { get; set; }
+        public String Merk { get; set; }
+        public int MinPrijs { get; set; }
+        public int MaxPrijs { get; set; }
+        public String Omschrijving { get; set; }
         public String Stijl { get; set; }
         public String Neklijn { get; set; }
         public String Silhouette { get; set; }
-        public String Materiaal { get; set; } 
+        public String Materiaal { get; set; }
+
+        public List<JurkAfspraak> JurkAfspraken { get; set; }
+        public List<JurkAccessoire> JurkAccessoires { get; set; }
     }
 }

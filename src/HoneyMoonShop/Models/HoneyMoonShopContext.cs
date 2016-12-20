@@ -9,7 +9,7 @@ namespace HoneymoonShop.Models
          * remove-migration = commit verwijderen
          * update-database -context HoneyMoonShopContext = push naar database
          * https://docs.microsoft.com/en-us/ef/core/modeling/relationships
-         * yo
+         * 
          */
 
         public HoneyMoonShopContext(DbContextOptions<HoneyMoonShopContext> options) : base(options)
@@ -17,54 +17,53 @@ namespace HoneymoonShop.Models
         }
 
         public DbSet<Afspraak> Afspraak { get; set; }
-        public DbSet<Kleding> Kleding { get; set; }
         public DbSet<Accessoire> Accessoire { get; set; }
-        public DbSet<AccessoireAfbeeldingen> AccessoireAfbeeldingenSet { get; set; }
-        public DbSet<KledingAfbeeldingen> KledingAfbeeldingenSet{ get; set; }
-        public DbSet<KledingKleuren> KledingKleurenSet { get; set; }
+        public DbSet<Jurk> Jurken { get; set; }
+        public DbSet<Pak> Pakken { get; set; }
+        public DbSet<Kleur> Kleuren { get; set; }
+        public DbSet<Afbeelding> Afbeeldingen { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //set primary keys
-            modelBuilder.Entity<Kleding>().HasKey(p => p.KledingId);
+            modelBuilder.Entity<Jurk>().HasKey(p => p.KledingId);
+            modelBuilder.Entity<Pak>().HasKey(p => p.PakId);
             modelBuilder.Entity<Afspraak>().HasKey(p => p.AfspraakId);
             modelBuilder.Entity<Accessoire>().HasKey(p => p.AccessoireId);
+            modelBuilder.Entity<Kleur>().HasKey(k => k.KleurId);
+            modelBuilder.Entity<Afbeelding>().HasKey(a => a.AfbeeldingId);
 
-            //relatie: kleding-afspraak
-            modelBuilder.Entity<KledingAfspraak>()
-                .HasKey(t => new { t.KledingId, t.Id });
+            //relatie: pak-afspraak n>n
+            modelBuilder.Entity<PakAfspraak>()
+                .HasKey(t => new { t.PakId, t.Id});
 
-            modelBuilder.Entity<KledingAfspraak>()
-                .HasOne(ka => ka.Kleding)
+            modelBuilder.Entity<PakAfspraak>()
+                .HasOne(ka => ka.Pak)
                 .WithMany(k => k.KledingAfspraken)
-                .HasForeignKey(ka => ka.KledingId);
+                .HasForeignKey(ka => ka.PakId);
 
-            modelBuilder.Entity<KledingAfspraak>()
+            modelBuilder.Entity<PakAfspraak>()
                 .HasOne(ka => ka.Afspraak)
-                .WithMany(a => a.KledingAfspraken)
+                .WithMany(a => a.PakAfspraken)
                 .HasForeignKey(ka => ka.Id);
 
-            //relatie: multivalued attribuut Afbeelding
-            modelBuilder.Entity<KledingAfbeeldingen>().HasKey(kb => kb.KledingAfbeeldingId);
-            modelBuilder.Entity<KledingAfbeeldingen>().HasKey(kb => kb.KledingId);
+            //relatie: jurk-afspraak n>n
+            modelBuilder.Entity<JurkAfspraak>()
+               .HasKey(t => new { t.JurkId, t.Id });
 
-            modelBuilder.Entity<KledingAfbeeldingen>()
-                .HasOne(kb => kb.Kleding)
-                .WithMany(kp => kp.KledingAfbeeldingen)
-                .HasForeignKey(kb => kb.KledingAfbeeldingId);
+            modelBuilder.Entity<JurkAfspraak>()
+                .HasOne(ka => ka.Jurk)
+                .WithMany(k => k.JurkAfspraken)
+                .HasForeignKey(ka => ka.JurkId);
 
-            //relatie: mutivalued attribuut Kleur
-            modelBuilder.Entity<KledingKleuren>().HasKey(kk => kk.KledingKleurenId);
-            modelBuilder.Entity<KledingKleuren>().HasKey(kk => kk.KledingId);
+            modelBuilder.Entity<JurkAfspraak>()
+                .HasOne(ka => ka.Afspraak)
+                .WithMany(a => a.JurkAfspraken)
+                .HasForeignKey(ka => ka.Id);
 
-            modelBuilder.Entity<KledingKleuren>()
-                .HasOne(kb => kb.Kleding)
-                .WithMany(kp => kp.KledingKleuren)
-                .HasForeignKey(kb => kb.KledingId);
-
-            //relatie: kleding-accessoire
-            modelBuilder.Entity<KledingAccessoire>()
+            //relatie: jurk-accessoire n>n
+            modelBuilder.Entity<>()
                 .HasKey(t => new { t.KledingId, t.AccessoireId });
 
             modelBuilder.Entity<KledingAccessoire>()
@@ -77,21 +76,25 @@ namespace HoneymoonShop.Models
                 .WithMany(a => a.KledingAccessoires)
                 .HasForeignKey(ka => ka.AccessoireId);
 
-            //relatie: overerving kleding-jas-pak
-            modelBuilder.Entity<Kleding>()
-                .HasDiscriminator<string>("Kleding_type")
-                .HasValue<Kleding>("Kleding")
-                .HasValue<Jurk>("Kleding_jurk")
-                .HasValue<Pak>("Kleding_pak");
+            //relatie: pak-accessoire n>n
+            modelBuilder.Entity<PakAccessoire>()
+                .HasKey(t => new { t.PakId, t.AccessoireId });
 
-            //relatie: multivalued attribuut Afbeelding
-            modelBuilder.Entity<AccessoireAfbeeldingen>().HasKey(aa => aa.AccessoireId);
-            modelBuilder.Entity<AccessoireAfbeeldingen>().HasKey(aa => aa.AccessoireAfbeeldingId);
+            modelBuilder.Entity<PakAccessoire>()
+                .HasOne(ka => ka.Pak)
+                .WithMany(k => k.PakAccessoires)
+                .HasForeignKey(ka => ka.PakId);
 
-            modelBuilder.Entity<AccessoireAfbeeldingen>()
-                .HasOne(ak => ak.Accessoire)
-                .WithMany(ak => ak.AccessoireAfbeeldingen)
-                .HasForeignKey(ak => ak.AccessoireId);
+            modelBuilder.Entity<PakAccessoire>()
+                .HasOne(ka => ka.Accessoire)
+                .WithMany(a => a.)
+                .HasForeignKey(ka => ka.AccessoireId);
+
+            //relatie: jurk afbeelding n>n
+            //relatie: pak afbeelding n>n
+            //relatie: jurk kleur n>n
+            //relatie: pak kleur n>n
+            //relatie: accessore afbeelding n>n
         }
     }
 }
