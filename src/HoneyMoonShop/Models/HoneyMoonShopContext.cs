@@ -9,6 +9,7 @@ namespace HoneymoonShop.Models
          * remove-migration = commit verwijderen
          * update-database -context HoneyMoonShopContext = push naar database
          * https://docs.microsoft.com/en-us/ef/core/modeling/relationships
+         * yo
          */
 
         public HoneyMoonShopContext(DbContextOptions<HoneyMoonShopContext> options) : base(options)
