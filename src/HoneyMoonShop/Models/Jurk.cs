@@ -5,7 +5,7 @@ namespace HoneymoonShop.Models
 {
     public class Jurk
     {
-        public int KledingId { get; set; }
+        public int JurkId { get; set; }
         public int Artikelnummer { get; set; }
         public String Merk { get; set; }
         public int MinPrijs { get; set; }
@@ -14,9 +14,10 @@ namespace HoneymoonShop.Models
         public String Stijl { get; set; }
         public String Neklijn { get; set; }
         public String Silhouette { get; set; }
-        public String Materiaal { get; set; }
 
         public List<JurkAfspraak> JurkAfspraken { get; set; }
         public List<JurkAccessoire> JurkAccessoires { get; set; }
+        public List<Afbeelding> Afbeeldingen { get; set; }
+        public List<JurkKleur> JurkKleuren { get; set; }
     }
 }

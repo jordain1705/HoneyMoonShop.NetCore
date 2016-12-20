@@ -18,5 +18,6 @@ namespace HoneymoonShop.Models
 
         public List<PakAccessoire> PakAccessoires { get; set; }
         public List<JurkAccessoire> JurkAccessoires { get; set; }
+        public List<Afbeelding> Afbeeldingen { get; set; }
     }
 }

@@ -1,5 +1,5 @@
---temp-output:C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\obj\Debug\net452\
---out:C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\bin\Debug\net452\HoneymoonShop.exe
+--temp-output:F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\obj\Debug\net452\
+--out:F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\bin\Debug\net452\HoneymoonShop.exe
 --define:DEBUG
 --define:TRACE
 --define:NET452
@@ -169,20 +169,25 @@
 --reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.IdentityModel.dll
 --reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Net.Http.WebRequest.dll
 --reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.ServiceModel.dll
---resource:"C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\obj\Debug\net452\HoneymoonShopdotnet-compile.deps.json",HoneymoonShop.deps.json
-C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Program.cs
-C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Startup.cs
-C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Controllers\DressFinderController.cs
-C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Controllers\HomeController.cs
-C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\Accessoire.cs
-C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\AccessoireAfbeeldingen.cs
-C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\Afspraak.cs
-C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\DbContextExtensions.cs
-C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\HoneyMoonShopContext.cs
-C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\Jurk.cs
-C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\Kleding.cs
-C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\KledingAccessoire.cs
-C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\KledingAfbeeldingen.cs
-C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\KledingAfspraak.cs
-C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\KledingKleuren.cs
-C:\Users\Jiri\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\Pak.cs
+--resource:"F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\obj\Debug\net452\HoneymoonShopdotnet-compile.deps.json",HoneymoonShop.deps.json
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Program.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Startup.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Controllers\DressFinderController.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Controllers\HomeController.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Migrations\20161220230204_database.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Migrations\20161220230204_database.Designer.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Migrations\HoneyMoonShopContextModelSnapshot.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\Accessoire.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\Afbeelding.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\Afspraak.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\DbContextExtensions.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\HoneyMoonShopContext.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\Jurk.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\JurkAccessoire.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\JurkAfspraak.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\JurkKleur.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\Kleur.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\Pak.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\PakAccessoire.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\PakAfspraak.cs
+F:\Documents\GitHub\HoneyMoonShop\src\HoneymoonShop\Models\PakKleur.cs

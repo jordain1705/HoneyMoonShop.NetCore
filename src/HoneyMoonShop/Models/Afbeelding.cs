@@ -10,5 +10,9 @@ namespace HoneymoonShop.Models
         public String AfbeeldingId { get; set; }
         public String Artikelnummer { get; set; }
         public String SourcePath { get; set; }
+
+        public Jurk Jurk { get; set; }
+        public Pak Pak { get; set; }
+        public Accessoire Accessoire { get; set; }
     }
 }

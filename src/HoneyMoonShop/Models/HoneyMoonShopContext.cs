@@ -9,7 +9,6 @@ namespace HoneymoonShop.Models
          * remove-migration = commit verwijderen
          * update-database -context HoneyMoonShopContext = push naar database
          * https://docs.microsoft.com/en-us/ef/core/modeling/relationships
-         * 
          */
 
         public HoneyMoonShopContext(DbContextOptions<HoneyMoonShopContext> options) : base(options)
@@ -27,7 +26,7 @@ namespace HoneymoonShop.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //set primary keys
-            modelBuilder.Entity<Jurk>().HasKey(p => p.KledingId);
+            modelBuilder.Entity<Jurk>().HasKey(p => p.JurkId);
             modelBuilder.Entity<Pak>().HasKey(p => p.PakId);
             modelBuilder.Entity<Afspraak>().HasKey(p => p.AfspraakId);
             modelBuilder.Entity<Accessoire>().HasKey(p => p.AccessoireId);
@@ -36,11 +35,11 @@ namespace HoneymoonShop.Models
 
             //relatie: pak-afspraak n>n
             modelBuilder.Entity<PakAfspraak>()
-                .HasKey(t => new { t.PakId, t.Id});
+                .HasKey(t => new { t.PakId, t.Id });
 
             modelBuilder.Entity<PakAfspraak>()
                 .HasOne(ka => ka.Pak)
-                .WithMany(k => k.KledingAfspraken)
+                .WithMany(k => k.PakAfspraken)
                 .HasForeignKey(ka => ka.PakId);
 
             modelBuilder.Entity<PakAfspraak>()
@@ -63,18 +62,18 @@ namespace HoneymoonShop.Models
                 .HasForeignKey(ka => ka.Id);
 
             //relatie: jurk-accessoire n>n
-            modelBuilder.Entity<>()
-                .HasKey(t => new { t.KledingId, t.AccessoireId });
+            modelBuilder.Entity<JurkAccessoire>()
+                .HasKey(t => new { t.JurkId, t.AccessoireId });
 
-            modelBuilder.Entity<KledingAccessoire>()
-                .HasOne(ka => ka.Kleding)
-                .WithMany(k => k.KledingAccessoires)
-                .HasForeignKey(ka => ka.KledingId);
+            modelBuilder.Entity<JurkAccessoire>()
+                .HasOne(ka => ka.Jurk)
+                .WithMany(k => k.JurkAccessoires)
+                .HasForeignKey(ka => ka.JurkId);
 
-            modelBuilder.Entity<KledingAccessoire>()
-                .HasOne(ka => ka.Accessoire)
-                .WithMany(a => a.KledingAccessoires)
-                .HasForeignKey(ka => ka.AccessoireId);
+            modelBuilder.Entity<JurkAccessoire>()
+                .HasOne(ja => ja.Accessoire)
+                .WithMany(ja => ja.JurkAccessoires)
+                .HasForeignKey(ja => ja.AccessoireId);
 
             //relatie: pak-accessoire n>n
             modelBuilder.Entity<PakAccessoire>()
@@ -87,14 +86,47 @@ namespace HoneymoonShop.Models
 
             modelBuilder.Entity<PakAccessoire>()
                 .HasOne(ka => ka.Accessoire)
-                .WithMany(a => a.)
+                .WithMany(a => a.PakAccessoires)
                 .HasForeignKey(ka => ka.AccessoireId);
 
-            //relatie: jurk afbeelding n>n
-            //relatie: pak afbeelding n>n
+            //relatie: jurk afbeelding n>1
+            modelBuilder.Entity<Afbeelding>()
+                .HasOne(ja => ja.Jurk)
+                .WithMany(ja => ja.Afbeeldingen);
+            //relatie: pak afbeelding n>1
+            modelBuilder.Entity<Afbeelding>()
+                .HasOne(ja => ja.Pak)
+                .WithMany(ja => ja.Afbeeldingen);
+            //relatie: accessore afbeelding n>1
+            modelBuilder.Entity<Afbeelding>()
+                .HasOne(ja => ja.Accessoire)
+                .WithMany(ja => ja.Afbeeldingen);
             //relatie: jurk kleur n>n
+            modelBuilder.Entity<JurkKleur>()
+                .HasKey(t => new { t.JurkId, t.KleurId });
+
+            modelBuilder.Entity<JurkKleur>()
+                .HasOne(ka => ka.Jurk)
+                .WithMany(k => k.JurkKleuren)
+                .HasForeignKey(ka => ka.JurkId);
+
+            modelBuilder.Entity<JurkKleur>()
+                .HasOne(ka => ka.Kleur)
+                .WithMany(a => a.JurkKleuren)
+                .HasForeignKey(ka => ka.KleurId);
             //relatie: pak kleur n>n
-            //relatie: accessore afbeelding n>n
+            modelBuilder.Entity<PakKleur>()
+                .HasKey(t => new { t.PakId, t.KleurId });
+
+            modelBuilder.Entity<PakKleur>()
+                .HasOne(ka => ka.Pak)
+                .WithMany(k => k.PakKleuren)
+                .HasForeignKey(ka => ka.PakId);
+
+            modelBuilder.Entity<PakKleur>()
+                .HasOne(ka => ka.Kleur)
+                .WithMany(a => a.PakKleuren)
+                .HasForeignKey(ka => ka.KleurId);
         }
     }
 }

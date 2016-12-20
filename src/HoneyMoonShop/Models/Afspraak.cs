@@ -22,5 +22,10 @@ namespace HoneymoonShop.Models
 
         public List<JurkAfspraak> JurkAfspraken { get; set; }
         public List<PakAfspraak> PakAfspraken { get; set; }
+
+        //why?????
+        public List<JurkAccessoire> JurkAccessoires { get; set; }
+        public List<PakAccessoire> PakAccessoires { get; set; }
+
     }
 }
