@@ -32,7 +32,7 @@ namespace HoneymoonShop
             // Add framework services.
             services.AddMvc();
             String ConnectionString =
-                @"Data Source=honeymoonshop.database.windows.net;Initial Catalog=HoneyMoonDatabase;Integrated Security=False;User ID=Project6;Password=Honeymoon1;Connect Timeout=15;";
+                @"Data Source=honeymoonshop.database.windows.net;Initial Catalog=HoneyMoonShop;Integrated Security=False;User ID=Project6;Password=Honeymoon1;Connect Timeout=15;";
             services.AddDbContext<HoneyMoonShopContext>(options => options.UseSqlServer(ConnectionString));
         }
 
@@ -60,6 +60,9 @@ namespace HoneymoonShop
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            //call the seed method in the DbContextExtensions class
+            app.ApplicationServices.GetRequiredService<HoneyMoonShopContext>().Seed(); 
         }
     }
 }

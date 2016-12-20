@@ -10,7 +10,7 @@ namespace HoneymoonShop.Models
 {
     public class Afspraak
     { 
-        public int Id { get; set; }
+        public int AfspraakId { get; set; }
 
         public String Voornaam { get; set; }
         public String Achternaam { get; set; }
@@ -20,6 +20,12 @@ namespace HoneymoonShop.Models
         public DateTime Trouwdatum { get; set; }
         public DateTime DatumTijd { get; set; }
 
-        public List<KledingAfspraak> KledingAfspraken { get; set; }
+        public List<JurkAfspraak> JurkAfspraken { get; set; }
+        public List<PakAfspraak> PakAfspraken { get; set; }
+
+        //why?????
+        public List<JurkAccessoire> JurkAccessoires { get; set; }
+        public List<PakAccessoire> PakAccessoires { get; set; }
+
     }
 }

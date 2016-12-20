@@ -63,8 +63,6 @@ namespace HoneymoonShop.Controllers
 
         public IActionResult Artikelpagina()
         {
-            ViewData["Message"] = "Your contact page.";
-
             return View();
         }
     }
