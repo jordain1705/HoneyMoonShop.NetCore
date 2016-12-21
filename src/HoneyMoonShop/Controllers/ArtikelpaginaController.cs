@@ -13,15 +13,10 @@ namespace HoneymoonShop.Controllers
       
         public IActionResult Artikelpagina() {
             List<string> plaatjesjurk = new List<string>(); 
-            plaatjesjurk.Add("/Images/Dress.png");
+            plaatjesjurk.Add("/Images/");
             plaatjesjurk.Add("/Images/Dres2.png");
-            plaatjesjurk.Add("/Images/Dres3.png");)
+            plaatjesjurk.Add("/Images/Dres3.png");
 
-        }
-        
-        // GET: /<controller>/
-        public IActionResult Index()
-        {
             return View();
         }
     }
