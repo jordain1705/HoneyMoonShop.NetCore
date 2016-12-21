@@ -1,0 +1,19 @@
+﻿
+.carrotCell { 
+	width: 1400px; 
+}		
+.carrotCellView li {
+	width: 285px;
+	height: 640px;
+	
+}
+.carrotCell .disabled  { 
+	color: #ccc; 
+}
+.prev, .next {
+	display: block;
+}
+.prev { 
+	float: left; 
+	margin-right: 320px;
+}
