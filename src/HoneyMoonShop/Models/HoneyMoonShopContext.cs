@@ -10,9 +10,20 @@ namespace HoneymoonShop.Models
          * update-database -context HoneyMoonShopContext = push naar database
          * https://docs.microsoft.com/en-us/ef/core/modeling/relationships
          */
-
-        public HoneyMoonShopContext(DbContextOptions<HoneyMoonShopContext> options) : base(options)
+         /*
+        public HoneyMoonShopContext(DbContextOptions options) : base(options)
         {
+            
+        }
+        */
+        public HoneyMoonShopContext()
+        {
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Data Source=honeymoonshop.database.windows.net;Initial Catalog=HoneyMoonShop;Integrated Security=False;User ID=Project6;Password=Honeymoon1;Connect Timeout=15;");
+            base.OnConfiguring(optionsBuilder);
         }
 
         public DbSet<Afspraak> Afspraak { get; set; }
