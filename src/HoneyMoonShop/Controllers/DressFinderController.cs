@@ -22,12 +22,19 @@ namespace HoneymoonShop.Controllers
             merken.Add("dolce");
             merken.Add("gucci");
             merken.Add("zeeman");
+            merken.Add("gucci");
+            merken.Add("zeeman");
+            merken.Add("gucci");
+            merken.Add("zeeman");
             ViewData["merken"] = merken;
 
             List<string> stijlen = new List<string>();  //hier komt later een query die de lijst vult
             stijlen.Add("cool");
             stijlen.Add("stoer");
             stijlen.Add("mooi");
+            stijlen.Add("moeeoi");
+            stijlen.Add("e");
+
             ViewData["stijlen"] = stijlen;
 
             List<double> prijzen = new List<double>();  //hier komt later een query die de lijst vult
