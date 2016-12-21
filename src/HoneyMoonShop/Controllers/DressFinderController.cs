@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using HoneymoonShop.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HoneymoonShop.Controllers
@@ -9,6 +10,14 @@ namespace HoneymoonShop.Controllers
     {
         public IActionResult Dressfinder()
         {
+
+            using (var context = new HoneyMoonShopContext())
+            {
+                var test = context.Jurken
+                .Where(b => b.Artikelnummer.Equals(12649));
+
+            }
+
             List<string> merken = new List<string>();  //hier komt later een query die de lijst vult
             merken.Add("dolce");
             merken.Add("gucci");
@@ -68,9 +77,6 @@ namespace HoneymoonShop.Controllers
             return View(merken);
         }
 
-        public IActionResult Artikelpagina()
-        {
-            return View();
-        }
+
     }
 }

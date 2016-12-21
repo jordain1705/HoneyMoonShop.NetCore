@@ -11,10 +11,12 @@ namespace HoneymoonShop.Controllers
     public class ArtikelpaginaController : Controller
     {
       
-        
-        // GET: /<controller>/
-        public IActionResult Index()
-        {
+        public IActionResult Artikelpagina() {
+            List<string> plaatjesjurk = new List<string>(); 
+            plaatjesjurk.Add("/Images/");
+            plaatjesjurk.Add("/Images/Dres2.png");
+            plaatjesjurk.Add("/Images/Dres3.png");
+
             return View();
         }
     }
