@@ -8,10 +8,16 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HoneymoonShop.Controllers
 {
-    public class ArtikelpaginaController : Controller
+    public class BruidController : Controller
     {
-      
-        
+        //GET: //Bruid
+        public IActionResult Bruid()
+        {
+
+        return View();
+
+        }
+
         // GET: /<controller>/
         public IActionResult Index()
         {

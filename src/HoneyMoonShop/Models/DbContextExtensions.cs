@@ -29,7 +29,7 @@ namespace HoneymoonShop.Models
 
         private static void AddAfbeeldingen(HoneyMoonShopContext context)
         {
-            new Afbeelding {Accessoire = , Jurk = , Pak = , SourcePath = ""}; //I dont know how this is gonna work, query die de juiste object ophaald ofzo?
+            new Afbeelding {Accessoire = null, Jurk = null, Pak = null, SourcePath = "~/Images/Dress.png"}; //I dont know how this is gonna work, query die de juiste object ophaald ofzo?
         }
 
         private static void AddAccessoires(HoneyMoonShopContext context)
