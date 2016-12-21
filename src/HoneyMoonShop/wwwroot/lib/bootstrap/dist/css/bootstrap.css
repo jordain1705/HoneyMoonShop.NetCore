@@ -8246,34 +8246,53 @@ button.close {
     height: 390px;
     float: right;
     padding-left: 20px;
+
     padding-right: 0px;
 
 
+
 }
+
+
+
 
 
 .collorpicker {
     width: 2px;  height: 3px;
 }
+
 .description {
     display: none;
     background-color: #FFFFFF ;
-   font-family: 'Pacifico', cursive;
+   font-family: 'Open Sans', sans-serif;
     height:80px;
     width:180px;
    
 
 }
+
+.mia{
+    width:200px;
+    height:280px;
+}
 #share-buttons img {
 width: 35px;
-
 border: 0;
 box-shadow: 0;
 
 }
 
+.headerlogo{
+  width: 360px;
+  height: 40px;
+}
 
-a:hover + .description {
+
+p:hover + .description {
+    display: block;
+   
+}
+p:hover + .description {
     display: block;
    
 }
@@ -8323,22 +8342,75 @@ a:hover + .description {
   background-color: #FFC4BC;
 }
 
+input[type=submit]:hover {
+    text-decoration:underline;
+}
 
-.button1{ /*http://www.w3schools.com/css/css3_buttons.asp */
-    text-decoration: none;
-    display: inline-block;
-    font-size: 10px;
-    background-color: #F0597A;
-    border: none;
-    color: white;
-    padding: 12px 20px;
-    text-align: center;
-    margin: 4px 2px;
+.button1{ 
+    
     cursor: pointer;
+     background:none;
+    border:none;
+    padding-top:10px;
 
     font-family: 'Oswald', sans-serif;
 }
 
 
-.checkboxcontainer { border:2px solid #ccc; width:300px; height: 100px; overflow-y: scroll; }
+.merkbutton{
+ cursor: pointer;
+     background:none;
+    border:none;
+    padding-top:10px;
+    color:grey;
+    
+    font-family: 'Oswald', sans-serif;
+}
+
+
+/*http://www.w3schools.com/css/tryit.asp?filename=trycss_ex_pagination*/
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+ul.pagination li {display: inline;}
+
+ul.pagination li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+ul.pagination li a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+#checkboxcontainer { 
+    display:none;
+    border:2px solid #fff; 
+    width:150px; 
+    height: 100px; 
+    overflow-y: scroll; }
+#checkboxcontainer2 { 
+    display:none;
+    border:2px solid #fff; 
+    width:150px; 
+    height: 100px; 
+    overflow-y: scroll; }
+
+.dropdown{
+    border: 1px solid #fff;
+  
+    width: 86px;
+    height: 60px;
+}
+
+
+
+
 /*# sourceMappingURL=bootstrap.css.map */

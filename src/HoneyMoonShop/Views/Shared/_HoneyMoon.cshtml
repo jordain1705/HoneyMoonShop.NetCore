@@ -29,7 +29,10 @@
         </nav>
         <div class="container">
             <nav class="navbar navbar-light bg-faded" style="background-color : transparent;">
-                <ul class="nav navbar-nav col-md-8">
+                <ul class="nav navbar-nav col-md-">
+                    <li class="nav-item text-uppercase">
+                        <a ><img src="~/Images/Headerlogo.png" width="360" height="40" /></a>
+                    </li>
                     <li class="nav-item text-uppercase">
                         <a class="nav-link" href="@Url.Action("Index", "Home")"><strong style="color: #F0597A">HOME</strong></a>
                     </li>
@@ -50,9 +53,12 @@
                         <a class="nav-link" href="https://youtube.com"><strong style="color: #000000">CONTACT</strong></a>
                     </li>
                     <li class="nav-item text-uppercase pull-right">
-                        <a class="nav-link" href="https://youtube.com"><strong style="color: #000000">AFSPRAAK MAKEN</strong></a>
+                        <a class="nav-link" href="https://youtube.com"><strong style="color: #000000;border:15px solid #F0597A; ">AFSPRAAK MAKEN</strong></a>
                     </li>
                 </ul>
+                <div class="nav navbar-nav col-md-2">
+
+                </div>
             </nav>
             <div>
                 @RenderBody()
