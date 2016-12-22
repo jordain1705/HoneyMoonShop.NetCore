@@ -93,8 +93,6 @@ namespace HoneymoonShop.Migrations
 
                     b.Property<int>("Artikelnummer");
 
-                    b.Property<string>("Materiaal");
-
                     b.Property<int>("MaxPrijs");
 
                     b.Property<string>("Merk");
@@ -162,7 +160,7 @@ namespace HoneymoonShop.Migrations
                     b.Property<int>("KleurId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Artikelnummer");
+                    b.Property<int>("Artikelnummer");
 
                     b.Property<string>("Hexacode");
 
