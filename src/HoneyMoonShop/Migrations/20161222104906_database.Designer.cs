@@ -8,7 +8,7 @@ using HoneymoonShop.Models;
 namespace HoneymoonShop.Migrations
 {
     [DbContext(typeof(HoneyMoonShopContext))]
-    [Migration("20161220230204_database")]
+    [Migration("20161222104906_database")]
     partial class database
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -94,8 +94,6 @@ namespace HoneymoonShop.Migrations
 
                     b.Property<int>("Artikelnummer");
 
-                    b.Property<string>("Materiaal");
-
                     b.Property<int>("MaxPrijs");
 
                     b.Property<string>("Merk");
@@ -163,7 +161,7 @@ namespace HoneymoonShop.Migrations
                     b.Property<int>("KleurId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Artikelnummer");
+                    b.Property<int>("Artikelnummer");
 
                     b.Property<string>("Hexacode");
 

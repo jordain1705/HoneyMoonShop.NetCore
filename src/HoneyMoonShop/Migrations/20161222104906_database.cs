@@ -52,7 +52,6 @@ namespace HoneymoonShop.Migrations
                     JurkId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Artikelnummer = table.Column<int>(nullable: false),
-                    Materiaal = table.Column<string>(nullable: true),
                     MaxPrijs = table.Column<int>(nullable: false),
                     Merk = table.Column<string>(nullable: true),
                     MinPrijs = table.Column<int>(nullable: false),
@@ -72,7 +71,7 @@ namespace HoneymoonShop.Migrations
                 {
                     KleurId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Artikelnummer = table.Column<string>(nullable: true),
+                    Artikelnummer = table.Column<int>(nullable: false),
                     Hexacode = table.Column<string>(nullable: true),
                     KleurNaam = table.Column<string>(nullable: true)
                 },

@@ -8,10 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="css/carrotcell.css" rel="stylesheet">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="jCarrotCell.js" type="text/javascript" charset="utf-8"></script>
-    $(function() {
-    $('.carrotCell').carrotCell();
-    });
     <script src="jquery-touchwipe.js" type="text/javascript" charset="utf-8"></script>
 
 
@@ -23,29 +19,65 @@
         </div>
 
         <div class="row">
-            <div class="col-md-8 tekst">
-               
-                 <div class="carrotCell">
-                    <div class="carrotCellView">
-                        <ol>
-                            <li><img src="~/Images/BruidS1.png" alt="afbeelding niet gevonden"/></li>
-                            <li><img src="~/Images/BruidS2.png" alt="afbeelding niet gevonden" /></li>
-                            <li><img src="~/Images/BruidS3.png" alt="afbeelding niet gevonden" /></li>
-                            <li><img src="~/Images/BruidS2.png" alt="afbeelding niet gevonden" /></li>
-                            <li><img src="~/Images/BruidS1.png" alt="afbeelding niet gevonden" /></li>
-                            <li><img src="~/Images/BruidS3.png" alt="afbeelding niet gevonden" /></li>
-                       \
-                        </ol>
+            <div class="col-md-8" style="height:640px">
+
+                <div id="imageCarousel" class="carousel slide" data-interval="2000"
+                     data-ride="carousel" data-pause="hover" data-wrap="true">
+
+                    <ol class="carousel-indicators">
+                        <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#imageCarousel" data-slide-to="1"></li>
+                        <li data-target="#imageCarousel" data-slide-to="2"></li>
+                    </ol>
+
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="row">
+                                <div class="col-md-2 style="height: 640px;">
+                                    <img src="~/Images/BruidS1.png" class="img-responsive"> @*@from Afbeelding select J.SourcePath where J.artikelnummer = a.artikelnummer and j.NieuweCollectie= true *@
+                                </div>
+
+                                <div class="col-md-2 style="height: 640px;">
+                                    <img src="~/Images/BruidS1.png" class="img-responsive"> @*@from Afbeelding select J.SourcePath where J.artikelnummer = a.artikelnummer and j.NieuweCollectie= true *@
+
+                                </div>
+
+                                <div class="col-md-2 style="height: 640px;">
+                                    <img src="~/Images/BruidS3.png" class="img-responsive"> @*@from Afbeelding select J.SourcePath where J.artikelnummer = a.artikelnummer and j.NieuweCollectie= true *@
+
+                                </div>
+
+                                <div class="col-md-2 style="height: 640px;">
+                                    <img src="~/Images/BruidS2.png" class="img-responsive"> @*@from Afbeelding select J.SourcePath where J.artikelnummer = a.artikelnummer and j.NieuweCollectie= true *@
+
+                                </div>
+                                <div class="col-md-2 style="height: 640px;">
+                                    <img src="~/Images/BruidS1.png" class="img-responsive"> @*@from Afbeelding select J.SourcePath where J.artikelnummer = a.artikelnummer and j.NieuweCollectie= true *@
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
                     </div>
-                    <div class="prev">previous</div>
-                    <div class="next">next</div>
+
+                    <a href="#imageCarousel" class="carousel-control left" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a href="#imageCarousel" class="carousel-control right" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
                 </div>
 
-                </div>
             </div>
         </div>
+    </div>
 
-        <div class="row"></div>
 
+    <div class="row">
+
+    </div>
     </div>
 </body>
