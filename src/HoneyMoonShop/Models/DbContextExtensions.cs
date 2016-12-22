@@ -11,15 +11,15 @@ namespace HoneymoonShop.Models
         public static void Seed(this HoneyMoonShopContext context)
         {
             // Perform database delete and create
-         //  context.Database.EnsureDeleted(); //disable this for faster startup but it wont check if any datachanges has occured
-         //  context.Database.EnsureCreated(); //disable this for faster startup but it wont check if any datachanges has occured
+           context.Database.EnsureDeleted(); //disable this for faster startup but it wont check if any datachanges has occured
+           context.Database.EnsureCreated(); //disable this for faster startup but it wont check if any datachanges has occured
 
             // Perform seed functions
             AddJurk(context);
             AddAccessoires(context);
             // Save changes and release resources
-        //    context.SaveChanges();
-        //    context.Dispose();
+            context.SaveChanges();
+            context.Dispose();
         }
 
         private static void AddAccessoires(HoneyMoonShopContext context)

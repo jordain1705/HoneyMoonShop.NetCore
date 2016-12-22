@@ -33,7 +33,7 @@ namespace HoneymoonShop.Controllers
                 List<string> silhouettes = context.Jurken.Select(g => g.Silhouette).Distinct().ToList();
                 ViewData["silhouette"] = silhouettes;
 
-                 List<Jurk> jurken = context.Jurken.ToList();
+                var jurken = context.Jurken.ToList();
                 ViewData["jurken"] = jurken;
 
                 List<string> kleuren = new List<String>(); //hier komt later een query die de lijst vult
@@ -47,4 +47,3 @@ namespace HoneymoonShop.Controllers
         }
     }
 }
-
