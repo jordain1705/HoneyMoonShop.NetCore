@@ -6,7 +6,7 @@ namespace HoneymoonShop.Models
     {
         /*
          * http://stackoverflow.com/questions/38034137/asp-net-core-rc2-seed-database
-         * https://blogs.msdn.microsoft.com/dotnet/2016/09/29/implementing-seeding-custom-conventions-and-interceptors-in-ef-core-1-0/
+         * 
           */
         public static void Seed(this HoneyMoonShopContext context)
         {
@@ -51,7 +51,7 @@ namespace HoneymoonShop.Models
             AddAfbeelding(jurk, null, "12649", context);
             AddKleur(12649, "ff0000", "Rood", context);
 
-            context.Add(new Jurk
+            context.Add(jurk = new Jurk
             {
                 Artikelnummer = 12810,
                 Merk = "Diane Legrand",
@@ -66,7 +66,7 @@ namespace HoneymoonShop.Models
             AddAfbeelding(jurk, null, "12810", context);
             AddKleur(12810, "#0ed61c", "Groen", context);
 
-            context.Add(new Jurk
+            context.Add(jurk = new Jurk
             {
                 Artikelnummer = 12746,
                 Merk = "Pronovias",
@@ -81,7 +81,7 @@ namespace HoneymoonShop.Models
             AddAfbeelding(jurk, null, "12746", context);
             AddKleur(12746, "7a3030", "Bruin", context);
 
-            context.Add(new Jurk
+            context.Add(jurk = new Jurk
             {
                 Artikelnummer = 12695,
                 Merk = "Maggie Sottero",
@@ -97,7 +97,7 @@ namespace HoneymoonShop.Models
             AddAfbeelding(jurk, null, "12695", context);
             AddKleur(12695, "#FAC9C4", "Roze", context);
 
-            context.Add(new Jurk
+            context.Add(jurk = new Jurk
             {
                 Artikelnummer = 12925,
                 Merk = "Eddy K.",
@@ -112,7 +112,7 @@ namespace HoneymoonShop.Models
             AddAfbeelding(jurk, null, "12925", context);
             AddKleur(12925, "#1313c1", "blauw", context);
 
-            context.Add(new Jurk
+            context.Add(jurk = new Jurk
             {
                 Artikelnummer = 12627,
                 Merk = "Ladybird",

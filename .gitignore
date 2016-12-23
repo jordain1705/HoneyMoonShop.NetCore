@@ -6,3 +6,7 @@
 .vs/config/applicationhost.config
 /.vs
 .vs/config/applicationhost.config
+src/HoneymoonShop/bin/Debug/net452/win7-x64/HoneymoonShop.pdb
+*.exe
+src/HoneymoonShop/bin/Debug/net452/HoneymoonShop.pdb
+*.config
