@@ -212,7 +212,7 @@
                 {
                     <div class="col-md-4 dresscontainer">
                         @{string image = "/Images/" + curJurk[x + (y * 3)].Artikelnummer + "a.png";}
-                        <a href="@Url.Action("Artikelpagina", "DressFinder", curJurk[x + (y * 3)].Artikelnummer)">
+                        <a href="@Url.Action("Artikelpagina", "Artikelpagina", curJurk[x + (y * 3)].Artikelnummer)">
                         <img src=@image class="img-responsive mia" /></a>
                         <p><strong style="color: #000000"> @curJurk[x+(y*3)].Merk </strong></p>
                         <div class="description">
