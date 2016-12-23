@@ -21,11 +21,20 @@ namespace HoneymoonShop.Controllers
                 //int artikelnummer= int.Parse(arti);
 
                 int a = curJurk.Artikelnummer;
-                List<String> plaatjesjurk = context.Afbeeldingen.Where(s => s.Artikelnummer==(curJurk.Artikelnummer)).Select(s =>  s.SourcePath ).ToList();
-                ViewData["plaatjes"] = plaatjesjurk; 
+                ViewData["nummer"] = a;
+
+                int maxp = curJurk.MaxPrijs;
+                ViewData["maxi"] = maxp;
+
+                int minp = curJurk.MinPrijs; 
                 
-               String merken = context.Jurken.Where(s => s.Artikelnummer == curJurk.Artikelnummer).Select(s => s.Merk).ToString();
-                ViewData["merkje"] = curJurk.Merk;
+                ViewData["min"] = minp;
+
+                String teks = curJurk.Omschrijving;
+                ViewData["Omschrijving"] = teks;
+
+                String merken = curJurk.Merk;
+                ViewData["merkje"] = merken;
 
                 List<String> stijlk = context.Jurken.Where(s => s.Artikelnummer == curJurk.Artikelnummer).Select(s => s.Stijl).ToList();
                 ViewData["merkje"] = merken;

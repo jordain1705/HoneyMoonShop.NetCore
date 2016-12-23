@@ -43,20 +43,24 @@
 
         <div class="col-md-3">
           
-             @{ var a =ViewData["merkje"]; }
-            <h3> @a </h3>
+             @{ var a = ViewData["merkje"]; }
+            <h3><b><strong> @a</strong></b> </h3>
 
-            <p>@ViewData["Artikelnummer"]</p>
+            <p>@{var g = @ViewData["nummer"];}</p>
+            <h3><b> @g</b> </h3>
             <br />
 
             <p>
-                @ViewData["Omschrvijving"]
+               @{var tekst = @ViewData["Omschrvijving"];}
             </p>
+            @{ var minp = ViewData["min"]; }
+            @{ var maxp = ViewData["maxi"];}
             <br />
 
-            <p>Merk:</p>
-            <p>Kenmerken:</p>
-            <p>Prijsindicatie:</p>
+            <p>Merk: @a</p>
+            <p>Kenmerken: @g</p>
+            <p>Omschrijving: @tekst</p>
+            <p>Prijsindicatie: Tussen de @minp en @maxp euro </p>
             <p>
                 Beschikbare kleuren:
                 <a href="#" class="btn btn-circle-micro btn-default btn-colors" id="btn-colors-white"></a>
