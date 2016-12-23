@@ -12,18 +12,18 @@ namespace HoneymoonShop.Controllers
     public class ArtikelpaginaController : Controller
     {
       
-        public IActionResult Artikelpagina() {
+        public IActionResult Artikelpagina(int artikelnummer) {
           
             using (var context = new HoneyMoonShopContext()) {
                 List<string> plaatjesjurk = new List<string>();
-                var plaatjejurk = Afbeelding.Select(s => new { Afbeelding = s.Afbeelding }); 
-                var selectArtikel = Jurk.Select(s => new {
+                var plaatjejurk = context.Afbeeldingen.Select(s => new { Afbeelding = s.AfbeeldingId }); 
+                var selectArtikel = context.Jurken.Select(s => new {
                     Naam = s.Merk,
                     nummer = s.Artikelnummer,
-                    omshrijving = s.omshrijving,
+                    omshrijving = s.Omschrijving,
                     Merk = s.Merk,
-                    Stijl = s.Materiaal,
-                    prijs = s.prijs
+                    Stijl = s.Stijl,
+                    prijs = s.MinPrijs
                 });
 
             }
