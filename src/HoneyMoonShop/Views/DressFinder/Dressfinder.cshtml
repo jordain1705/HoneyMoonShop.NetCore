@@ -21,7 +21,7 @@
             $("#slider-range").slider({
                 range: true,
                 @{var minprijs = (int)(ViewData["minprijs"]); }
-                @{var maxprijs = (int)(ViewData["maxprijs"]) + 1; }
+                @{var maxprijs = (int)(ViewData["maxprijs"]); }
                 min: @minprijs,
                 max: @maxprijs,
                 values: [@minprijs, @maxprijs],
@@ -127,7 +127,7 @@
         <div>
             <p style="padding-top:30px; font-family: 'Oswald', sans-serif;"><strong>Filter op:</strong></p>
             <button class="merkbutton" onclick="myFunction()"><strong>Merk</strong></button> <br>
-            <form>
+            <form name="filter" action="/DressFinder/filterVerwerken" method="get">
                 @{var merken = (List<string>)ViewData["merken"]; }
                 <div id="checkboxcontainer">
 
@@ -146,7 +146,7 @@
         <div>
 
             <button class="merkbutton" onclick="myFunction2()"><strong>STIJL</strong></button> <br>
-            <form>
+            <form name="filter" action="/DressFinder/filterVerwerken" method="get">
                 @{var stijlen = (List<string>)ViewData["stijlen"]; }
 
                 <div id="checkboxcontainer2">
@@ -159,7 +159,7 @@
         </div>
 
 
-        <p>
+        <p> 
             <label for="amount">Prijs</label>
             <input type="text" id="amount" readonly style="border:0; color:#F0597C; font-weight:bold; background: 0%">
         </p>
@@ -199,21 +199,22 @@
                 }
             </select>
         </div>
-    </div>
+</div>
 
     <div class="col-md-9 contents " style="padding-top:40px;">
 
         @using HoneymoonShop.Models
-        @{var curJurk = (List<Jurk>)ViewData["jurken"]; }
-        @for (int y = 0; y < (curJurk.Count() / 3); y++)
+        @{var curJurk = (List<Jurk>) ViewData["jurken"]; }
+        @for (int y = 0; y < (curJurk.Count()/3); y++)
         {
             <div class="row pull-left">
                 @for (int x = 0; x < (curJurk.Count() - (y * 3)); x++)
                 {
                     <div class="col-md-4 dresscontainer">
-
-                        <a href="@Url.Action("Artikelpagina", "Artikelpagina",  curJurk[(x + y * 3)])"><img src=@curJurk[x+(y*3)].Afbeeldingen class="img-responsive mia" /></a>
-                        <p><strong style="color: #000000">Beautiful by Enzoani</strong></p>
+                        @{string image = "/Images/" + curJurk[x + (y * 3)].Artikelnummer + "a.png";}
+                        <a href="@Url.Action("Artikelpagina", "DressFinder", curJurk[x + (y * 3)].Artikelnummer)">
+                        <img src=@image class="img-responsive mia" /></a>
+                        <p><strong style="color: #000000"> @curJurk[x+(y*3)].Merk </strong></p>
                         <div class="description">
 
                             <p><strong style="color: #8C8481">@curJurk[x + (y * 3)].Artikelnummer</strong></p>

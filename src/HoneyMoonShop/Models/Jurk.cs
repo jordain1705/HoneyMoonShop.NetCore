@@ -14,7 +14,7 @@ namespace HoneymoonShop.Models
         public String Stijl { get; set; }
         public String Neklijn { get; set; }
         public String Silhouette { get; set; }
-      //  public bool NieuweCollectie { get; set; }
+        public int NieuweCollectie { get; set; }
 
         public List<JurkAfspraak> JurkAfspraken { get; set; }
         public List<JurkAccessoire> JurkAccessoires { get; set; }
