@@ -13,7 +13,7 @@ namespace HoneymoonShop.Controllers
 
             using (var context = new HoneyMoonShopContext())
             {
-                //   var test = context.Jurken
+                var test = context.Jurken;
                 // .Where(b => b.Artikelnummer.Equals(12649));
                 List<string> alleMerken = context.Jurken.Select(g => g.Merk).Distinct().ToList();
                 ViewData["merken"] = alleMerken;
@@ -33,7 +33,7 @@ namespace HoneymoonShop.Controllers
                 List<string> silhouettes = context.Jurken.Select(g => g.Silhouette).Distinct().ToList();
                 ViewData["silhouette"] = silhouettes;
 
-                var jurken = context.Jurken.ToList();
+                 List<Jurk> jurken = context.Jurken.ToList();
                 ViewData["jurken"] = jurken;
 
                 List<string> kleuren = new List<String>(); //hier komt later een query die de lijst vult
@@ -47,3 +47,4 @@ namespace HoneymoonShop.Controllers
         }
     }
 }
+
