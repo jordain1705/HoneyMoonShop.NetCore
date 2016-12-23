@@ -13,38 +13,70 @@ namespace HoneymoonShop.Controllers
 
             using (var context = new HoneyMoonShopContext())
             {
-                var test = context.Jurken;
-                // .Where(b => b.Artikelnummer.Equals(12649));
-                List<string> alleMerken = context.Jurken.Select(g => g.Merk).Distinct().ToList();
-                ViewData["merken"] = alleMerken;
+                var test = context.Jurken
+                .Where(b => b.Artikelnummer.Equals(12649));
 
-                List<string> alleStijlen = context.Jurken.Select(g => g.Stijl).Distinct().ToList();
-                ViewData["stijlen"] = alleStijlen;
-
-                List<int> minprijs = context.Jurken.Select(g => g.MinPrijs).ToList();
-                ViewData["minprijs"] = minprijs.Min();
-
-                List<int> maxprijs = context.Jurken.Select(g => g.MaxPrijs).ToList();
-                ViewData["maxprijs"] = maxprijs.Max();
-
-                List<string> neklijnen = context.Jurken.Select(g => g.Neklijn).Distinct().ToList();
-                ViewData["neklijnen"] = neklijnen;
-
-                List<string> silhouettes = context.Jurken.Select(g => g.Silhouette).Distinct().ToList();
-                ViewData["silhouette"] = silhouettes;
-
-                 List<Jurk> jurken = context.Jurken.ToList();
-                ViewData["jurken"] = jurken;
-
-                List<string> kleuren = new List<String>(); //hier komt later een query die de lijst vult
-                kleuren.Add("ivoor/wit");
-                kleuren.Add("ivoor met kleur");
-                kleuren.Add("gekleurd");
-                ViewData["kleuren"] = kleuren;
-
-                return View(jurken);
             }
+
+            List<string> merken = new List<string>();  //hier komt later een query die de lijst vult
+            merken.Add("dolce");
+            merken.Add("gucci");
+            merken.Add("zeeman");
+            merken.Add("gucci");
+            merken.Add("zeeman");
+            merken.Add("gucci");
+            merken.Add("zeeman");
+            ViewData["merken"] = merken;
+
+            List<string> stijlen = new List<string>();  //hier komt later een query die de lijst vult
+            stijlen.Add("cool");
+            stijlen.Add("stoer");
+            stijlen.Add("mooi");
+            stijlen.Add("moeeoi");
+            stijlen.Add("e");
+
+            ViewData["stijlen"] = stijlen;
+
+            List<double> prijzen = new List<double>();  //hier komt later een query die de lijst vult
+            prijzen.Add(1.99);
+            prijzen.Add(20.00);
+            prijzen.Add(1290.32);
+            ViewData["minprijs"] = (int)prijzen.Min();
+            ViewData["maxprijs"] = (int)prijzen.Max();
+
+            List<string> neklijnen = new List<String>(); //hier komt later een query die de lijst vult
+            neklijnen.Add("V-hals");
+            neklijnen.Add("kraag");
+            neklijnen.Add("zwarte pieten band");
+            ViewData["neklijnen"] = neklijnen;
+
+            List<string> silhouette = new List<String>(); //hier komt later een query die de lijst vult
+            silhouette.Add("peer");
+            silhouette.Add("zandloper");
+            silhouette.Add("appel");
+            ViewData["silhouette"] = silhouette;
+
+            List<string> kleuren = new List<String>(); //hier komt later een query die de lijst vult
+            kleuren.Add("ivoor/wit");
+            kleuren.Add("ivoor met kleur");
+            kleuren.Add("gekleurd");
+            ViewData["kleuren"] = kleuren;
+
+            List<string> dresses = new List<String>();
+            dresses.Add("/Images/Dress.png");
+            dresses.Add("/Images/Dres2.png");
+            dresses.Add("/Images/Dres3.png");
+            dresses.Add("/Images/Dress.png");
+            dresses.Add("/Images/Dres2.png");
+            dresses.Add("/Images/Dres3.png");
+            dresses.Add("/Images/Dress.png");
+            dresses.Add("/Images/Dres2.png");
+            dresses.Add("/Images/Dres3.png");
+            ViewData["dresses"] = dresses;
+
+            return View(merken);
         }
+
+
     }
 }
-
