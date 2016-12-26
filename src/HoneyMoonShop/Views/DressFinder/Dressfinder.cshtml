@@ -1,4 +1,4 @@
-﻿@{
+﻿    @{
     Layout = "_HoneyMoon";
     ViewData["Title"] = "Home Page";
 }
@@ -35,19 +35,19 @@
                 change: function( event, ui ) {}
             });
             $( ".selector" ).on( "slidechange", function( event, ui ) {
-                alert('Hello World!')
+                alert('Hello World!');
             } );
         });
     </script>
     <script>
         function myFunction() {
             var e =  document.getElementById("checkboxcontainer");
-            e.style.display= (e.style.display == 'block')?'none': 'block';
+            e.style.display= (e.style.display === 'block')?'none': 'block';
 
         }
         function myFunction2() {
             var e =  document.getElementById("checkboxcontainer2");
-            e.style.display= (e.style.display == 'block')?'none': 'block';
+            e.style.display= (e.style.display === 'block')?'none': 'block';
         }
     </script>
 
