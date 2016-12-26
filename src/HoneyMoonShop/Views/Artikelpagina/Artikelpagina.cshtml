@@ -4,89 +4,64 @@
 }
 <!DOCTYPE html>
 <head>
-    <link href="http://fonts.googleapis.com/css?family=Amaranth" rel=stylesheet/>
-
-
+    <link href="http://fonts.googleapis.com/css?family=Amaranth" rel=stylesheet />
 </head>
 <div class="container">
-
+    @{/* TODO: missing css classes? */}
     <div style="padding-left: 30px">
         <a class="terug-button" href="#" style="color: #000000">Terug naar overzicht</a>
     </div>
-
     <div class="row">
         <div class="col-md-3" align="right">
-
-            
-           
             <div class="row">
                 <div class="col-md-12" style="padding-bottom: 20px">
-
-
                     @{var imga = ViewData["pl1"];}
-                  
-                    <img src=@imga  class="img-responsive" alt= "dress1" width="230" height="200"/> 
-
+                    <img src=@imga class="img-responsive" alt="dress1" width="230" height="200" />
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-12" style="padding-bottom: 20px">
                     @{var imgb = ViewData["pl2"];}
-
-                    <img src=@imgb class="img-responsive" alt="dress2" width="230" height="200"/> 
-                   
+                    <img src=@imgb class="img-responsive" alt="dress2" width="230" height="200" />
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-md-12">
                     @{var imgc = ViewData["pl3"];}
-
-                    <img src=@imgc class="img-responsive" alt="dress3" width="230" height="200"/> 
+                    <img src=@imgc class="img-responsive" alt="dress3" width="230" height="200" />
                 </div>
             </div>
-
         </div>
 
         <div class="col-md-6" align="center">
-           
             <img src=@imga class="img-responsive" alt="Groot Dress" width="550" height="700">
         </div>
-
         <div class="col-md-3">
-          
-             @{ var a = ViewData["merkje"]; }
-            <h2 style="font-style:'Amaranth'; font-size:larger"><b><strong> @a</strong></b> </h2>
-
+            @{ var a = ViewData["merkje"]; }
+            <h2 style="font-family:'Amaranth'; font-size:larger"><b><strong> @a</strong></b> </h2>
             <p>@{var g = @ViewData["nummer"];}</p>
             <p><strong></strong> artikel nr: @g <strong></strong></p>
             <br />
-
-    
             @{ var tekst = ViewData["Omschrijving"];}
             @{ var minp = ViewData["min"]; }
             @{ var maxp = ViewData["maxi"];}
             @{ var stijlk = ViewData["stylo"]; }
             @{ var nl = ViewData["nek"];}
             @{ var sil = ViewData["sil"];}
-
-            <p >Omschrijving:<p style="color:#F9C8C4"> @tekst</p> </p>
+            <p>Omschrijving:<p style="color:#F9C8C4"> @tekst</p> </p>
             <br />
-
             <p>Merk: @a</p>
             <p>Kenmerken: @g, @stijlk , @nl , @sil</p>
             <p>Prijsindicatie: Tussen de @minp en @maxp euro </p>
             <p>
                 Beschikbare kleuren:
-               <a href="#" class="btn btn-circle-micro btn-default btn-colors" id="btn-colors-white"></a>
+                <a href="#" class="btn btn-circle-micro btn-default btn-colors" id="btn-colors-white"></a>
                 <a href="#" class="btn btn-circle-micro btn-default btn-colors" id="btn-colors-pink"></a>
                 <a href="#" class="btn btn-circle-micro btn-default btn-colors" id="btn-colors-red"></a>
             </p>
-
             <br />
             <p>Kom de jurken passen!</p>
-
             <div style="padding-top: 7px;">
                 <a class="pink-button" href="#"><strong>pasafspraak maken</strong></a>
             </div>
@@ -130,7 +105,6 @@
         <br />
 
         <div class="col-md-12" align="center" style="padding-top: 30px">
-
             <h4><strong class="text-uppercase">of zijn deze jurken meer iets voor jou?</strong></h4>
             <div class="row">
                 <div class="col-md-3">

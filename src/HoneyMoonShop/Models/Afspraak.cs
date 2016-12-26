@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HoneymoonShop.Models
 {
@@ -23,7 +18,7 @@ namespace HoneymoonShop.Models
         public List<JurkAfspraak> JurkAfspraken { get; set; }
         public List<PakAfspraak> PakAfspraken { get; set; }
 
-        //why?????
+        //todo: why an extra relationship
         public List<JurkAccessoire> JurkAccessoires { get; set; }
         public List<PakAccessoire> PakAccessoires { get; set; }
 

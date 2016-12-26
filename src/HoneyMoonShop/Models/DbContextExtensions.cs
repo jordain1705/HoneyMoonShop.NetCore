@@ -11,15 +11,16 @@ namespace HoneymoonShop.Models
         public static void Seed(this HoneyMoonShopContext context)
         {
             // Perform database delete and create
-         //  context.Database.EnsureDeleted(); //disable this for faster startup but it wont check if any datachanges has occured
-         //  context.Database.EnsureCreated(); //disable this for faster startup but it wont check if any datachanges has occured
+            //  context.Database.EnsureDeleted(); //disable this for faster startup but it wont check if any datachanges has occured
+            //  context.Database.EnsureCreated(); //disable this for faster startup but it wont check if any datachanges has occured
 
             // Perform seed functions
             AddJurk(context);
             AddAccessoires(context);
+
             // Save changes and release resources
-        //    context.SaveChanges();
-        //    context.Dispose();
+            context.SaveChanges();
+            context.Dispose();
         }
 
         private static void AddAccessoires(HoneyMoonShopContext context)
@@ -125,10 +126,10 @@ namespace HoneymoonShop.Models
                 Stijl = "Kleurrijke Bruid"
             });
             AddAfbeelding(jurk, null, "12627", context);
-            AddKleur(12627, "#fff", "wit",context);
+            AddKleur(12627, "#fff", "wit", context);
         }
 
-        private static void AddAfbeelding(Jurk jurk, Pak pak, String sourcepath, HoneyMoonShopContext context )
+        private static void AddAfbeelding(Jurk jurk, Pak pak, String sourcepath, HoneyMoonShopContext context)
         {
             context.AddRange(
                 new Afbeelding { Jurk = jurk, Pak = null, SourcePath = "/" + sourcepath + "a" },
@@ -140,7 +141,7 @@ namespace HoneymoonShop.Models
         private static void AddKleur(int artikelnummer, String hexacode, String kleurnaam, HoneyMoonShopContext context)
         {
             context.AddRange(
-                new Kleur {Artikelnummer = artikelnummer, Hexacode = hexacode, KleurNaam = kleurnaam}
+                new Kleur { Artikelnummer = artikelnummer, Hexacode = hexacode, KleurNaam = kleurnaam }
                 );
         }
     }

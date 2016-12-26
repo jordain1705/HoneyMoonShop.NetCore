@@ -10,15 +10,6 @@ namespace HoneymoonShop.Models
          * update-database -context HoneyMoonShopContext = push naar database
          * https://docs.microsoft.com/en-us/ef/core/modeling/relationships
          */
-         /*
-        public HoneyMoonShopContext(DbContextOptions options) : base(options)
-        {
-            
-        }
-        */
-        public HoneyMoonShopContext()
-        {
-        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

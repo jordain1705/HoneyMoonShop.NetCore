@@ -13,7 +13,6 @@ namespace HoneymoonShop.Controllers
 
             using (var context = new HoneyMoonShopContext())
             {
-                var test = context.Jurken;
                 // .Where(b => b.Artikelnummer.Equals(12649));
                 List<string> alleMerken = context.Jurken.Select(g => g.Merk).Distinct().ToList();
                 ViewData["merken"] = alleMerken;

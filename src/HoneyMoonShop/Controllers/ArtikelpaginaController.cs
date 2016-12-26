@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using HoneymoonShop.Models;
 
@@ -11,14 +8,7 @@ namespace HoneymoonShop.Controllers
 {
     public class ArtikelpaginaController : Controller
     {
-        
         public IActionResult Artikelpagina(Jurk curJurk) {
-        
-            
-            using (var context = new HoneyMoonShopContext()) {
-                //var  anummer = context.Jurken.Select(s => s.Artikelnummer);
-                //string arti = anummer.ToString();
-                //int artikelnummer= int.Parse(arti);
               
                 ViewData["curJurk"]= curJurk;
 
@@ -46,11 +36,11 @@ namespace HoneymoonShop.Controllers
                 String sil = curJurk.Silhouette;
                 ViewData["silh"] = sil;
 
-              
-                List<String> stijlk = context.Jurken.Where(s => s.Artikelnummer == curJurk.Artikelnummer).Select(s => s.Stijl).ToList();
+                //todo: waarom is dit een ding(stijlk en plaatjes jurk)
+                //List<String> stijlk = context.Jurken.Where(s => s.Artikelnummer == curJurk.Artikelnummer).Select(s => s.Stijl).ToList();
                 ViewData["merkje"] = merken;
 
-                List<string> plaatjesjurk = new List<string>();
+                //List<string> plaatjesjurk = new List<string>();
                
 
                 string img1 = "/Images/" + a + "a.png";
@@ -66,12 +56,11 @@ namespace HoneymoonShop.Controllers
                
 
                 
-            }
+            
             return View();
         }
         //getjurkbyartikelnummermethod
         // make a hhtpget and a route method 
         //GET
-       
     }
 }
