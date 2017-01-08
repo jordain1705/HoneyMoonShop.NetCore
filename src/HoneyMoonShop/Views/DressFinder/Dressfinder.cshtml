@@ -13,43 +13,6 @@
     <title>jQuery UI Slider - Range slider</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-
-        $(function () {
-            $("#slider-range").slider({
-                range: true,
-                @{var minprijs = (int)(ViewData["minprijs"]); }
-                @{var maxprijs = (int)(ViewData["maxprijs"]); }
-                min: @minprijs,
-                max: @maxprijs,
-                values: [@minprijs, @maxprijs],
-                slide: function (event, ui) {
-                    $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-                }
-            });
-            $("#amount").val("$" + $("#slider-range").slider("values", 0) +
-              " - $" + $("#slider-range").slider("values", 1));
-            $( ".selector" ).slider({
-                change: function( event, ui ) {}
-            });
-            $( ".selector" ).on( "slidechange", function( event, ui ) {
-                alert('Hello World!');
-            } );
-        });
-    </script>
-    <script>
-        function myFunction() {
-            var e =  document.getElementById("checkboxcontainer");
-            e.style.display= (e.style.display == 'block')?'none': 'block';
-
-        }
-        function myFunction2() {
-            var e =  document.getElementById("checkboxcontainer2");
-            e.style.display= (e.style.display === 'block')?'none': 'block';
-        }
-    </script>
     <script>
         $( document ).ready(function() {
             var pageSize = 6;
@@ -101,10 +64,14 @@
 </head>
 <!-- dylans part">-->
 <div class="container" style="padding: 50px;">
-    @* https://docs.microsoft.com/en-us/aspnet/core/mvc/views/partial *@
+        @* https://docs.microsoft.com/en-us/aspnet/core/mvc/views/partial
+        https://cmatskas.com/update-an-mvc-partial-view-with-ajax/ *@
     @Html.Partial("FilterPartial")
-    @Html.Partial("ProductsPartial")
-    
+
+    <div id="productPartial">
+        @Html.Partial("TestPartial")
+    </div>
+
     <div class="row">  @* todo: fix duizenden pagina's:) *@
         <div class="col-md-12  pull-right">
             <nav class="text-center">

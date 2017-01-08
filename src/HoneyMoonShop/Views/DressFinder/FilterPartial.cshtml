@@ -1,23 +1,88 @@
-﻿<div class="col-md-3">
+﻿<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+
+    $(function () {
+        $("#slider-range").slider({
+            range: true,
+            @{var minprijs = (int)(ViewData["minprijs"]); }
+            @{var maxprijs = (int)(ViewData["maxprijs"]); }
+            min: @minprijs,
+            max: @maxprijs,
+            values: [@minprijs, @maxprijs],
+            slide: function (event, ui) {
+                $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+            }
+        });
+        $("#amount").val("$" + $("#slider-range").slider("values", 0) +
+            " - $" + $("#slider-range").slider("values", 1));
+        $( ".selector" ).slider({
+            change: function( event, ui ) {}
+        });
+        $( ".selector" ).on( "slidechange", function( event, ui ) {
+            alert('Hello World!');
+        } );
+    });
+</script>
+<script>
+    function myFunction() {
+        var e =  document.getElementById("checkboxcontainer");
+        e.style.display= (e.style.display == 'block')?'none': 'block';
+
+    }
+    function myFunction2() {
+        var e =  document.getElementById("checkboxcontainer2");
+        e.style.display= (e.style.display === 'block')?'none': 'block';
+    }
+</script>
+<script>
+    function filterClick() {
+        $.ajax({
+            url: '@Url.Action("Filterverwerken", "Dressfinder")',
+            data: item,
+            datatype: 'string',
+            success: function(data) {
+                $('productPartial').html(data);
+            }
+        //success: successFunc(),
+        //error: errorFunc()
+    });
+    }
+    //   var checkedValue = document.querySelector('.messageCheckbox:checked').value;
+</script>
+
+<!--
+        $.ajax({
+            type: 'GET',
+            url: '/Dressfinder/FilterVerwerken',
+            success: function(response) {
+                $('#test').html(response);
+            }
+        });   
+    
+-->
+
+
+
+<div class="col-md-3">
     @* filterlijst *@
     <!--<img src="https://placekitten.com/150/800" class="pull-left img-responsive" alt="placeholder">-->
 
-    <p style="padding-top:30px ;font-family: 'Oswald', sans-serif"><strong>CATEGORIEËN:</strong></p>
+    <p style="padding-top:30px; font-family: 'Oswald', sans-serif"><strong>CATEGORIEËN:</strong></p>
     <button type="submit" class="button1" style="padding-left:10px;" onclick="myFunction()">Summer Sale</button> <br>
     <button type="submit" class="button1" style="padding-left:10px;" onclick="alert('Hello World!')">Nieuwe Collectie</button> <br>
     <button type="submit" class="button1" style="padding-left:10px;" onclick="alert('Hello World!')">Alle jurken bekijken</button> <br>
 
-
     <div>
         <p style="padding-top:30px; font-family: 'Oswald', sans-serif;"><strong>Filter op:</strong></p>
         <button class="merkbutton" onclick="myFunction()"><strong>Merk</strong></button> <br>
-        <form name="filter" asp-controller="DressFinder" asp-action="filterVerwerken" method="get">
+        <form name="filter" method="post"> 
             @* todo:juiste manier *@
             @{var merken = (List<string>)ViewData["merken"]; }
             <div id="checkboxcontainer">
                 @foreach (var item in merken)
                 {
-                    <p><input type="checkbox" name="@item" value=@item style="height:12px;font-family: 'Open Sans', sans-serif" />@item</p>
+                    <p><input type="checkbox" onclick="filterClick()" name="@item" value=@item style="height:12px;font-family: 'Open Sans', sans-serif" />@item</p>
                 }
             </div>
         </form>

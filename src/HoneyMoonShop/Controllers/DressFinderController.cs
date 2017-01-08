@@ -35,7 +35,7 @@ namespace HoneymoonShop.Controllers
                  List<Jurk> jurken = context.Jurken.ToList();
                 ViewData["jurken"] = jurken;
 
-                List<string> kleuren = new List<String>(); //hier komt later een query die de lijst vult
+                List<string> kleuren = new List<String>(); //todo: hier komt later een query die de lijst vult
                 kleuren.Add("ivoor/wit");
                 kleuren.Add("ivoor met kleur");
                 kleuren.Add("gekleurd");
@@ -43,6 +43,11 @@ namespace HoneymoonShop.Controllers
 
                 return View(jurken);
             }
+        }
+
+        public IActionResult FilterVerwerken()
+        {
+            return PartialView("ProductsPartial");
         }
     }
 }

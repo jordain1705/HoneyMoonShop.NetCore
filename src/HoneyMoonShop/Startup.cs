@@ -62,7 +62,7 @@ namespace HoneymoonShop
             });
 
             //call the seed method in the DbContextExtensions class
-          app.ApplicationServices.GetRequiredService<HoneyMoonShopContext>().Seed(); 
+          //app.ApplicationServices.GetRequiredService<HoneyMoonShopContext>().Seed(); 
         }
     }
 }
