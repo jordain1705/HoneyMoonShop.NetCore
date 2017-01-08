@@ -18,7 +18,7 @@ namespace HoneymoonShop.Models
         public List<JurkAfspraak> JurkAfspraken { get; set; }
         public List<PakAfspraak> PakAfspraken { get; set; }
 
-        //todo: why an extra relationship
+        //todo: why an extra relationship?
         public List<JurkAccessoire> JurkAccessoires { get; set; }
         public List<PakAccessoire> PakAccessoires { get; set; }
 

@@ -1,0 +1,25 @@
+﻿<div class="col-md-9 contents " style="padding-top:40px;">
+    @* Jurken(gefilterde) *@
+
+    @using HoneymoonShop.Models
+    @{var curJurk = (List<Jurk>)ViewData["jurken"]; }
+    @for (int y = 0; y < (curJurk.Count() / 3); y++)
+    {
+        <div class="row pull-left">
+            @for (int x = 0; x < (curJurk.Count() - (y * 3)); x++)
+                {
+                <div class="col-md-4 dresscontainer">
+                    @{string image = "/Images/" + curJurk[x + (y * 3)].Artikelnummer + "a.png";}
+                    <a href="@Url.Action("Artikelpagina", "Artikelpagina", curJurk[x + (y * 3)])">
+                        <img src=@image class="img-responsive mia" />
+                    </a>
+                    <p><strong style="color: #000000"> @curJurk[x + (y * 3)].Merk </strong></p>
+                    <div class="description">
+
+                        <p><strong style="color: #8C8481">@curJurk[x + (y * 3)].Artikelnummer</strong></p>
+                        <a>  <img src="/Images/dots.png" height="20" width="40"></a>
+                    </div>
+                </div>}
+        </div>}
+</div>
+
