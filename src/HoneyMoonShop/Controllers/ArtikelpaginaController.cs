@@ -36,6 +36,7 @@ namespace HoneymoonShop.Controllers
                 String sil = curJurk.Silhouette;
                 ViewData["silh"] = sil;
 
+                //todo: viewmodel ipv viewdata
                 //todo: waarom is dit een ding(stijlk en plaatjes jurk)
                 //List<String> stijlk = context.Jurken.Where(s => s.Artikelnummer == curJurk.Artikelnummer).Select(s => s.Stijl).ToList();
                 ViewData["merkje"] = merken;
@@ -57,7 +58,7 @@ namespace HoneymoonShop.Controllers
 
                 
             
-            return View();
+            return View(); 
         }
         //getjurkbyartikelnummermethod
         // make a hhtpget and a route method 

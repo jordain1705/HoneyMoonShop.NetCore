@@ -1,4 +1,4 @@
-﻿    @{
+﻿@{
     Layout = "_HoneyMoon";
     ViewData["Title"] = "Home Page";
 }
@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script> 
+    <script>
+
         $(function () {
             $("#slider-range").slider({
                 range: true,
@@ -42,7 +43,7 @@
     <script>
         function myFunction() {
             var e =  document.getElementById("checkboxcontainer");
-            e.style.display= (e.style.display === 'block')?'none': 'block';
+            e.style.display= (e.style.display == 'block')?'none': 'block';
 
         }
         function myFunction2() {
@@ -52,52 +53,52 @@
     </script>
 
     <script>
-    $( document ).ready(function() {
-    var pageSize = 6;
-    var pagesCount = $(".dresscontainer").length;
-    var currentPage = 1;
+        $( document ).ready(function() {
+            var pageSize = 6;
+            var pagesCount = $(".dresscontainer").length;
+            var currentPage = 1;
 
-    /////////// PREPARE NAV ///////////////
-    var nav = '';
-    var totalPages = Math.ceil(pagesCount / pageSize);
-    for (var s=0; s
-    <totalPages; s++){
-                 nav +='<li class="numeros"><a href="#">' +(s+1)+'</a></li>';
-    }
-    $(".pag_prev").after(nav);
-    $(".numeros").first().addClass("active");
-    //////////////////////////////////////
+            /////////// PREPARE NAV ///////////////
+            var nav = '';
+            var totalPages = Math.ceil(pagesCount / pageSize);
+            for (var s=0; s
+            <totalPages; s++){
+                nav +='<li class="numeros"><a href="#">' +(s+1)+'</a></li>';
+            }
+            $(".pag_prev").after(nav);
+            $(".numeros").first().addClass("active");
+            //////////////////////////////////////
 
-    var showPage = function() {
-        $(".dresscontainer").hide().each(function(n) {
-            if (n >= pageSize * (currentPage - 1) && n < pageSize * currentPage)
-                $(this).show();
+            var showPage = function() {
+                $(".dresscontainer").hide().each(function(n) {
+                    if (n >= pageSize * (currentPage - 1) && n < pageSize * currentPage)
+                        $(this).show();
+                });
+            };
+            showPage();
+
+
+            $(".pagination li.numeros").click(function() {
+                $(".pagination li").removeClass("active");
+                $(this).addClass("active");
+                currentPage = parseInt($(this).text());
+                showPage();
+            });
+
+            $(".pagination li.pag_prev").click(function() {
+                if($(this).next().is('.active')) return;
+                $('.numeros.active').removeClass('active').prev().addClass('active');
+                currentPage = currentPage > 1 ? (currentPage-1) : 1;
+                showPage();
+            });
+
+            $(".pagination li.pag_next").click(function() {
+                if($(this).prev().is('.active')) return;
+                $('.numeros.active').removeClass('active').next().addClass('active');
+                currentPage = currentPage < totalPages ? (currentPage+1) : totalPages;
+                showPage();
+            });
         });
-    };
-    showPage();
-
-
-    $(".pagination li.numeros").click(function() {
-        $(".pagination li").removeClass("active");
-        $(this).addClass("active");
-        currentPage = parseInt($(this).text());
-        showPage();
-    });
-
-    $(".pagination li.pag_prev").click(function() {
-        if($(this).next().is('.active')) return;
-        $('.numeros.active').removeClass('active').prev().addClass('active');
-        currentPage = currentPage > 1 ? (currentPage-1) : 1;
-        showPage();
-    });
-
-    $(".pagination li.pag_next").click(function() {
-        if($(this).prev().is('.active')) return;
-        $('.numeros.active').removeClass('active').next().addClass('active');
-        currentPage = currentPage < totalPages ? (currentPage+1) : totalPages;
-        showPage();
-    });
-    });
     </script>
 
 </head>
@@ -121,7 +122,8 @@
         <div>
             <p style="padding-top:30px; font-family: 'Oswald', sans-serif;"><strong>Filter op:</strong></p>
             <button class="merkbutton" onclick="myFunction()"><strong>Merk</strong></button> <br>
-            <form name="filter" action="/DressFinder/filterVerwerken" method="get">
+            <form name="filter" asp-controller="DressFinder" asp-action="filterVerwerken" method="get">
+                @* todo:juiste manier *@
                 @{var merken = (List<string>)ViewData["merken"]; }
                 <div id="checkboxcontainer">
                     @foreach (var item in merken)
@@ -135,7 +137,7 @@
 
         <div>
             <button class="merkbutton" onclick="myFunction2()"><strong>STIJL</strong></button> <br>
-            <form name="filter" action="/DressFinder/filterVerwerken" method="get">
+            <form name="filter" asp-controller="DressFinder" asp-action="filterVerwerken" method="get">
                 @{var stijlen = (List<string>)ViewData["stijlen"]; }
 
                 <div id="checkboxcontainer2">
@@ -148,7 +150,7 @@
         </div>
 
 
-        <p> 
+        <p>
             <label for="amount">Prijs</label>
             <input type="text" id="amount" readonly style="border:0; color:#F0597C; font-weight:bold; background: 0">
         </p>
@@ -188,14 +190,14 @@
                 }
             </select>
         </div>
-       
-</div>
+
+    </div>
 
     <div class="col-md-9 contents " style="padding-top:40px;">
 
         @using HoneymoonShop.Models
-        @{var curJurk = (List<Jurk>) ViewData["jurken"]; }
-        @for (int y = 0; y < (curJurk.Count()/3); y++)
+        @{var curJurk = (List<Jurk>)ViewData["jurken"]; }
+        @for (int y = 0; y < (curJurk.Count() / 3); y++)
         {
             <div class="row pull-left">
                 @for (int x = 0; x < (curJurk.Count() - (y * 3)); x++)
@@ -203,8 +205,9 @@
                     <div class="col-md-4 dresscontainer">
                         @{string image = "/Images/" + curJurk[x + (y * 3)].Artikelnummer + "a.png";}
                         <a href="@Url.Action("Artikelpagina", "Artikelpagina", curJurk[x + (y * 3)])">
-                        <img src=@image class="img-responsive mia" /></a>
-                        <p><strong style="color: #000000"> @curJurk[x+(y*3)].Merk </strong></p>
+                            <img src=@image class="img-responsive mia" />
+                        </a>
+                        <p><strong style="color: #000000"> @curJurk[x + (y * 3)].Merk </strong></p>
                         <div class="description">
 
                             <p><strong style="color: #8C8481">@curJurk[x + (y * 3)].Artikelnummer</strong></p>
@@ -213,27 +216,27 @@
                     </div>}
             </div>}
     </div>
-<div class="row">
-    <div class="col-md-12  pull-right">
-        <nav class="text-center">
-            <ul class="pagination">
-                <li class="pag_prev">
-                    <a href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="pag_next">
-                    <a href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+    <div class="row">
+        <div class="col-md-12  pull-right">
+            <nav class="text-center">
+                <ul class="pagination">
+                    <li class="pag_prev">
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="pag_next">
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
 
-    <div class="row pull-left">
-        <a>  <img src="~/Images/dressfinderfooter.png" height="450" width="1000"></a>
-    </div>
+        <div class="row pull-left">
+            <a>  <img src="~/Images/dressfinderfooter.png" height="450" width="1000"></a>
+        </div>
 
+    </div>
 </div>
-    </div>
