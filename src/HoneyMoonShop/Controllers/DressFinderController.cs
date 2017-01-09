@@ -46,7 +46,13 @@ namespace HoneymoonShop.Controllers
         {
             using (var context = new HoneyMoonShopContext())
             {
-                List<Jurk> jurken = context.Jurken.ToList();
+                List<Jurk> jurken = new List<Jurk>();
+
+                foreach (var filter in filterValues)
+                {
+                    foreach (var jurk in context.Jurken.Where(g => g.Merk.Contains(filter)).ToList())
+                        jurken.Add(jurk);
+                }
                 ViewData["jurken"] = jurken;
 
                 return PartialView("ProductsPartial", jurken);
