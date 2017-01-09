@@ -10,7 +10,6 @@ namespace HoneymoonShop.Controllers
     {
         public IActionResult Dressfinder()
         {
-
             using (var context = new HoneyMoonShopContext())
             {
                 // .Where(b => b.Artikelnummer.Equals(12649));
@@ -19,8 +18,8 @@ namespace HoneymoonShop.Controllers
 
                 List<string> alleStijlen = context.Jurken.Select(g => g.Stijl).Distinct().ToList();
                 ViewData["stijlen"] = alleStijlen;
-
                 List<int> minprijs = context.Jurken.Select(g => g.MinPrijs).ToList();
+
                 ViewData["minprijs"] = minprijs.Min();
 
                 List<int> maxprijs = context.Jurken.Select(g => g.MaxPrijs).ToList();
@@ -32,22 +31,29 @@ namespace HoneymoonShop.Controllers
                 List<string> silhouettes = context.Jurken.Select(g => g.Silhouette).Distinct().ToList();
                 ViewData["silhouette"] = silhouettes;
 
-                 List<Jurk> jurken = context.Jurken.ToList();
+                List<Jurk> jurken = context.Jurken.ToList();
                 ViewData["jurken"] = jurken;
 
-                List<string> kleuren = new List<String>(); //todo: hier komt later een query die de lijst vult
-                kleuren.Add("ivoor/wit");
-                kleuren.Add("ivoor met kleur");
-                kleuren.Add("gekleurd");
+                List<string> kleuren = new List<String> { "ivoor/wit", "ivoor met kleur", "gekleurd" };
+                //todo: hier komt later een query die de lijst vult
                 ViewData["kleuren"] = kleuren;
 
                 return View(jurken);
+
             }
         }
 
         public IActionResult FilterVerwerken()
         {
-            return PartialView("ProductsPartial");
+            using (var context = new HoneyMoonShopContext())
+            {
+                List<Jurk> jurken = context.Jurken.ToList();
+                ViewData["jurken"] = jurken;
+
+                return PartialView("ProductsPartial", jurken);
+
+            }
+            
         }
     }
 }
