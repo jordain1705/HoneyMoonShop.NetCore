@@ -1,10 +1,9 @@
-﻿    @{
+﻿@{
     Layout = "_HoneyMoon";
     ViewData["Title"] = "Home Page";
 }
 <!doctype html>
 <head>
-
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
@@ -14,226 +13,85 @@
     <title>jQuery UI Slider - Range slider</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script> 
-        $(function () {
-            $("#slider-range").slider({
-                range: true,
-                @{var minprijs = (int)(ViewData["minprijs"]); }
-                @{var maxprijs = (int)(ViewData["maxprijs"]); }
-                min: @minprijs,
-                max: @maxprijs,
-                values: [@minprijs, @maxprijs],
-                slide: function (event, ui) {
-                    $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-                }
+    <script>
+        $( document ).ready(function() {
+            var pageSize = 6;
+            var pagesCount = $(".dresscontainer").length;
+            var currentPage = 1;
+
+            /////////// PREPARE NAV ///////////////
+            var nav = '';
+            var totalPages = Math.ceil(pagesCount / pageSize);
+            for (var s=0; s
+            <totalPages; s++){
+                nav +='<li class="numeros"><a href="#">' +(s+1)+'</a></li>';
+            }
+            $(".pag_prev").after(nav);
+            $(".numeros").first().addClass("active");
+            //////////////////////////////////////
+
+            var showPage = function() {
+                $(".dresscontainer").hide().each(function(n) {
+                    if (n >= pageSize * (currentPage - 1) && n < pageSize * currentPage)
+                        $(this).show();
+                });
+            };
+            showPage();
+
+
+            $(".pagination li.numeros").click(function() {
+                $(".pagination li").removeClass("active");
+                $(this).addClass("active");
+                currentPage = parseInt($(this).text());
+                showPage();
             });
-            $("#amount").val("$" + $("#slider-range").slider("values", 0) +
-              " - $" + $("#slider-range").slider("values", 1));
-            $( ".selector" ).slider({
-                change: function( event, ui ) {}
+
+            $(".pagination li.pag_prev").click(function() {
+                if($(this).next().is('.active')) return;
+                $('.numeros.active').removeClass('active').prev().addClass('active');
+                currentPage = currentPage > 1 ? (currentPage-1) : 1;
+                showPage();
             });
-            $( ".selector" ).on( "slidechange", function( event, ui ) {
-                alert('Hello World!');
-            } );
+
+            $(".pagination li.pag_next").click(function() {
+                if($(this).prev().is('.active')) return;
+                $('.numeros.active').removeClass('active').next().addClass('active');
+                currentPage = currentPage < totalPages ? (currentPage+1) : totalPages;
+                showPage();
+            });
         });
     </script>
-    <script>
-        function myFunction() {
-            var e =  document.getElementById("checkboxcontainer");
-            e.style.display= (e.style.display === 'block')?'none': 'block';
-
-        }
-        function myFunction2() {
-            var e =  document.getElementById("checkboxcontainer2");
-            e.style.display= (e.style.display === 'block')?'none': 'block';
-        }
-    </script>
-
-    <script>
-    $( document ).ready(function() {
-    var pageSize = 6;
-    var pagesCount = $(".dresscontainer").length;
-    var currentPage = 1;
-
-    /////////// PREPARE NAV ///////////////
-    var nav = '';
-    var totalPages = Math.ceil(pagesCount / pageSize);
-    for (var s=0; s
-    <totalPages; s++){
-                 nav +='<li class="numeros"><a href="#">' +(s+1)+'</a></li>';
-    }
-    $(".pag_prev").after(nav);
-    $(".numeros").first().addClass("active");
-    //////////////////////////////////////
-
-    var showPage = function() {
-        $(".dresscontainer").hide().each(function(n) {
-            if (n >= pageSize * (currentPage - 1) && n < pageSize * currentPage)
-                $(this).show();
-        });
-    };
-    showPage();
-
-
-    $(".pagination li.numeros").click(function() {
-        $(".pagination li").removeClass("active");
-        $(this).addClass("active");
-        currentPage = parseInt($(this).text());
-        showPage();
-    });
-
-    $(".pagination li.pag_prev").click(function() {
-        if($(this).next().is('.active')) return;
-        $('.numeros.active').removeClass('active').prev().addClass('active');
-        currentPage = currentPage > 1 ? (currentPage-1) : 1;
-        showPage();
-    });
-
-    $(".pagination li.pag_next").click(function() {
-        if($(this).prev().is('.active')) return;
-        $('.numeros.active').removeClass('active').next().addClass('active');
-        currentPage = currentPage < totalPages ? (currentPage+1) : totalPages;
-        showPage();
-    });
-    });
-    </script>
-
 </head>
-
-
-
-
 <!-- dylans part">-->
 <div class="container" style="padding: 50px;">
+        @* https://docs.microsoft.com/en-us/aspnet/core/mvc/views/partial
+        https://cmatskas.com/update-an-mvc-partial-view-with-ajax/ *@
+    @Html.Partial("FilterPartial")
 
+    <div id="productPartial">
+        @Html.Partial("TestPartial")
+    </div>
 
-    <div class="col-md-3">
-        <!--<img src="https://placekitten.com/150/800" class="pull-left img-responsive" alt="placeholder">-->
-
-        <p style="padding-top:30px ;font-family: 'Oswald', sans-serif"><strong>CATEGORIEËN:</strong></p>
-        <button type="submit" class="button1" style="padding-left:10px;" onclick="myFunction()">Summer Sale</button> <br>
-        <button type="submit" class="button1" style="padding-left:10px;" onclick="alert('Hello World!')">Nieuwe Collectie</button> <br>
-        <button type="submit" class="button1" style="padding-left:10px;" onclick="alert('Hello World!')">Alle jurken bekijken</button> <br>
-
-
-        <div>
-            <p style="padding-top:30px; font-family: 'Oswald', sans-serif;"><strong>Filter op:</strong></p>
-            <button class="merkbutton" onclick="myFunction()"><strong>Merk</strong></button> <br>
-            <form name="filter" action="/DressFinder/filterVerwerken" method="get">
-                @{var merken = (List<string>)ViewData["merken"]; }
-                <div id="checkboxcontainer">
-                    @foreach (var item in merken)
-                    {
-                        <p><input type="checkbox" name="@item" value=@item style="height:12px;font-family: 'Open Sans', sans-serif" />@item</p>
-                    }
-                </div>
-            </form>
-            <br>
+    <div class="row">  @* todo: fix duizenden pagina's:) *@
+        <div class="col-md-12  pull-right">
+            <nav class="text-center">
+                <ul class="pagination">
+                    <li class="pag_prev">
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="pag_next">
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="row pull-left">
+            <a>  <img src="~/Images/dressfinderfooter.png" height="450" width="1000"></a>
         </div>
 
-        <div>
-            <button class="merkbutton" onclick="myFunction2()"><strong>STIJL</strong></button> <br>
-            <form name="filter" action="/DressFinder/filterVerwerken" method="get">
-                @{var stijlen = (List<string>)ViewData["stijlen"]; }
-
-                <div id="checkboxcontainer2">
-                    @foreach (var item in stijlen)
-                    {
-                        <p><input type="checkbox" name="stijl" value=@item style="height:12px; font-family: 'Open Sans', sans-serif" checked />@item</p>
-                    }
-                </div>
-            </form>
-        </div>
-
-
-        <p> 
-            <label for="amount">Prijs</label>
-            <input type="text" id="amount" readonly style="border:0; color:#F0597C; font-weight:bold; background: 0">
-        </p>
-        <div id="slider-range"></div>
-
-
-        <div>
-            <p style="font-family: 'Oswald', sans-serif;padding-top:25px; "><strong>Filters verfijnen:</strong></p>
-            <br>
-            @{var neklijn = (List<string>)ViewData["neklijnen"]; }
-            <select class="dropdown" name="Neklijn" onchange="if (this.selectedIndex) doSomething()">
-                <!--does something when its selected(like get the dresses and reload them)-->
-                <option value=0>Neklijn </option>
-                @foreach (var item in neklijn)
-                {
-                    <option value=@item> @item </option>
-                }
-            </select>
-            <br>
-            @{var silhouette = (List<string>)ViewData["silhouette"]; }
-            <select class="dropdown" name="Silhouette" onchange="if (this.selectedIndex) doSomething()">
-                <!--does something when its selected(like get the dresses and reload them)-->
-                <option value=0>Silhouette</option>
-                @foreach (var item in silhouette)
-                {
-                    <option value=@item> @item </option>
-                }
-            </select>
-            <br>
-            @{var kleuren = (List<string>)ViewData["kleuren"]; }
-            <select class="dropdown" name="Kleuren" onchange="if (this.selectedIndex) doSomething()">
-                <!--does something when its selected(like get the dresses and reload them)-->
-                <option value=0>Kleuren </option>
-                @foreach (var item in kleuren)
-                {
-                    <option value=@item> @item </option>
-                }
-            </select>
-        </div>
-       
+    </div>
 </div>
-
-    <div class="col-md-9 contents " style="padding-top:40px;">
-
-        @using HoneymoonShop.Models
-        @{var curJurk = (List<Jurk>) ViewData["jurken"]; }
-        @for (int y = 0; y < (curJurk.Count()/3); y++)
-        {
-            <div class="row pull-left">
-                @for (int x = 0; x < (curJurk.Count() - (y * 3)); x++)
-                {
-                    <div class="col-md-4 dresscontainer">
-                        @{string image = "/Images/" + curJurk[x + (y * 3)].Artikelnummer + "a.png";}
-                        <a href="@Url.Action("Artikelpagina", "Artikelpagina", curJurk[x + (y * 3)])">
-                        <img src=@image class="img-responsive mia" /></a>
-                        <p><strong style="color: #000000"> @curJurk[x+(y*3)].Merk </strong></p>
-                        <div class="description">
-
-                            <p><strong style="color: #8C8481">@curJurk[x + (y * 3)].Artikelnummer</strong></p>
-                            <a>  <img src="/Images/dots.png" height="20" width="40"></a>
-                        </div>
-                    </div>}
-            </div>}
-    </div>
-<div class="row">
-    <div class="col-md-12  pull-right">
-        <nav class="text-center">
-            <ul class="pagination">
-                <li class="pag_prev">
-                    <a href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="pag_next">
-                    <a href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
-    <div class="row pull-left">
-        <a>  <img src="~/Images/dressfinderfooter.png" height="450" width="1000"></a>
-    </div>
-
-</div>
-    </div>

@@ -1,5 +1,4 @@
-﻿body {
-}
+﻿
 .bruidp2 {
   position: static;
   left: 0px;
@@ -31,19 +30,7 @@
   height: auto;
 }
 
-.background {
 
-}
-
-
-
-
-
-
-
-.slide {
-
-}
 
 .imageslider {
   position: static;
@@ -85,9 +72,7 @@
   background-size: cover;
 }
 
-.opacitylayer {
- 
-}
+
 
 .slidebutton.w--current {
   position: absolute;
@@ -150,4 +135,4 @@ html.w-mod-js *[data-ix="opacityon"] {
 
 html.w-mod-js *[data-ix="hide"] {
   display: none;
-}s
+}
