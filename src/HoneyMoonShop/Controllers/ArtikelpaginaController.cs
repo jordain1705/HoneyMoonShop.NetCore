@@ -8,57 +8,58 @@ namespace HoneymoonShop.Controllers
 {
     public class ArtikelpaginaController : Controller
     {
-        public IActionResult Artikelpagina(Jurk curJurk) {
-              
-                ViewData["curJurk"]= curJurk;
+        public IActionResult Artikelpagina(Jurk curJurk)
+        {
 
-                int a = curJurk.Artikelnummer;
-                ViewData["nummer"] = a;
+            ViewData["curJurk"] = curJurk;
 
-                int maxp = curJurk.MaxPrijs;
-                ViewData["maxi"] = maxp;
+            int a = curJurk.Artikelnummer;
+            ViewData["nummer"] = a;
 
-                int minp = curJurk.MinPrijs; 
-                ViewData["min"] = minp;
+            int maxp = curJurk.MaxPrijs;
+            ViewData["maxi"] = maxp;
 
-                string teks = curJurk.Omschrijving;
-                ViewData["Omschrijving"] = teks;
+            int minp = curJurk.MinPrijs;
+            ViewData["min"] = minp;
 
-                String merken = curJurk.Merk;
-                ViewData["merkje"] = merken;
+            string teks = curJurk.Omschrijving;
+            ViewData["Omschrijving"] = teks;
 
-                String stylo = curJurk.Stijl;
-                ViewData["stylo"] = stylo;
+            String merken = curJurk.Merk;
+            ViewData["merkje"] = merken;
 
-                String nl = curJurk.Neklijn;
-                ViewData["nek"] = nl;
+            String stylo = curJurk.Stijl;
+            ViewData["stylo"] = stylo;
 
-                String sil = curJurk.Silhouette;
-                ViewData["silh"] = sil;
+            String nl = curJurk.Neklijn;
+            ViewData["nek"] = nl;
 
-                //todo: viewmodel ipv viewdata
-                //todo: waarom is dit een ding(stijlk en plaatjes jurk)
-                //List<String> stijlk = context.Jurken.Where(s => s.Artikelnummer == curJurk.Artikelnummer).Select(s => s.Stijl).ToList();
-                ViewData["merkje"] = merken;
+            String sil = curJurk.Silhouette;
+            ViewData["silh"] = sil;
 
-                //List<string> plaatjesjurk = new List<string>();
-               
+            //todo: viewmodel ipv viewdata
+            //todo: waarom is dit een ding(stijlk en plaatjes jurk)
+            //List<String> stijlk = context.Jurken.Where(s => s.Artikelnummer == curJurk.Artikelnummer).Select(s => s.Stijl).ToList();
+            ViewData["merkje"] = merken;
 
-                string img1 = "/Images/" + a + "a.png";
-                string img2 = "/Images/" + a +"b.png";
-                string img3 = "/Images/" + a+ "c.png";
-                
-                ViewData["pl1"] = img1;
-                
-                ViewData["pl2"] = img2;
-               
-                ViewData["pl3"] = img3;
-                
-               
+            //List<string> plaatjesjurk = new List<string>();
 
-                
-            
-            return View(); 
+
+            string img1 = "/Images/" + a + "a.png";
+            string img2 = "/Images/" + a + "b.png";
+            string img3 = "/Images/" + a + "c.png";
+
+            ViewData["pl1"] = img1;
+
+            ViewData["pl2"] = img2;
+
+            ViewData["pl3"] = img3;
+
+
+
+
+
+            return View();
         }
         //getjurkbyartikelnummermethod
         // make a hhtpget and a route method 

@@ -5,6 +5,14 @@
 <!DOCTYPE html>
 <head>
     <link href="http://fonts.googleapis.com/css?family=Amaranth" rel=stylesheet />
+    <script>
+function imageswap(letter){
+    document.getElementById('bigPicture').src = "/Images/" + @ViewData["Nummer"]  + letter + ".png";
+
+}
+    </script>
+
+
 </head>
 <div class="container">
     @{/* TODO: missing css classes? */}
@@ -16,27 +24,33 @@
             <div class="row">
                 <div class="col-md-12" style="padding-bottom: 20px">
                     @{var imga = ViewData["pl1"];}
-                    <img src=@imga class="img-responsive" alt="dress1" width="230" height="200" />
+                    <img id="imga"  img src=@imga class="img-responsive" alt="dress1" width="230" height="200" onclick="imageswap('a');" />
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-12" style="padding-bottom: 20px">
                     @{var imgb = ViewData["pl2"];}
-                    <img src=@imgb class="img-responsive" alt="dress2" width="230" height="200" />
+                    <img id="imgb"  img src=@imgb class="img-responsive" alt="dress2" width="230" height="200" onclick="imageswap('b');" />
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     @{var imgc = ViewData["pl3"];}
-                    <img src=@imgc class="img-responsive" alt="dress3" width="230" height="200" />
+
+                    <img id="imgc" img src=@imgc class="img-responsive" alt="dress3" width="230" height="200" onclick="imageswap('c');" />
                 </div>
             </div>
         </div>
 
-        <div class="col-md-6" align="center">
-            <img src=@imga class="img-responsive" alt="Groot Dress" width="550" height="700">
+
+        <div  class="col-md-6" align="center">
+
+            <img id="bigPicture" src="@imga" alt="jurkje" class="img-responsive" width="550" height="700"/>
+           
         </div>
+       
+
         <div class="col-md-3">
             @{ var a = ViewData["merkje"]; }
             <h2 style="font-family:'Amaranth'; font-size:larger"><b><strong> @a</strong></b> </h2>

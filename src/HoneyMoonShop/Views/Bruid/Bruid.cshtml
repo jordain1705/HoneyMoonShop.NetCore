@@ -6,56 +6,74 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link type="text/css" href="css/carrotcell.css" rel="stylesheet">
+    <link type="text/css" href="css/carrotcell.css" rel="stylesheet"/>
+    <link type="text/css" href="~/css/Bruidpag.css" rel="stylesheet" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <!--<script src="jquery-touchwipe.js" type="text/javascript" charset="utf-8"></script>--> @{/* TODO: again, common guys: dynamic shit do not use local paths*/}
+    <link href="https://fonts.googleapis.com/css?family=Lobster+Two:700i" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <img src="~/Images/Bruidp1.png" alt="Bruid op zoek naar perfecte jurk, van begin tot eind kunnen we je helpen" />
+    <body class="background" style="  background-color: #fce8e7;">
+        <div class="col-md-12-pull-right headerbruid w-container">
+            <div class="boven bruidp2">
+            <a> 
+              <img src="~/Images/Bruidp1.png" alt="bruid1"/>
+                 </a></div>
         </div>
-        <div class="row">
-            <div class="col-md-8" style="height:640px">
-                <div id="imageCarousel" class="carousel" data-interval="2000"
-                     data-ride="carousel" data-pause="hover" data-wrap="true">
-                    <ol class="carousel-indicators">
-                        <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#imageCarousel" data-slide-to="1"></li>
-                        <li data-target="#imageCarousel" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <div class="row">
-                                <div class="col-md-2" style=" height: 640px";>
-                                    <img src="~/Images/BruidS1.png" class="img-responsive"> @*@from Afbeelding select J.SourcePath where J.artikelnummer = a.artikelnummer and j.NieuweCollectie= true *@
-                                    <div class="col-md-2" style="height: 640px" ;>
-                                        <img src="~/Images/BruidS1.png" class="img-responsive"> @*@from Afbeelding select J.SourcePath where J.artikelnummer = a.artikelnummer and j.NieuweCollectie= true *@
-                                        <div class="col-md-2" style="height: 640px" ;>
-                                            <img src="~/Images/BruidS3.png" class="img-responsive"> @*@from Afbeelding select J.SourcePath where J.artikelnummer = a.artikelnummer and j.NieuweCollectie= true *@
-                                        </div>
-                                        <div class="col-md-2" style="height: 640px" ;>
-                                            <img src="~/Images/BruidS2.png" class="img-responsive"> @*@from Afbeelding select J.SourcePath where J.artikelnummer = a.artikelnummer and j.NieuweCollectie= true *@
-                                        </div>
-                                        <div class="col-md-2" style="height: 640px" ;>
-                                            <img src="~/Images/BruidS1.png" class="img-responsive"> @*@from Afbeelding select J.SourcePath where J.artikelnummer = a.artikelnummer and j.NieuweCollectie= true *@
-                                        </div>
+        <div class="col-md-12-pull-right collectie w-container" style="height: 450px; background-color: #fff;">
+            <div class="colltekst" style="  display: inline;float: none;">
+                <h1 class="header-roze" style="  position: relative; left: 0px; top: 0px; right: 0px;  bottom: 0px; margin-top: 26px; padding-top: 0px; padding-bottom: 0px; font-family: Georgia, Times, 'Times New Roman', serif; color: #ffe5e8;  font-size: 79px;  font-style: italic;  font-weight: 700; text-align: center;">Collectie</h1>
+                <p class="ondertitel" style="  position: absolute;
+  margin-top: -10px;  padding-top: 0px;  padding-bottom: 26px;  font-family: Verdana, Geneva, sans-serif; font-size: 24px;  font-weight: 700;  text-align: center;text-transform: uppercase;">De trouwjurk voor je droombruiloft</p>
+            </div>
+            <div class="collectiebruid" style=" height: 600px; margin-top: 100px;">
+                <div class="slider" style="height: 700px; text-align: center;">
+                    <div class="slidercol w-slider" data-animation="slide" data-duration="500" data-infinite="1" style="  display: block; height: 600px;  background-color: #fff;  color: #fff;">
+                        <div class="w-slider-mask">
+                            <div class="slide w-slide" style=" width: 25%; height: 600px; margin-right: 40px; margin-left: 40px; clear: both;">
+                                <div class="imageslider" data-ix="opacityon" style=" position: static; display: -webkit-box;  display: -webkit-flex; display: -ms-flexbox; display: flex; width: 240px; height: 531px; padding-left: 0px; float: none; clear: none; -webkit-justify-content: space-around; -ms-flex-pack: distribute;justify-content: space-around; background-image: url('../images/BruidS1.PNG');background-position: 50% 50%; background-size: cover;" >
+                                    <div class="opacitylayer" data-ix="hide" style=" display: block; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-align-self: stretch; -ms-flex-item-align: stretch;  align-self: stretch;  -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1;">
+                                        <a class="opacitylayer slidebutton w-button" data-ix="hide" href="/">Button Text</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide w-slide" style=" width: 25%; height: 600px; margin-right: 40px; margin-left: 40px; clear: both;">
+                                <div class="bruids2 imageslider" data-ix="opacityon">
+                                    <div class="opacitylayer" data-ix="hide" style=" display: block; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-align-self: stretch; -ms-flex-item-align: stretch; align-self: stretch; -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1;">
+                                        <a class="opacitylayer slidebutton w-button" data-ix="hide" href="/">Button Text</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide w-slide" style=" width: 25%; height: 600px; margin-right: 40px; margin-left: 40px; clear: both;">
+                                <div class="bruids3 imageslider" data-ix="opacityon">
+                                    <div class="opacitylayer" data-ix="hide" style=" display: block; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-align-self: stretch; -ms-flex-item-align: stretch; align-self: stretch; -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1;">
+                                        <a class="opacitylayer slidebutton w-button" data-ix="hide" href="/" style=" position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; width: 120px;height: 40px; margin-top: 250px; margin-right: 8px; margin-left: 62px; clear: none; -webkit-justify-content: space-around;  -ms-flex-pack: distribute; justify-content: space-around; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap;  flex-wrap: nowrap; -webkit-box-align: center;  -webkit-align-items: center;  -ms-flex-align: center;  align-items: center;  -webkit-align-self: center; -ms-flex-item-align: center; align-self: center; border: 1px solid #000; background-color: #fff; font-family: Verdana, Geneva, sans-serif; color: #000; font-size: 11px; font-weight: 700; text-align: center; text-transform: uppercase;">bekijk de jurk</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide w-slide" style=" width: 25%; height: 600px; margin-right: 40px; margin-left: 40px; clear: both;">
+                                <div class="bruids4 imageslider" data-ix="opacityon">
+                                    <div class="opacitylayer" data-ix="hide" style=" display: block; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-align-self: stretch; -ms-flex-item-align: stretch; align-self: stretch; -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1;">
+                                        <a class="opacitylayer slidebutton w-button" data-ix="hide" href="/">Button Text</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide w-slide" style=" width: 25%; height: 600px; margin-right: 40px; margin-left: 40px; clear: both;">
+                                <div class="bruids5 imageslider" data-ix="opacityon">
+                                    <div class="opacitylayer" data-ix="hide" style=" display: block; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-align-self: stretch; -ms-flex-item-align: stretch; align-self: stretch; -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1;">
+                                        <a class="opacitylayer slidebutton w-button" data-ix="hide" href="/">Button Text</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#imageCarousel" class="carousel-control left" data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left"></span>
-                        </a>
-                        <a href="#imageCarousel" class="carousel-control right" data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                        </a>
+                        <div class="slidenavi w-round w-slider-nav"></div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="row">
+        <div class="col-md-12-pull-right video w-container" style="height: 450px; background-color: #fff;"></div>
+        <div class="blog col-md-12-pull-right w-container" style="height: 450px; background-color: #fff;"></div>
+        <div class="col-md-12-pull-right w-container" style="height: 450px; background-color: #fff;">
+            <div class="bruidp2"></div>
         </div>
-    </div>
-</body>
+    </body>

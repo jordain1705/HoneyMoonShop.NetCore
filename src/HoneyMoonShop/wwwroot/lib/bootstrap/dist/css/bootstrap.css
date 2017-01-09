@@ -4417,7 +4417,7 @@ tbody.collapse.in {
             background-image: none;
             filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
         }
-
+        
 .open > .dropdown-menu {
     display: block;
 }
@@ -6099,6 +6099,7 @@ a.badge:focus {
     max-width: 100%;
 }
 
+
 @media screen and (min-width: 768px) {
     .jumbotron {
         padding-top: 48px;
@@ -6129,6 +6130,7 @@ a.badge:focus {
     -o-transition: border .2s ease-in-out;
     transition: border .2s ease-in-out;
 }
+
 
     .thumbnail > img,
     .thumbnail a > img {
