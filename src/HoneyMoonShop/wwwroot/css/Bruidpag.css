@@ -1,0 +1,153 @@
+﻿body {
+}
+.bruidp2 {
+  position: static;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  display: block;
+  width: 1000px;
+  height: 450px;
+  margin-right: 0px;
+  margin-left: auto;
+  background-image: url('../images/Bruidp2.PNG');
+  background-position: 50% 50%;
+  background-size: cover;
+  background-attachment: scroll;
+}
+
+.bruidp2.boven {
+  background-image: url('../images/Bruidp1.PNG');
+  background-size: cover;
+}
+
+.col-md-12-pull-right {
+  height: 450px;
+  background-color: #fff;
+}
+
+.col-md-12-pull-right.collectie {
+  height: auto;
+}
+
+.background {
+
+}
+
+
+
+
+
+
+
+.slide {
+
+}
+
+.imageslider {
+  position: static;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 240px;
+  height: 531px;
+  padding-left: 0px;
+  float: none;
+  clear: none;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  background-image: url('../images/BruidS1.PNG');
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.imageslider.bruids2 {
+  background-image: url('../images/BruidS2.PNG');
+  background-size: cover;
+  background-attachment: scroll;
+}
+
+.imageslider.bruids3 {
+  background-image: url('../images/BruidS3.PNG');
+  background-size: cover;
+}
+
+.imageslider.bruids4 {
+  background-image: url('../images/12810a.png');
+  background-size: cover;
+}
+
+.imageslider.bruids5 {
+  background-image: url('../images/12695a.png');
+  background-size: cover;
+}
+
+.opacitylayer {
+ 
+}
+
+.slidebutton.w--current {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 120px;
+  height: 40px;
+  margin-top: 250px;
+  margin-right: 8px;
+  margin-left: 62px;
+  clear: none;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  border: 1px solid #000;
+  background-color: #fff;
+  font-family: Verdana, Geneva, sans-serif;
+  color: #000;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.slidebutton.opacitylayer.w--current {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.slidenavi {
+  display: block;
+  height: auto;
+}
+
+html.w-mod-js *[data-ix="opacityon"] {
+  opacity: 1;
+  -webkit-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
+}
+
+html.w-mod-js *[data-ix="hide"] {
+  display: none;
+}s
