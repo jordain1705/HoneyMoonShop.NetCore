@@ -48,11 +48,21 @@ namespace HoneymoonShop.Controllers
             {
                 List<Jurk> jurken = new List<Jurk>();
 
-                foreach (var filter in filterValues)
+                //we moeten dit ff goed testen. op dit moment gaat hij door elke filter door, maar hij controlleert alleen op merk in de query
+                //maar als we stijlen in filterValues hebben, dan word daar dus niet op gecontrolleerd. Stel we doen dat wel dan komen jurken
+                //er 2 keer in voor (eerst komtie als het op merk checkt. vervolgens opnieuw bij stijl
+                 
+               /* foreach (var filter in filterValues)
                 {
                     foreach (var jurk in context.Jurken.Where(g => g.Merk.Contains(filter)).ToList())
                         jurken.Add(jurk);
-                }
+                }*/
+
+                //deze optie is overzichtelijker en IMO logischer (je kijkt naar de filterwaarde en controlleert of de value in die collectie voorkomt
+                //je kan op meerdere dingen filteren in dezelfde query ook en je krijgt zo geen duplicates omdat je maar 1x door de productlist heen gaat
+                //MAAR hier zit dus een bug in dat de merken met spatiebalk ertussen niet gepakt worden. Ik stel voor dat we gaan kijken of we dat kunnen
+                //fixen en anders moeten we een nieuwe oplossing bedenken.
+                jurken = context.Jurken.Where(g => filterValues.Contains(g.Merk)).ToList();
                 ViewData["jurken"] = jurken;
 
                 return PartialView("ProductsPartial", jurken);
