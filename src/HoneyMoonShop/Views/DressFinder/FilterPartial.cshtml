@@ -27,7 +27,7 @@
 <script>
     function myFunction() {
         var e =  document.getElementById("checkboxcontainer");
-        e.style.display= (e.style.display === 'block')?'none': 'block';
+        e.style.display= (e.style.display == 'block')?'none': 'block';
 
     }
     function myFunction2() {
@@ -37,20 +37,32 @@
 </script>
 <script>
     function filterClick() {
-        @{var merken = (List<string>) ViewData["merken"]; }
-        @{ var myArray = new List<String>(merken.Count); }
-
-
-    $.ajax({
-        url: '@Url.Action("Filterverwerken", "Dressfinder")'
-         // /Dressfinder/FilterVerwerken',
-    }).done(function(result) {
-            $('#productPartial').html(result);
-        }).fail(function() {
-            alert('fail:');
-        });
+        $.ajax({
+            url: '@Url.Action("Filterverwerken", "Dressfinder")',
+            data: item,
+            datatype: 'string',
+            success: function(data) {
+                $('productPartial').html(data);
+            }
+        //success: successFunc(),
+        //error: errorFunc()
+    });
     }
+    //   var checkedValue = document.querySelector('.messageCheckbox:checked').value;
 </script>
+
+<!--
+        $.ajax({
+            type: 'GET',
+            url: '/Dressfinder/FilterVerwerken',
+            success: function(response) {
+                $('#test').html(response);
+            }
+        });   
+    
+-->
+
+
 
 <div class="col-md-3">
     @* filterlijst *@
@@ -64,13 +76,13 @@
     <div>
         <p style="padding-top:30px; font-family: 'Oswald', sans-serif;"><strong>Filter op:</strong></p>
         <button class="merkbutton" onclick="myFunction()"><strong>Merk</strong></button> <br>
-        <form id="filter" method="post">
+        <form name="filter" method="post"> 
             @* todo:juiste manier *@
-
+            @{var merken = (List<string>)ViewData["merken"]; }
             <div id="checkboxcontainer">
                 @foreach (var item in merken)
                 {
-                    <p><input type="checkbox" onclick="filterClick()" name="@item" id="@item" value=@item style="height: 12px; font-family: 'Open Sans', sans-serif" />@item</p>
+                    <p><input type="checkbox" onclick="filterClick()" name="@item" value=@item style="height:12px;font-family: 'Open Sans', sans-serif" />@item</p>
                 }
             </div>
         </form>
