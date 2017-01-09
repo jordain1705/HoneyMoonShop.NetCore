@@ -37,17 +37,21 @@
 </script>
 <script>
     function filterClick() {
-        @{var merken = (List<string>) ViewData["merken"]; }
-        @{ var myArray = new List<String>(merken.Count); }
+        
+        var checkedValues = $('input[type=checkbox]:checked').map(function()
+        {
+            return $(this).val();
+        }).get();
 
-
-    $.ajax({
-        url: '@Url.Action("Filterverwerken", "Dressfinder")'
-         // /Dressfinder/FilterVerwerken',
-    }).done(function(result) {
+        $.ajax({
+            url: '@Url.Action("Filterverwerken", "Dressfinder")',
+            traditional:true,
+            data: {checkedValues}
+        }).done(function(result) {
             $('#productPartial').html(result);
-        }).fail(function() {
+        }).fail(function(errorThrown) {
             alert('fail:');
+            console.log(errorThrown);
         });
     }
 </script>
@@ -66,7 +70,7 @@
         <button class="merkbutton" onclick="myFunction()"><strong>Merk</strong></button> <br>
         <form id="filter" method="post">
             @* todo:juiste manier *@
-
+            @{var merken = (List<string>)ViewData["merken"]; }
             <div id="checkboxcontainer">
                 @foreach (var item in merken)
                 {
@@ -85,7 +89,7 @@
             <div id="checkboxcontainer2">
                 @foreach (var item in stijlen)
                 {
-                    <p><input type="checkbox" name="stijl" value=@item style="height:12px; font-family: 'Open Sans', sans-serif" checked />@item</p>
+                    <p><input type="checkbox" name="stijl" value=@item style="height:12px; font-family: 'Open Sans', sans-serif"/>@item</p>
                 }
             </div>
         </form>
