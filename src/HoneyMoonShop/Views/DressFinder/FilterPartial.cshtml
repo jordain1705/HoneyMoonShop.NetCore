@@ -38,15 +38,16 @@
 <script>
     function filterClick() {
         
-        var checkedValues = $('input[type=checkbox]:checked').map(function()
+        var filterValues = $('input[type=checkbox]:checked').map(function()
         {
             return $(this).val();
         }).get();
 
         $.ajax({
-            url: '@Url.Action("Filterverwerken", "Dressfinder")',
+            type: "post",
+            url: '@Url.Action("FilterVerwerken", "Dressfinder")',
             traditional:true,
-            data: {checkedValues}
+            data: {filterValues}
         }).done(function(result) {
             $('#productPartial').html(result);
         }).fail(function(errorThrown) {
