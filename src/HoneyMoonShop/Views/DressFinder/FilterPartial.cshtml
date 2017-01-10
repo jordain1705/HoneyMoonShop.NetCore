@@ -38,7 +38,12 @@
 <script>
     function filterClick() {
         
-        var filterValues = $('input[type=checkbox]:checked').map(function()
+        var filterMerk =  $('#checkboxMerk input:checkbox:checked').map(function()
+        {
+            return $(this).val();
+        }).get();
+
+        var filterStijl =  $('#checkboxStijl input:checkbox:checked').map(function()
         {
             return $(this).val();
         }).get();
@@ -47,7 +52,7 @@
             type: "post",
             url: '@Url.Action("FilterVerwerken", "Dressfinder")',
             traditional:true,
-            data: {filterValues}
+            data: {filterMerk, filterStijl}
         }).done(function(result) {
             $('#productPartial').html(result);
         }).fail(function(errorThrown) {
@@ -72,7 +77,7 @@
         <form id="filter" method="post">
             @* todo:juiste manier *@
             @{var merken = (List<string>)ViewData["merken"]; }
-            <div id="checkboxcontainer">
+            <div id="checkboxMerk">
                 @foreach (var item in merken)
                 {
                     <p><input type="checkbox" onclick="filterClick()" name="@item" id="@item" value=@item style="height: 12px; font-family: 'Open Sans', sans-serif" />@item</p>
@@ -84,13 +89,13 @@
 
     <div>
         <button class="merkbutton" onclick="myFunction2()"><strong>STIJL</strong></button> <br>
-        <form name="filter" asp-controller="DressFinder" asp-action="filterVerwerken" method="get">
+        <form name="filter"  method="get">
             @{var stijlen = (List<string>)ViewData["stijlen"]; }
 
-            <div id="checkboxcontainer2">
+            <div id="checkboxStijl">
                 @foreach (var item in stijlen)
                 {
-                    <p><input type="checkbox" name="stijl" value=@item style="height:12px; font-family: 'Open Sans', sans-serif"/>@item</p>
+                    <p><input type="checkbox" onclick="filterClick()" name="stijl" value=@item style="height:12px; font-family: 'Open Sans', sans-serif"/>@item</p>
                 }
             </div>
         </form>
