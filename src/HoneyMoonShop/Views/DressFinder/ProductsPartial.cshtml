@@ -5,7 +5,7 @@
     {
         <div class="row pull-left">
             @for (int x = 0; x < (curJurk.Count() - (y * 3)); x++)
-                {
+            {
                 <div class="col-md-4 dresscontainer">
                     @{string image = "/Images/" + curJurk[x + (y * 3)].Artikelnummer + "a.png";}
                     <a href="@Url.Action("Artikelpagina", "Artikelpagina", curJurk[x + (y * 3)])">
@@ -19,21 +19,5 @@
                     </div>
                 </div>}
         </div>}
-    <div class="toggler">
-        <div id="effect" class="ui-widget-content ui-corner-all">
-            <h3 class="ui-widget-header ui-corner-all">Show</h3>
-            <p>
-                Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede. Nulla lorem metus, adipiscing ut, luctus sed, hendrerit vitae, mi.
-            </p>
-        </div>
-    </div>
-
-    <select name="effects" id="effectTypes">
-        <option value="drop">Drop</option>
-    </select>
-
-    <button id="button" class="ui-state-default ui-corner-all">Run Effect</button>
-
-
 </div>
 
