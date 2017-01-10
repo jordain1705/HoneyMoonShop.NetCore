@@ -47,22 +47,26 @@ namespace HoneymoonShop.Controllers
             using (var context = new HoneyMoonShopContext())
             {
                 List<Jurk> jurken = new List<Jurk>();
-
-                //we moeten dit ff goed testen. op dit moment gaat hij door elke filter door, maar hij controlleert alleen op merk in de query
-                //maar als we stijlen in filterValues hebben, dan word daar dus niet op gecontrolleerd. Stel we doen dat wel dan komen jurken
-                //er 2 keer in voor (eerst komtie als het op merk checkt. vervolgens opnieuw bij stijl
-                 
-               /* foreach (var filter in filterValues)
+                jurken = context.Jurken.ToList();
+                if (filterMerk.Any())
+                    //filter op merken. als geen merk is ingevoegd dan laat het alle merken zien
+                    jurken = jurken.Intersect(context.Jurken.Where(g => filterMerk.Contains(g.Merk)).ToList()).ToList();
+                if (filterStijl.Any())
+                    //filter op stijlen. als geen stijl is ingevoegd dan laat het alle stijlen zien
+                    jurken = jurken.Intersect(context.Jurken.Where(g => filterStijl.Contains(g.Stijl)).ToList()).ToList();
+                if (neklijnDd != null && neklijnDd != "Neklijn")
+                    //als er een neklijn is aangeklikt dan wordt daarop gefilterd
+                    jurken = jurken.Intersect(context.Jurken.Where(g => g.Neklijn == neklijnDd)).ToList();
+                if (silhouetteDd != null && silhouetteDd != "Silhouette")
+                    //als er een silhouette is aangeklikt dan wordt daarop gefilterd
+                    jurken = jurken.Intersect(context.Jurken.Where(g => g.Silhouette == silhouetteDd)).ToList();
+                if (slider.Count() == 2)//deze controle is als de slider 2 waarde heeft(zodat hij het niet doet bij de eerste opstart)
                 {
-                    foreach (var jurk in context.Jurken.Where(g => g.Merk.Contains(filter)).ToList())
-                        jurken.Add(jurk);
-                }*/
+                    //zorgt dat alleen resultaaten binnen de aangegeven prijsgrens worden gebruikt
+                    //bug: de slider update soms random niet (ligt denk ik aan de functieaanroep)
+                    jurken = jurken.Intersect(context.Jurken.Where(g => (g.MinPrijs >= Convert.ToInt32(slider[0])) && (g.MaxPrijs <= Convert.ToInt32(slider[1]))).ToList()).ToList();
+                }
 
-                //deze optie is overzichtelijker en IMO logischer (je kijkt naar de filterwaarde en controlleert of de value in die collectie voorkomt
-                //je kan op meerdere dingen filteren in dezelfde query ook en je krijgt zo geen duplicates omdat je maar 1x door de productlist heen gaat
-                //MAAR hier zit dus een bug in dat de merken met spatiebalk ertussen niet gepakt worden. Ik stel voor dat we gaan kijken of we dat kunnen
-                //fixen en anders moeten we een nieuwe oplossing bedenken.
-                jurken = context.Jurken.Where(g => filterMerk.Contains(g.Merk)&&filterStijl.Contains(g.Stijl)).ToList();
                 ViewData["jurken"] = jurken;
 
                 return PartialView("ProductsPartial", jurken);
