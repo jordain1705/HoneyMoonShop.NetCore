@@ -62,7 +62,7 @@ namespace HoneymoonShop.Controllers
                 //je kan op meerdere dingen filteren in dezelfde query ook en je krijgt zo geen duplicates omdat je maar 1x door de productlist heen gaat
                 //MAAR hier zit dus een bug in dat de merken met spatiebalk ertussen niet gepakt worden. Ik stel voor dat we gaan kijken of we dat kunnen
                 //fixen en anders moeten we een nieuwe oplossing bedenken.
-                jurken = context.Jurken.Where(g => filterMerk.Contains(g.Merk)).ToList();
+                jurken = context.Jurken.Where(g => filterMerk.Contains(g.Merk)&&filterStijl.Contains(g.Stijl)).ToList();
                 ViewData["jurken"] = jurken;
 
                 return PartialView("ProductsPartial", jurken);
