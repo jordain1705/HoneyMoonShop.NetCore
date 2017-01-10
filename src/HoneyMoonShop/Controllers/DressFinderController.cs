@@ -42,7 +42,7 @@ namespace HoneymoonShop.Controllers
             }
         }
 
-        public IActionResult FilterVerwerken(string[] filterMerk, string[] filterStijl)
+        public IActionResult FilterVerwerken(string[] filterMerk, string[] filterStijl, string neklijnDd, string silhouetteDd, string kleurenDd, string[] slider)
         {
             using (var context = new HoneyMoonShopContext())
             {

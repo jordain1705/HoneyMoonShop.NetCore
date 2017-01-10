@@ -3,7 +3,7 @@
 <script>
 
     $(function () {
-        $("#slider-range").slider({
+        $("#sliderRange").slider({
             range: true,
             @{var minprijs = (int)(ViewData["minprijs"]); }
             @{var maxprijs = (int)(ViewData["maxprijs"]); }
@@ -14,8 +14,8 @@
                 $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
             }
         });
-        $("#amount").val("$" + $("#slider-range").slider("values", 0) +
-            " - $" + $("#slider-range").slider("values", 1));
+        $("#amount").val("$" + $("#sliderRange").slider("values", 0) +
+            " - $" + $("#sliderRange").slider("values", 1));
         $( ".selector" ).slider({
             change: function( event, ui ) {}
         });
@@ -36,23 +36,29 @@
     }
 </script>
 <script>
+    $( '#sliderRange' ).on( 'click', 'a', filterClick());
+    
     function filterClick() {
-        
-        var filterMerk =  $('#checkboxMerk input:checkbox:checked').map(function()
-        {
+
+        var filterMerk = $('#checkboxMerk input:checkbox:checked').map(function() {
             return $(this).val();
         }).get();
 
-        var filterStijl =  $('#checkboxStijl input:checkbox:checked').map(function()
-        {
+        var filterStijl = $('#checkboxStijl input:checkbox:checked').map(function() {
             return $(this).val();
         }).get();
+        
+        var neklijnDd = $('#neklijnDd option:selected').text();
+        var silhouetteDd = $('#silhouetteDd option:selected').text();
+        var kleurenDd = $('#kleurenDd option:selected').text();
+
+        var slider = $('#sliderRange').slider("values");
 
         $.ajax({
             type: "post",
             url: '@Url.Action("FilterVerwerken", "Dressfinder")',
             traditional:true,
-            data: {filterMerk, filterStijl}
+            data: {filterMerk, filterStijl, neklijnDd, silhouetteDd, kleurenDd, slider}
         }).done(function(result) {
             $('#productPartial').html(result);
         }).fail(function(errorThrown) {
@@ -67,9 +73,9 @@
     <!--<img src="https://placekitten.com/150/800" class="pull-left img-responsive" alt="placeholder">-->
 
     <p style="padding-top:30px; font-family: 'Oswald', sans-serif"><strong>CATEGORIEËN:</strong></p>
-    <button type="submit" class="button1" style="padding-left:10px;" onclick="myFunction()">Summer Sale</button> <br>
-    <button type="submit" class="button1" style="padding-left:10px;" onclick="alert('Hello World!')">Nieuwe Collectie</button> <br>
-    <button type="submit" class="button1" style="padding-left:10px;" onclick="alert('Hello World!')">Alle jurken bekijken</button> <br>
+    <button type="submit" class="button1" style="padding-left:10px;">Summer Sale</button> <br>
+    <button type="submit" class="button1" style="padding-left:10px;">Nieuwe Collectie</button> <br>
+    <button type="submit" class="button1" style="padding-left:10px;">Alle jurken bekijken</button> <br>
 
     <div>
         <p style="padding-top:30px; font-family: 'Oswald', sans-serif;"><strong>Filter op:</strong></p>
@@ -104,38 +110,38 @@
         <label for="amount">Prijs</label>
         <input type="text" id="amount" readonly style="border:0; color:#F0597C; font-weight:bold; background: 0">
     </p>
-    <div id="slider-range"></div>
+    <div id="sliderRange" onclick="filterClick()"></div>
 
     <div>
         <p style="font-family: 'Oswald', sans-serif;padding-top:25px; "><strong>Filters verfijnen:</strong></p>
         <br>
         @{var neklijn = (List<string>)ViewData["neklijnen"]; }
-        <select class="dropdown" name="Neklijn" onchange="if (this.selectedIndex) doSomething()">
+        <select id="neklijnDd" class="dropdown"  onchange="filterClick()">
             <!--does something when its selected(like get the dresses and reload them)-->
-            <option value=0>Neklijn </option>
+            <option value=0>Neklijn</option>
             @foreach (var item in neklijn)
             {
-                <option value=@item> @item </option>
+                <option value=@item>@item </option>
             }
         </select>
         <br>
         @{var silhouette = (List<string>)ViewData["silhouette"]; }
-        <select class="dropdown" name="Silhouette" onchange="if (this.selectedIndex) doSomething()">
+        <select id="silhouetteDd" class="dropdown" onchange="filterClick()">
             <!--does something when its selected(like get the dresses and reload them)-->
             <option value=0>Silhouette</option>
             @foreach (var item in silhouette)
             {
-                <option value=@item> @item </option>
+                <option value=@item>@item </option>
             }
         </select>
         <br>
         @{var kleuren = (List<string>)ViewData["kleuren"]; }
-        <select class="dropdown" name="Kleuren" onchange="if (this.selectedIndex) doSomething()">
+        <select id="kleurenDd" class="dropdown" onchange="filterClick()">
             <!--does something when its selected(like get the dresses and reload them)-->
-            <option value=0>Kleuren </option>
+            <option value=0>Kleuren</option>
             @foreach (var item in kleuren)
             {
-                <option value=@item> @item </option>
+                <option value=@item>@item </option>
             }
         </select>
     </div>
