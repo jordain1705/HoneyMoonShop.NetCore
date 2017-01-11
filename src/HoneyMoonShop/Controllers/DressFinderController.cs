@@ -79,11 +79,11 @@ namespace HoneymoonShop.Controllers
 
             if (orderType == "ascending")
             {
-               sortedJurken = sortedJurken.OrderBy(g => g.MinPrijs).ToList();
+               sortedJurken = jurk.OrderBy(g => g.MinPrijs).ToList();
             }
             else
             {
-               sortedJurken = sortedJurken.OrderByDescending(g => g.MinPrijs).ToList();
+               sortedJurken = jurk.OrderByDescending(g => g.MinPrijs).ToList();
             }
 
             return PartialView("ProductsPartial", sortedJurken);
