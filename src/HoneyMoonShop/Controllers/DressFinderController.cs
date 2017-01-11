@@ -66,11 +66,27 @@ namespace HoneymoonShop.Controllers
                     //bug: de slider update soms random niet (ligt denk ik aan de functieaanroep)
                     jurken = jurken.Intersect(context.Jurken.Where(g => (g.MinPrijs >= Convert.ToInt32(slider[0])) && (g.MaxPrijs <= Convert.ToInt32(slider[1]))).ToList()).ToList();
                 }
+                var orderedJurken = jurken.OrderByDescending(g => g.MinPrijs).ToList();
+                //KLEUREN?
+                ViewData["jurken"] = orderedJurken;
 
-                ViewData["jurken"] = jurken;
-
-                return PartialView("ProductsPartial", jurken);
+                return PartialView("ProductsPartial", orderedJurken);
             }
+        }
+        public IActionResult dressListOrderChanger(List<Jurk> jurk, string orderType)
+        {
+            List<Jurk> sortedJurken = new List<Jurk>();
+
+            if (orderType == "ascending")
+            {
+               sortedJurken = sortedJurken.OrderBy(g => g.MinPrijs).ToList();
+            }
+            else
+            {
+               sortedJurken = sortedJurken.OrderByDescending(g => g.MinPrijs).ToList();
+            }
+
+            return PartialView("ProductsPartial", sortedJurken);
         }
     }
 }

@@ -34,6 +34,12 @@
         var e =  document.getElementById("checkboxStijl");
         e.style.display= (e.style.display === 'block')?'none': 'block';
     }
+    function orderByFunction(){
+        var e = document.getElementById("orderby");
+
+    }
+    
+
 </script>
 <script>
     $( '#sliderRange' ).on( 'click', 'a', filterClick());
@@ -134,6 +140,7 @@
                 <option value=@item>@item </option>
             }
         </select>
+
         <br>
         @{var kleuren = (List<string>)ViewData["kleuren"]; }
         <select id="kleurenDd" class="dropdown" onchange="filterClick()">
@@ -144,6 +151,12 @@
                 <option value=@item>@item </option>
             }
         </select>
+        <br>
+        <select id="orderby" class="dropdown" onchange="orderByFunction()">
+            <option value=descending>Prijs Hoog/Laag</option>
+            <option value=ascending>Prijs Laag/Hoog</option>
+        </select>
+       
     </div>
 
 </div>
