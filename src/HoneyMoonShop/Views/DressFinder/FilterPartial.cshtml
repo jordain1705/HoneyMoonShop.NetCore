@@ -34,9 +34,20 @@
         var e =  document.getElementById("checkboxStijl");
         e.style.display= (e.style.display === 'block')?'none': 'block';
     }
-    function orderByFunction(){
-        var e = document.getElementById("orderby");
-
+    function customKnoppen(){
+        var orderType = document.getElementById("orderby");
+        var jurken = 
+        $.ajax({
+            type: "post",
+            url: '@Url.Action("dressListOrderChanger", "Dressfinder")',
+            traditional:true,
+            data: {jurken, orderType}
+        }).done(function(result) {
+            $('#productPartial').html(result);
+        }).fail(function(errorThrown) {
+            alert('fail:');
+            console.log(errorThrown);
+        });
     }
     
 
@@ -57,14 +68,14 @@
         var neklijnDd = $('#neklijnDd option:selected').text();
         var silhouetteDd = $('#silhouetteDd option:selected').text();
         var kleurenDd = $('#kleurenDd option:selected').text();
-
         var slider = $('#sliderRange').slider("values");
+        var orderType = $('#orderBy option:selected').val();
 
         $.ajax({
             type: "post",
             url: '@Url.Action("FilterVerwerken", "Dressfinder")',
             traditional:true,
-            data: {filterMerk, filterStijl, neklijnDd, silhouetteDd, kleurenDd, slider}
+            data: {filterMerk, filterStijl, neklijnDd, silhouetteDd, kleurenDd, slider, orderType}
         }).done(function(result) {
             $('#productPartial').html(result);
         }).fail(function(errorThrown) {
@@ -152,7 +163,9 @@
             }
         </select>
         <br>
-        <select id="orderby" class="dropdown" onchange="orderByFunction()">
+        <p style="font-family: 'Oswald', sans-serif;padding-top:25px; "><strong>Sorteren:</strong></p>
+        <br />
+        <select id="orderBy" class="dropdown" onchange="filterClick()">
             <option value=descending>Prijs Hoog/Laag</option>
             <option value=ascending>Prijs Laag/Hoog</option>
         </select>

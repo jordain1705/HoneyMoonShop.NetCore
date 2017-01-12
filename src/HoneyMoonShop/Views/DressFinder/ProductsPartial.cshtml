@@ -1,10 +1,28 @@
 ﻿<div class="col-md-9 contents " style="padding-top:40px;">
     @using HoneymoonShop.Models
     @{var curJurk = (List<Jurk>)ViewData["jurken"]; }
-    @for (int y = 0; y <= (curJurk.Count() / 3); y++)
+    @{  //dit bepaald het aantal rows dat er komt. waarbij het 1 wordt zelfs als er niet 3 jurken zijn
+        int aantalRows;
+        aantalRows = curJurk.Count() / 3;
+        if (curJurk.Count() % 3 >0) {
+            aantalRows += 1;
+        }
+    }
+    @for (int y = 0; y < aantalRows; y++)
     {
-        <div class="row pull-left">
-            @for (int x = 0; x < (curJurk.Count() - (y * 3)); x++)
+        <div class="row pull-left">  
+            @{  //dit bepaald het aantal items die gepost worden op een row (3 max)
+                int aantalJurken;
+                if (curJurk.Count()-(y*3) > 2)
+                {
+                    aantalJurken = 3;
+                }
+                else
+                {
+                    aantalJurken = curJurk.Count() % 3;
+                }
+            }
+            @for (int x = 0; x < aantalJurken; x++)
             {
                 <div class="col-md-4 dresscontainer">
                     @{string image = "/Images/" + curJurk[x + (y * 3)].Artikelnummer + "a.png";}

@@ -42,7 +42,7 @@ namespace HoneymoonShop.Controllers
             }
         }
 
-        public IActionResult FilterVerwerken(string[] filterMerk, string[] filterStijl, string neklijnDd, string silhouetteDd, string kleurenDd, string[] slider)
+        public IActionResult FilterVerwerken(string[] filterMerk, string[] filterStijl, string neklijnDd, string silhouetteDd, string kleurenDd, string[] slider, string orderType)
         {
             using (var context = new HoneyMoonShopContext())
             {
@@ -67,26 +67,33 @@ namespace HoneymoonShop.Controllers
                     jurken = jurken.Intersect(context.Jurken.Where(g => (g.MinPrijs >= Convert.ToInt32(slider[0])) && (g.MaxPrijs <= Convert.ToInt32(slider[1]))).ToList()).ToList();
                 }
                 var orderedJurken = jurken.OrderByDescending(g => g.MinPrijs).ToList();
-                //KLEUREN?
-                ViewData["jurken"] = orderedJurken;
-
-                return PartialView("ProductsPartial", orderedJurken);
+                List<Jurk> sortedJurken = new List<Jurk>();
+                if (orderType == "ascending")
+                {
+                    sortedJurken = orderedJurken.OrderBy(g => g.MinPrijs).ToList();
+                }
+                else
+                {
+                    sortedJurken = orderedJurken.OrderByDescending(g => g.MinPrijs).ToList();
+                }
+                ViewData["jurken"] = sortedJurken;
+                return PartialView("ProductsPartial", sortedJurken);
             }
         }
-        public IActionResult dressListOrderChanger(List<Jurk> jurk, string orderType)
+       /* public IActionResult dressListOrderChanger(List<Jurk> jurken, string orderType)
         {
             List<Jurk> sortedJurken = new List<Jurk>();
 
             if (orderType == "ascending")
             {
-               sortedJurken = jurk.OrderBy(g => g.MinPrijs).ToList();
+               sortedJurken = jurken.OrderBy(g => g.MinPrijs).ToList();
             }
             else
             {
-               sortedJurken = jurk.OrderByDescending(g => g.MinPrijs).ToList();
+               sortedJurken = jurken.OrderByDescending(g => g.MinPrijs).ToList();
             }
 
             return PartialView("ProductsPartial", sortedJurken);
-        }
+        }*/
     }
 }
