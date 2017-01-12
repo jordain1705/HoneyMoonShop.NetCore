@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HoneymoonShop.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using HoneymoonShop.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace HoneymoonShop
 {
@@ -34,6 +36,8 @@ namespace HoneymoonShop
             String ConnectionString =
                 @"Data Source=honeymoonshop.database.windows.net;Initial Catalog=HoneyMoonShop;Integrated Security=False;User ID=Project6;Password=Honeymoon1;Connect Timeout=15;";
             services.AddDbContext<HoneyMoonShopContext>(options => options.UseSqlServer(ConnectionString));
+            services.AddTransient<IHoneymoonshopRepository, EfHoneymoonshopRepository>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

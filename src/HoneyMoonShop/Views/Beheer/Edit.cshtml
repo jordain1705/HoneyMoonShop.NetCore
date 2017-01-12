@@ -1,0 +1,44 @@
+﻿@model HoneymoonShop.Models.Jurk
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="JurkId" />
+    <div class="form-group">
+        <label asp-for="Artikelnummer"></label>
+        <div><span asp-validation-for="Artikelnummer" class="text-danger"></span></div>
+        <input asp-for="Artikelnummer" class="form-control" />
+    </div>
+<div class="form-group">
+    <label asp-for="Merk"></label>
+    <div><span asp-validation-for="Merk" class="text-danger"></span></div>
+    <input asp-for="Merk" class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="Stijl"></label>
+    <div><span asp-validation-for="Stijl" class="text-danger"></span></div>
+    <textarea asp-for="Stijl" class="form-control"></textarea>
+</div>
+<div class="form-group">
+    <label asp-for="MinPrijs"></label>
+    <div><span asp-validation-for="MinPrijs" class="text-danger"></span></div>
+    <input asp-for="MinPrijs" class="form-control" />
+</div>
+    <div class="form-group">
+        <label asp-for="MaxPrijs"></label>
+        <div><span asp-validation-for="MaxPrijs" class="text-danger"></span></div>
+        <input asp-for="MaxPrijs" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Neklijn"></label>
+        <div><span asp-validation-for="Neklijn" class="text-danger"></span></div>
+        <input asp-for="Neklijn" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Silhouette"></label>
+        <div><span asp-validation-for="Silhouette" class="text-danger"></span></div>
+        <input asp-for="Silhouette" class="form-control" />
+    </div>
+<div class="text-center">
+    <button class="btn btn-primary" type="submit">Save</button>
+    <a asp-action="Crud" class="btn btn-default">Cancel</a>
+</div>
+</form>

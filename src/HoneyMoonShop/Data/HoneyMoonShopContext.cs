@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using HoneymoonShop.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace HoneymoonShop.Models
+namespace HoneymoonShop.Data
 {
     public class HoneyMoonShopContext : DbContext
     {

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<HoneymoonShop.Models.Jurk>
+@{
+    Layout = "_HoneyMoon";
+}
+<div class="container" style="padding: 150px;">
+    <table class="table table-striped table-bordered table-condensed" style="padding: 100px;">
+        <tr>
+            <th class="text-right">Artikelnummer</th>
+            <th>Merk</th>
+            <th>Stijl</th>
+            <th class="text-right">Min Prijs</th>
+            <th class="text-right">Max Prijs</th>
+            <th>Neklijn</th>
+            <th>Silhouette</th>
+            <th class="text-center">Edit/Verwijderen</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-left">@item.Artikelnummer</td>
+                <td>@item.Merk</td>
+                <td>@item.Stijl</td>
+                <td class="text-right">@item.MinPrijs.ToString("c")</td>
+                <td class="text-right">@item.MaxPrijs.ToString("c")</td>
+                <td>@item.Neklijn</td>
+                <td>@item.Silhouette</td>
+                <td class="text-center">
+                    <form asp-action="Delete" method="post">
+                        <a asp-action="Edit" class="btn btn-sm btn-warning"
+                           asp-route-JurkId="@item.JurkId">
+                            Edit
+                        </a>
+                        <input type="hidden" name="JurkId" value="@item.JurkId" />
+                        <button type="submit" class="btn btn-danger btn-sm">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+    <div class="text-center">
+        <a asp-action="Create" class="btn btn-primary">Add Product</a>
+    </div>
+</div>
