@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,9 +15,25 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
 
+  
+</head>
+
+<div class="row pull-left">
+    <a>  <img src="~/Images/rarerug.png" height="400" width="1150" ></a>
+</div>
+<!-- dylans part">-->
+
+<div class="container" style="padding: 50px;">
+        @* https://docs.microsoft.com/en-us/aspnet/core/mvc/views/partial
+        https://cmatskas.com/update-an-mvc-partial-view-with-ajax/ *@
+    @Html.Partial("FilterPartial")
+
+    <div id="productPartial">
+        @Html.Partial("ProductsPartial")
+    </div>
     <script>
         $( document ).ready(function() {
-            var pageSize = 6;
+            var pageSize = 5;
             var pagesCount = $(".dresscontainer").length;
             var currentPage = 1;
 
@@ -62,22 +79,6 @@
             });
         });
     </script>
-</head>
-
-<div class="row pull-left">
-    <a>  <img src="~/Images/rarerug.png" height="400" width="1150" ></a>
-</div>
-<!-- dylans part">-->
-
-<div class="container" style="padding: 50px;">
-        @* https://docs.microsoft.com/en-us/aspnet/core/mvc/views/partial
-        https://cmatskas.com/update-an-mvc-partial-view-with-ajax/ *@
-    @Html.Partial("FilterPartial")
-
-    <div id="productPartial">
-        @Html.Partial("ProductsPartial")
-    </div>
-
     <div class="row">  
         <div class="col-md-12 pull-right">
             <nav class="text-center">

@@ -1,4 +1,5 @@
-﻿<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+﻿
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 
@@ -111,7 +112,7 @@
     </div>
 
     <div>
-        <button class="merkbutton" onclick="myFunction2()"><strong>STIJL</strong></button> <br>
+        <button class="merkbutton" onclick="myFunction2()"><strong>Stijl Jurk</strong></button> <br>
         <form name="filter"  method="get">
             @{var stijlen = (List<string>)ViewData["stijlen"]; }
 
@@ -133,7 +134,7 @@
         <p style="font-family: 'Oswald', sans-serif;padding-top:25px; "><strong>Filters verfijnen:</strong></p>
         <br>
         @{var neklijn = (List<string>)ViewData["neklijnen"]; }
-        <select id="neklijnDd" class="dropdown"  onchange="filterClick()">
+        <select id="neklijnDd" class="dropdown"  onchange="filterClick()"  style="height:20px ;color:dimgray">
             <!--does something when its selected(like get the dresses and reload them)-->
             <option value=0>Neklijn</option>
             @foreach (var item in neklijn)
@@ -143,7 +144,7 @@
         </select>
         <br>
         @{var silhouette = (List<string>)ViewData["silhouette"]; }
-        <select id="silhouetteDd" class="dropdown" onchange="filterClick()">
+        <select id="silhouetteDd" class="dropdown" onchange="filterClick()"  style="height:20px ;color:dimgray">
             <!--does something when its selected(like get the dresses and reload them)-->
             <option value=0>Silhouette</option>
             @foreach (var item in silhouette)
@@ -154,7 +155,7 @@
 
         <br>
         @{var kleuren = (List<string>)ViewData["kleuren"]; }
-        <select id="kleurenDd" class="dropdown" onchange="filterClick()">
+        <select id="kleurenDd" class="dropdown" onchange="filterClick()" style="height:20px ;color:dimgray">
             <!--does something when its selected(like get the dresses and reload them)-->
             <option value=0>Kleuren</option>
             @foreach (var item in kleuren)
@@ -165,7 +166,7 @@
         <br>
         <p style="font-family: 'Oswald', sans-serif;padding-top:25px; "><strong>Sorteren:</strong></p>
         <br />
-        <select id="orderBy" class="dropdown" onchange="filterClick()">
+        <select id="orderBy" class="dropdown" onchange="filterClick()" style="color:dimgray">
             <option value=descending>Prijs Hoog/Laag</option>
             <option value=ascending>Prijs Laag/Hoog</option>
         </select>
