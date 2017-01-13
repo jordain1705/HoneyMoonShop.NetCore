@@ -8306,6 +8306,7 @@ p:hover + .description {
 
 #a li {
     list-style-type: none;
+     cursor: pointer; cursor: hand; 
 }
 
 
