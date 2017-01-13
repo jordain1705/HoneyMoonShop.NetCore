@@ -1,0 +1,45 @@
+﻿<script>
+
+    function FilterMag() {
+        var filterMerk = ["Maggie Sottero"];
+        $.ajax({
+            type: "post",
+            url: '@Url.Action("FilterVerwerken", "Dressfinder")',
+            traditional: true,
+            data: { filterMerk }
+        }).done(function (result) {
+            $('#productPartial').html(result);
+        }).fail(function (errorThrown) {
+            alert('fail:');
+            console.log(errorThrown);
+        });
+    }
+
+</script>
+<div>
+
+    <div class=" col-md-12-pull-right">
+        <a href=@Url.Action("Dressfinder", "Dressfinder")><img src="~/Images/aboutdress.png" class="img-responsive" alt="summer sale!" /></a>
+    </div>
+
+
+
+
+    <div class="col-md-4 dresscontainer">
+        <a href=@Url.Action("Dressfinder", "Dressfinder")><img src="~/Images/winter.png" class="img-responsive" alt="wintercollectie" /></a>
+    </div>
+
+
+    <div class="col-md-4 dresscontainer">
+        <a onclick="FilterMag()">   <img src="~/Images/maggiesot.png" class="img-responsive" alt="maggie sotterro" /></a>
+
+    </div>
+
+    <div class="col-md-4 dresscontainer">
+        <a href="http://www.honeymoonwebshop.nl/shop/"><img src="~/Images/webshop.png" class="img-responsive" alt="webshop" /></a>
+    </div>
+
+
+
+
+</div>

@@ -35,14 +35,14 @@
         var e =  document.getElementById("checkboxStijl");
         e.style.display= (e.style.display === 'block')?'none': 'block';
     }
-    function customKnoppen(){
-        var orderType = document.getElementById("orderby");
-        var jurken = 
+
+</script>
+<script>
+
+    function AllDresses() {
         $.ajax({
             type: "post",
-            url: '@Url.Action("dressListOrderChanger", "Dressfinder")',
-            traditional:true,
-            data: {jurken, orderType}
+            url: '@Url.Action("FilterVerwerken", "Dressfinder")',
         }).done(function(result) {
             $('#productPartial').html(result);
         }).fail(function(errorThrown) {
@@ -50,12 +50,7 @@
             console.log(errorThrown);
         });
     }
-    
 
-</script>
-<script>
-    $( '#sliderRange' ).on( 'click', 'a', filterClick());
-    
     function filterClick() {
 
         var filterMerk = $('#checkboxMerk input:checkbox:checked').map(function() {
@@ -65,7 +60,7 @@
         var filterStijl = $('#checkboxStijl input:checkbox:checked').map(function() {
             return $(this).val();
         }).get();
-        
+
         var neklijnDd = $('#neklijnDd option:selected').text();
         var silhouetteDd = $('#silhouetteDd option:selected').text();
         var kleurenDd = $('#kleurenDd option:selected').text();
@@ -93,7 +88,7 @@
     <p style="padding-top:30px; font-family: 'Oswald', sans-serif"><strong>CATEGORIEËN:</strong></p>
     <button type="submit" class="button1" style="padding-left:10px;">Summer Sale</button> <br>
     <button type="submit" class="button1" style="padding-left:10px;">Nieuwe Collectie</button> <br>
-    <button type="submit" class="button1" style="padding-left:10px;">Alle jurken bekijken</button> <br>
+    <button type="submit" class="button1" onclick="AllDresses()" style="padding-left:10px;">Alle jurken bekijken</button> <br>
 
     <div>
         <p style="padding-top:30px; font-family: 'Oswald', sans-serif;"><strong>Filter op:</strong></p>
