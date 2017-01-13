@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using HoneymoonShop.Models;
+using System.Linq;
+using System.Collections.Generic;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -55,14 +57,87 @@ namespace HoneymoonShop.Controllers
 
             ViewData["pl3"] = img3;
 
+            using (var context = new HoneyMoonShopContext())
+            {
+                List<int> alleAccessoires = context.Accessoire.Select(q => q.AccessoireId).ToList();
+                List<Accessoire> juisteAccessoires = new List<Accessoire>();
+                List<string> vierAccesoires = new List<string>();
+                List<string> Accessoirelinks = new List<string>();
+                List<string> AccessoireMerk = new List<string>();
+                int hoogste = alleAccessoires.Count;
+                Random rnd = new Random(); //generate random to choose which accessoires will be displayed. 
 
 
+                for (int i = 0; i <= 4; i++)
+                {
+                    int actualrandom = rnd.Next(1, hoogste);
+                    foreach (var accesoire in context.Accessoire.Where(w => w.AccessoireId.Equals(actualrandom)))
+                    {
+                        // todo: schrijf hier een actual werkende query voor
+                        // pass dem accessoires to the view and get their artikelnummers .combine to make a string for images. 
+                        juisteAccessoires.Add(accesoire);
+                    }
+                }
 
+                for (int im = 0; im <= 4; im++)
+                {
+
+                    String plaatje = Convert.ToString(juisteAccessoires.ElementAt(im).AccessoireCode);
+                    String afr = "/Images/Accessoire/" + plaatje + ".jpg";
+                    vierAccesoires.Add(afr);
+                    Accessoirelinks.Add(juisteAccessoires.ElementAt(im).LinkNaarWebshop);
+                    AccessoireMerk.Add(juisteAccessoires.ElementAt(im).Merk);
+
+
+                    ViewData[("AccessoireLink" + im)] = Accessoirelinks.ElementAt(im);
+                    ViewData[("AccessoiresNum" + im)] = vierAccesoires.ElementAt(im);
+                    ViewData[("AccessoireMerk" + im)] = AccessoireMerk.ElementAt(im);
+
+                }
+
+                ViewData[("Accessoires")] = juisteAccessoires;
+
+            }
+
+            using (var context = new HoneyMoonShopContext())
+            {
+                List<int> alleJurken = context.Jurken.Select(q => q.JurkId).ToList();
+
+                List<Jurk> randJurken = new List<Jurk>();
+                List<string> jurkNaam = new List<string>();
+                List<string> jurkNummer = new List<string>();
+                int hoogste = alleJurken.Count();
+                var rnd = new Random();
+
+                for (int i = 0; i <= 4; i++)
+                {
+
+                    int actualrandom = rnd.Next(1, hoogste);
+                    foreach (var jurk in context.Jurken.Where(w => w.JurkId.Equals(actualrandom)))
+                    {
+                        randJurken.Add(jurk);
+                    }
+                }
+
+                for (int im = 0; im <= 4; im++)
+                {
+
+                    String plaatje = Convert.ToString(randJurken.ElementAt(im).Artikelnummer);
+                    String afr = "/Images/" + plaatje + "a.png"; //plaatje = rnadom jurk Id 
+                    jurkNummer.Add(afr);
+                    jurkNaam.Add(randJurken.ElementAt(im).Merk);
+
+                    ViewData[("RandJurk" + im)] = jurkNummer.ElementAt(im);
+                    ViewData[("JurkNaam" + im)] = jurkNaam.ElementAt(im);
+                }
+
+                ViewData[("AlleJurken")] = alleJurken;
+
+
+            }
 
             return View();
+
         }
-        //getjurkbyartikelnummermethod
-        // make a hhtpget and a route method 
-        //GET
     }
 }
