@@ -50,56 +50,58 @@
 
 
 
+<div class="container">
 
 
-
-<div class="col-md-9 contents " style="padding-top:40px;">
-    @using HoneymoonShop.Models
-    @{var curJurk = (List<Jurk>)ViewData["jurken"]; }
-    @{
-        //dit bepaald het aantal rows dat er komt. waarbij het 1 wordt zelfs als er niet 3 jurken zijn
-        var aantalRows = curJurk.Count() / 3;
-        if (curJurk.Count() % 3 > 0)
-        {
-            aantalRows += 1;
-        }
-    }
-    @for (int y = 0; y < aantalRows; y++)
-    {
-        <div class="row pull-left">
-            @{
-                //dit bepaald het aantal items die gepost worden op een row (3 max)
-                int aantalJurken;
-                if (curJurk.Count() - (y * 3) > 2)
-                {
-                    aantalJurken = 3;
-                }
-                else
-                {
-                    aantalJurken = curJurk.Count() % 3;
-                }
-            }
-            @for (int x = 0; x < aantalJurken; x++)
+    <div class="col-md-9 contents " style="padding-top:40px;">
+        @using HoneymoonShop.Models
+        @{var curJurk = (List<Jurk>)ViewData["jurken"]; }
+        @{
+            //dit bepaald het aantal rows dat er komt. waarbij het 1 wordt zelfs als er niet 3 jurken zijn
+            var aantalRows = curJurk.Count() / 3;
+            if (curJurk.Count() % 3 > 0)
             {
-                <div class="col-md-4 dresscontainer">
-                    @{ string image = "/Images/" + curJurk[x + (y * 3)].Artikelnummer + "a.png"; }
-                    <a href="@Url.Action("Artikelpagina", "Artikelpagina", curJurk[x + (y * 3)])">
-                        <img src=@image class="img-responsive mia" />
-                    </a>
-                    <p>
-                        <strong style="color: #000000"> @curJurk[x + (y * 3)].Merk </strong>
-                    </p>
-                    <div class="description">
-
+                aantalRows += 1;
+            }
+        }
+        @for (int y = 0; y < aantalRows; y++)
+        {
+            <div class="row pull-left">
+                @{
+                    //dit bepaald het aantal items die gepost worden op een row (3 max)
+                    int aantalJurken;
+                    if (curJurk.Count() - (y * 3) > 2)
+                    {
+                        aantalJurken = 3;
+                    }
+                    else
+                    {
+                        aantalJurken = curJurk.Count() % 3;
+                    }
+                }
+                @for (int x = 0; x < aantalJurken; x++)
+                {
+                    <div class="col-md-4 dresscontainer">
+                        @{ string image = "/Images/" + curJurk[x + (y * 3)].Artikelnummer + "a.png"; }
+                        <a href="@Url.Action("Artikelpagina", "Artikelpagina", curJurk[x + (y * 3)])">
+                            <img src=@image class="img-responsive mia" />
+                        </a>
                         <p>
-                            <strong style="color: #8C8481">@curJurk[x + (y * 3)].Artikelnummer</strong>
+                            <strong style="color: #000000"> @curJurk[x + (y * 3)].Merk </strong>
                         </p>
-                        <a> <img src="/Images/dots.png" height="20" width="40"></a>
+
+
+                        <p id="text1">
+                            <strong style="color: #8C8481">artikel nr. @curJurk[x + (y * 3)].Artikelnummer</strong>
+                        </p>
+                        <p id="text1"> <img src="/Images/dots.png" height="20" width="40"></p>
+
                     </div>
-                </div>
-                        }
-        </div>
-                        }
+                            }
+            </div>
+                            }
+    </div>
+
     <div class="row">
         <div class="col-md-12 pull-right">
             <nav class="text-center">
@@ -117,10 +119,11 @@
                 </ul>
             </nav>
         </div>
-        <div class="row pull-left">
-            <a>  <img src="~/Images/dressfinderfooter.png" height="450" width="1000"></a>
-        </div>
-
     </div>
+    <div class="row pull-left">
+        <a>  <img src="~/Images/dressfinderfooter.png" height="450" width="900"></a>
+    </div>
+
+
 </div>
 
