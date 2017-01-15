@@ -110,67 +110,31 @@ function imageswap(letter){
         <div class="col-md-12" align="center" style="padding-top: 30px">
             <h4><strong class="text-uppercase">Bijpassende sieraden</strong></h4>
 
-            @{ var AcMerken0 = ViewData["AccessoireMerk3"];}
-            @{ var AcArtikel0 = ViewData["AccessoiresNum3"];}
-            @{ var AcLink0 = ViewData["AccessoireLink3"];}
+            @{ var AcMerken = (List<string>)ViewData["AccessoireMerk"];}
+            @{ var AcArtikel = (List<string>)ViewData["AccessoiresNum"];}
+            @{ var AcLink = (List<string>)ViewData["AccessoireLink"];}
+            @{  int aantal = 4;
+                if (AcMerken.Count() < 5)
+                {
+                    aantal = AcMerken.Count();
 
-            @{ var AcMerken1 = ViewData["AccessoireMerk0"];}
-            @{ var AcArtikel1 = ViewData["AccessoiresNum0"];}
-            @{ var AcLink1 = ViewData["AccessoireLink0"];}
-
-            @{ var AcMerken2 = ViewData["AccessoireMerk1"];}
-            @{ var AcArtikel2 = ViewData["AccessoiresNum1"];}
-            @{ var AcLink2 = ViewData["AccessoireLink1"];}
-
-            @{ var AcMerken3 = ViewData["AccessoireMerk2"];}
-            @{ var AcArtikel3 = ViewData["AccessoiresNum2"];}
-            @{ var AcLink3 = ViewData["AccessoireLink2"];}
-
-
-
+                }
+            }
             <div class="row">
                 <span></span>
+                @{for (int i = 0; i < aantal; i++)
+                    {
                 <div class="col-md-3">
-                    <a class="sieranden-button" href=@AcLink0 target="_blank" style="color: #000000">
+                    <a class="sieranden-button" href=@AcLink[i] target="_blank" style="color: #000000">
 
-                        <img src=@AcArtikel0 class="img-responsive" alt="Een accessoire dat goed zou passen bij de door u gekozen jurk." width="230" height="200" />
+                        <img src=@AcArtikel[i] class="img-responsive" alt="Een accessoire dat goed zou passen bij de door u gekozen jurk." width="230" height="200" />
 
-                        <p class="pull-left"><strong>@AcMerken0</strong></p>
+                        <p class="pull-left"><strong>@AcMerken[i]</strong></p>
 
                     </a>
                 </div>
-
-                <div class="col-md-3">
-                    <a class="sieranden-button" href=@AcLink1 target="_blank" style="color: #000000">
-
-                        <img src=@AcArtikel1 class="img-responsive" alt="Een accessoire dat goed zou passen bij de door u gekozen jurk." width="230" height="200" />
-
-                        <p class="pull-left"><strong>@AcMerken1</strong></p>
-
-                    </a>
-                </div>
-
-
-                <div class="col-md-3">
-                    <a class="sieranden-button" href=@AcLink2 target="_blank" style="color: #000000">
-
-                        <img src=@AcArtikel2 class="img-responsive" alt="Een accessoire dat goed zou passen bij de door u gekozen jurk." width="230" height="200" />
-
-                        <p class="pull-left"><strong>@AcMerken2</strong></p>
-
-                    </a>
-                </div>
-
-                <div class="col-md-3">
-                    <a class="sieranden-button" href=@AcLink3 target="_blank" style="color: #000000">
-
-                        <img src=@AcArtikel3 class="img-responsive" alt="Een accessoire dat goed zou passen bij de door u gekozen jurk." width="230" height="200" />
-
-                        <p class="pull-left"><strong>@AcMerken3</strong></p>
-
-                    </a>
-                </div>
-
+                        }
+                }
             </div>
             <div style="padding-top: 20px">
                 <a class="pink-button" href="http://www.honeymoonshop.nl/bruid/accessoires/"><strong>bezoek de webshop</strong></a>

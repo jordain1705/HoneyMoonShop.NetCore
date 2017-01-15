@@ -60,43 +60,29 @@ namespace HoneymoonShop.Controllers
 
             using (var context = new HoneyMoonShopContext())
             {
-                List<int> alleAccessoires = context.Accessoire.Select(q => q.AccessoireId).ToList();
-                List<Accessoire> juisteAccessoires = new List<Accessoire>();
-                List<string> vierAccesoires = new List<string>();
+                var alleAccessoires = context.Accessoire.ToList();
+                var juisteAccessoires = new List<Accessoire>();
+                List<string> AccesoiresPlaatjes = new List<string>();
                 List<string> Accessoirelinks = new List<string>();
                 List<string> AccessoireMerk = new List<string>();
-                int hoogste = alleAccessoires.Count;
-                Random rnd = new Random(); //generate random to choose which accessoires will be displayed. 
-
-
-                for (int i = 0; i <= 4; i++)
+                Random rnd = new Random();
+                int hoogste = alleAccessoires.Count();
+                for (int i = 0; i < hoogste; i++)
                 {
-                    int actualrandom = rnd.Next(1, hoogste);
-                    foreach (var accesoire in context.Accessoire.Where(w => w.AccessoireId.Equals(actualrandom)))
-                    {
-                        // todo: schrijf hier een actual werkende query voor
-                        // pass dem accessoires to the view and get their artikelnummers .combine to make a string for images. 
-                        juisteAccessoires.Add(accesoire);
-                    }
+                   hoogste = alleAccessoires.Count();
+                   int actualRandom = rnd.Next(0, hoogste-1);
+                   juisteAccessoires.Add(alleAccessoires.ElementAt(actualRandom));
+                   alleAccessoires.RemoveAt(actualRandom);
+                   Accessoirelinks.Add(juisteAccessoires[i].LinkNaarWebshop);
+                   AccessoireMerk.Add(juisteAccessoires[i].Merk);
+                   String plaatje = Convert.ToString(juisteAccessoires.ElementAt(i).AccessoireCode);
+                   String afr = "/Images/Accessoire/" + plaatje + ".jpg";
+                   AccesoiresPlaatjes.Add(afr);
                 }
-
-                for (int im = 0; im <= 4; im++)
-                {
-
-                    String plaatje = Convert.ToString(juisteAccessoires.ElementAt(im).AccessoireCode);
-                    String afr = "/Images/Accessoire/" + plaatje + ".jpg";
-                    vierAccesoires.Add(afr);
-                    Accessoirelinks.Add(juisteAccessoires.ElementAt(im).LinkNaarWebshop);
-                    AccessoireMerk.Add(juisteAccessoires.ElementAt(im).Merk);
-
-
-                    ViewData[("AccessoireLink" + im)] = Accessoirelinks.ElementAt(im);
-                    ViewData[("AccessoiresNum" + im)] = vierAccesoires.ElementAt(im);
-                    ViewData[("AccessoireMerk" + im)] = AccessoireMerk.ElementAt(im);
-
-                }
-
-                ViewData[("Accessoires")] = juisteAccessoires;
+                ViewData["AccessoireLink"] = Accessoirelinks;
+                ViewData["AccessoiresNum"] = AccesoiresPlaatjes;
+                ViewData["AccessoireMerk"] = AccessoireMerk;
+                ViewData["Accessoires"] = juisteAccessoires;
 
             }
 
@@ -112,7 +98,6 @@ namespace HoneymoonShop.Controllers
 
                 for (int i = 0; i <= 4; i++)
                 {
-
                     int actualrandom = rnd.Next(1, hoogste);
                     foreach (var jurk in context.Jurken.Where(w => w.JurkId.Equals(actualrandom)))
                     {
