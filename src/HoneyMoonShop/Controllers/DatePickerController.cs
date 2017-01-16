@@ -15,7 +15,10 @@ namespace HoneymoonShop.Controllers
         {
             return View();
         }
-
+        public IActionResult DatePickerVoltooid()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult DatePicker(String datepicker)
         {
