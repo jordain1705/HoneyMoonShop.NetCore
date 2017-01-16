@@ -16,14 +16,12 @@ function imageswap(letter){
 </head>
 <div class="container">
     @{/* TODO: missing css classes? */}
-   <div class="row" style="margin-top: 10%;">
-        <div style="padding-left: 30px">
+    <div class="="row" style="margin-top: 5%">
         <a class="terug-button" href="#" style="color: #000000">Terug naar overzicht</a>
     </div>
-    </div>
-    <div class="row" style="margin-top: 5%;">
+    <div class="row">
         <div class="col-md-3" align="right">
-            <div class="row">
+            <div class="row" style="margin-top: 5%">
                 <div class="col-md-12" style="padding-bottom: 20px">
                     @{var imga = ViewData["pl1"];}
                     <img id="imga" img src=@imga class="img-responsive" alt="dress1" width="230" height="200" onclick="imageswap('a');" />
@@ -83,32 +81,6 @@ function imageswap(letter){
             </div>
         </div>
 
-
-        <style>
-            h4 {
-                display: inline-block;
-                padding: 0 15px;
-                position: relative;
-            }
-
-                h4:before, h4:after {
-                    background: black;
-                    content: "";
-                    display: block;
-                    height: 3px;
-                    position: absolute;
-                    top: 50%;
-                    width: 100%;
-                }
-
-                h4:before {
-                    right: 100%;
-                }
-
-                h4:after {
-                    left: 100%;
-                }
-        </style>
         <div class="col-md-12" align="center" style="padding-top: 30px">
             <h4><strong class="text-uppercase">Bijpassende sieraden</strong></h4>
 
@@ -135,7 +107,7 @@ function imageswap(letter){
 
                     </a>
                 </div>
-                        }
+                    }
                 }
             </div>
             <div style="padding-top: 20px">
@@ -147,46 +119,31 @@ function imageswap(letter){
         </div>
         <br />
 
-        @{ var jurken0 = ViewData["RandJurk0"];}
-        @{ var jurkNaam0 = ViewData["jurkNaam0"];}
+        @{ var jurkPlaatjes = (List<string>)ViewData["jurkPlaatjes"];}
+        @{ var jurkNamen = (List<string>)ViewData["jurkNamen"];}
+        @{ var jurkNummer = (List<int>)ViewData["jurkNummer"]; }
+        @{  int aantalR = 4;
+            if (jurkNamen.Count() < 5)
+            {
+                aantalR = jurkNamen.Count();
 
-        @{ var jurken1 = ViewData["RandJurk1"];}
-        @{ var jurkNaam1 = ViewData["jurkNaam1"];}
-
-        @{ var jurken2 = ViewData["RandJurk2"];}
-        @{ var jurkNaam2 = ViewData["jurkNaam2"];}
-
-        @{ var jurken3 = ViewData["RandJurk3"];}
-        @{ var jurkNaam3 = ViewData["jurkNaam3"];}
-
+            }
+        }
 
         <div class="col-md-12" align="center" style="padding-top: 30px">
             <h4><strong class="text-uppercase">of zijn deze jurken meer iets voor jou?</strong></h4>
             <div class="row">
-                <div class="col-md-3">
-                    <a class="jurken-button" href="#" style="color: #000000">
-                        <img src=@jurken0 class="img-responsive" alt="image_jurk">
-                        <p class="pull-left"><strong>@jurkNaam0</strong></p>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a class="jurken-button" href="#" style="color: #000000">
-                        <img src=@jurken1 class="img-responsive" alt="image_jurk">
-                        <p class="pull-left"><strong>@jurkNaam1</strong></p>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a class="jurken-button" href="#" style="color: #000000">
-                        <img src=@jurken2 class="img-responsive" alt="image_jurk">
-                        <p class="pull-left"><strong>@jurkNaam2</strong></p>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a class="jurken-button" href="#" style="color: #000000">
-                        <img src=@jurken3 class="img-responsive" alt="image_jurk">
-                        <p class="pull-left"><strong>@jurkNaam3</strong></p>
-                    </a>
-                </div>
+            @{for (int i = 0; i < aantalR; i++)
+                {
+                    <div class="col-md-3">
+                        <a class="jurken-button" href="@Url.Action("Artikelpagina", "Artikelpagina", jurkNummer[i])" style="color: #000000">
+                            <img src=@jurkPlaatjes[i] class="img-responsive" alt="image_jurk">
+                            <p class="pull-left"><strong>@jurkNamen[i]</strong></p>
+                        </a>
+                    </div>
+                }
+            }
+                
             </div>
         </div>
     </div>
