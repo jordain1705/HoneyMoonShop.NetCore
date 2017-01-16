@@ -77,7 +77,17 @@ namespace HoneymoonShop.Controllers
                 {
                     sortedJurken = orderedJurken.OrderByDescending(g => g.MinPrijs).ToList();
                 }
+                List<string> merken = new List<string>();
+                List<int> artikelNummers = new List<int>();
+                for (int i = 0; i < sortedJurken.Count(); i++)
+                {
+                    merken.Add(sortedJurken[i].Merk);
+                    artikelNummers.Add(sortedJurken[i].Artikelnummer);
+                }
+                ViewData["artikelNummers"] = artikelNummers;
+                ViewData["merken"] = merken;
                 ViewData["jurken"] = sortedJurken;
+
                 return PartialView("ProductsPartial", sortedJurken);
             }
         }

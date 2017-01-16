@@ -1,4 +1,5 @@
-﻿<script>
+﻿
+<script>
         $( document ).ready(function() {
             var pageSize = 5;
             var pagesCount = $(".dresscontainer").length;
@@ -54,12 +55,14 @@
 
 
     <div class="col-md-9 contents " style="padding-top:40px;">
-        @using HoneymoonShop.Models
+        @{var artikelnummer = (List<int>)ViewData["artikelNummers"]; }
+        @{var merk = (List<string>)ViewData["merken"]; }
+        @using HoneymoonShop.Models;
         @{var curJurk = (List<Jurk>)ViewData["jurken"]; }
         @{
             //dit bepaald het aantal rows dat er komt. waarbij het 1 wordt zelfs als er niet 3 jurken zijn
-            var aantalRows = curJurk.Count() / 3;
-            if (curJurk.Count() % 3 > 0)
+            var aantalRows = artikelnummer.Count() / 3;
+            if (artikelnummer.Count() % 3 > 0)
             {
                 aantalRows += 1;
             }
@@ -70,29 +73,31 @@
                 @{
                     //dit bepaald het aantal items die gepost worden op een row (3 max)
                     int aantalJurken;
-                    if (curJurk.Count() - (y * 3) > 2)
+                    if (artikelnummer.Count() - (y * 3) > 2)
                     {
                         aantalJurken = 3;
                     }
                     else
                     {
-                        aantalJurken = curJurk.Count() % 3;
+                        aantalJurken = artikelnummer.Count() % 3;
                     }
                 }
                 @for (int x = 0; x < aantalJurken; x++)
                 {
+                    
                     <div class="col-md-4 dresscontainer">
-                        @{ string image = "/Images/" + curJurk[x + (y * 3)].Artikelnummer + "a.png"; }
-                        <a href="@Url.Action("Artikelpagina", "Artikelpagina", curJurk[x + (y * 3)])">
+                        @{ string image = "/Images/" + artikelnummer[x + (y * 3)] + "a.png"; }
+                       
+                        <a href="@Url.Action("Artikelpagina","Artikelpagina",curJurk[x + (y * 3)])">
                             <img src=@image class="img-responsive mia" />
                         </a>
                         <p>
-                            <strong style="color: #000000"> @curJurk[x + (y * 3)].Merk </strong>
+                            <strong style="color: #000000"> @merk[x + (y * 3)] </strong>
                         </p>
 
 
                         <p id="text1">
-                            <strong style="color: #8C8481">artikel nr. @curJurk[x + (y * 3)].Artikelnummer</strong>
+                            <strong style="color: #8C8481">artikel nr. @artikelnummer[x + (y * 3)]</strong>
                         </p>
                         <p id="text1"> <img src="/Images/dots.png" height="20" width="40"></p>
 
