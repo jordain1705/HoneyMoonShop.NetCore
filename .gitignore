@@ -11,3 +11,6 @@ src/HoneymoonShop/bin/Debug/net452/win7-x64/HoneymoonShop.pdb
 src/HoneymoonShop/bin/Debug/net452/HoneymoonShop.pdb
 *.config
 /src/HoneymoonShop/bin/Debug
+*.IncrementalCache
+src/HoneyMoonShop/obj/Debug/net452/dotnet-compile-csc.rsp
+*.rsp
