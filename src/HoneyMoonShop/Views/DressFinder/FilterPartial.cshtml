@@ -94,7 +94,6 @@
         <p style="padding-top:30px; font-family: 'Oswald', sans-serif;"><strong>Filter op:</strong></p>
         <button class="merkbutton" onclick="myFunction()"><strong>Merk</strong></button> <br>
         <form id="filter" method="post">
-            @* todo:juiste manier *@
             @{var merken = (List<string>)ViewData["merken"]; }
             <div id="checkboxMerk">
                 @foreach (var item in merken)
