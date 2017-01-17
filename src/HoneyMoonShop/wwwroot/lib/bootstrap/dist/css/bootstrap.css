@@ -8457,7 +8457,19 @@ font-family: 'Raleway', sans-serif;
                     left: 100%;
                 }
 
+.tijd{
+  color: #FFF;
+}
 
+.testing{
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1em;
+  width: 5px;
+  height: 45px;
+  padding-left: -15px;
+  background-color: rgba(236, 240, 241 , 0.2);
+}
 
 
 
