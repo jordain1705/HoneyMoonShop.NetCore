@@ -21,7 +21,7 @@ namespace HoneymoonShop.Controllers
 
         public ViewResult Crud() => View(repository.Jurken);
 
-        public ViewResult Edit(int jurkId)
+        public ViewResult EditCustom(int jurkId)
         {
             Jurk jurk = repository.Jurken
                 .FirstOrDefault(p => p.JurkId == jurkId);
