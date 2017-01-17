@@ -8538,6 +8538,15 @@ ul.pagination li a.active {
     height: 30px;
 }
 
+.rarerug{
+height:100%;
+    width:97.4%;
+}
+.footerimage{
+    height:100%;
+    width:97.4%;
+}
+
 #menuoptie{
    border: none;
    outline:none;
@@ -8590,11 +8599,22 @@ body {
     margin-left: 10px;
 
 }
+.footerlinks{
+    font-size:small;
+
+}
+.footercollom2{
+
+}
 .box3{  font-size:90%;
         width: 30%;
         
     margin-left: 10px;
 
+}
+.rarerug{
+
+    width:99.8%;
 }
     #share-buttons img {
         width: 10%;
