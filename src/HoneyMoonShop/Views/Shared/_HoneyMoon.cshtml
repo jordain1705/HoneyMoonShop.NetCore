@@ -9,58 +9,90 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 </head>
 <body style="background:#FFF">
+    <script>
+function responsivemenu() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+function responsivemenu2() {
+    var x = document.getElementById("myTopnav2");
+    if (x.className === "topnav2") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav2";
+    }
+}
+    </script>
+
     <div class="container">
-        <nav class="navbar navbar-light bg-faded" style="background:#FAC9C4;margin-bottom:0px">
-            <ul class="nav navbar-nav col-md-8">
-                <li class="nav-item active text-uppercase">
-                    <a class="nav-link" href="#"><strong>website</strong> <span class="sr-only">(current)</span></a>
+        <nav>
+            <ul class="topnav2" id="myTopnav2">
+                <li>
+                    <a href="#"><strong style="color: #000000">website</strong> <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item text-uppercase">
-                    <a class="nav-link" href="#"><strong style="color: #F0597A">webshop</strong></a>
+                <li>
+                    <a href="#"><strong style="color: #F0597A">webshop</strong></a>
+                </li>
+
+                <li style="float:right">
+                    <a href="https://youtube.com" style="color: #000000"><strong style="color: #000000">T </strong>(010) 4126143</a>
+                </li>
+
+                <li style="float:right">
+                    <a class="active2" style="color: #000000" href="https://youtube.com">Wat zoek je ?</a>
+                </li>
+
+
+                <li class="icon">
+                    <a href="javascript:void(0);" style="font-size:15px; color:#F0597A;" onclick="responsivemenu2()">☰</a>
                 </li>
             </ul>
-            <div class="col-md-2 text-uppercase" style="margin-top: 15px">
-                <p><strong>T </strong>(010) 4126143</p>
-            </div>
-            <div class="col-md-2">
-                <input class="form-control" type="text" placeholder="Wat zoek je?">
-            </div>
         </nav>
+
         <div class="container">
-            <nav class="navbar navbar-light bg-faded" style="background-color : transparent;position:absolute">
-                <ul class="nav navbar-nav col-md-">
-                    <li class="nav-item text-uppercase">
-                        <a class="nav-link" href="https://youtube.com"><strong style="font-size: 200%; font-family: 'Times New Roman', Times, serif; color:#000000;">HONEYMOONSHOP </strong> <strong style="color:black;">&#169;</strong></a>
-                    </li>
-                    <li class="nav-item text-uppercase">
-                        <a class="nav-link" href="@Url.Action("Index", "Home")"><strong style="color: #F0597A">HOME</strong></a>
-                    </li>
-                    <li class="nav-item text-uppercase">
-                        <a class="nav-link" href="@Url.Action("Bruid", "Bruid")"><strong style="color:#000000">BRUID</strong></a>
-                    </li>
-                    <li class="nav-item text-uppercase">
-                        <a class="nav-link" href="https://youtube.com"><strong style="color: #000000">BRUIDEGOM</strong></a>
-                    </li>
-                    <li class="nav-item text-uppercase">
-                        <a class="nav-link" href="https://youtube.com"><strong style="color: #000000">DE WINKEL</strong></a>
+            <nav>
+                <ul class="topnav" id="myTopnav">
+
+
+
+                    <li>
+                        <a href="https://youtube.com"><strong style="font-size: 140%; font-family: 'Times New Roman', Times, serif; color:#000000;">HONEYMOONSHOP </strong> <strong style="color:black;">&#169;</strong></a>
                     </li>
 
-                    <li class="nav-item text-uppercase">
-                        <a class="nav-link" href="https://youtube.com"><strong style="color: #000000">BLOG</strong></a>
+                    <li>
+                        <a href="@Url.Action("Index", "Home")"><strong style="color: #F0597A">HOME</strong></a>
                     </li>
-                    <li class="nav-item text-uppercase">
-                        <a class="nav-link" href="https://youtube.com"><strong style="color: #000000">CONTACT</strong></a>
+                    <li>
+                        <a href="@Url.Action("Bruid", "Bruid")"><strong style="color:#000000">BRUID</strong></a>
                     </li>
-                    <li class="nav-item text-uppercase pull-right">
-                        <a class="nav-link" href="https://youtube.com"><strong style="background: #F0597A;border:15px solid #F0597A; ">AFSPRAAK MAKEN</strong></a>
+                    <li>
+                        <a href="https://youtube.com"><strong style="color: #000000">BRUIDEGOM</strong></a>
+                    </li>
+                    <li>
+                        <a href="https://youtube.com"><strong style="color: #000000">DE WINKEL</strong></a>
+                    </li>
+
+                    <li>
+                        <a href="https://youtube.com"><strong style="color: #000000">BLOG</strong></a>
+                    </li>
+                    <li>
+                        <a href="https://youtube.com"><strong style="color: #000000">CONTACT</strong></a>
+                    </li>
+                    <li>
+                        <a href="https://youtube.com"><strong style="background: #F0597A;border:15px solid #F0597A; color: #000000">AFSPRAAK MAKEN</strong></a>
+                    </li>
+                    <li class="icon">
+                        <a href="javascript:void(0);" style="font-size:15px; color:#F0597A;" onclick="responsivemenu()">☰</a>
                     </li>
                 </ul>
-                <div class="nav navbar-nav col-md-2">
-
-                </div>
             </nav>
+
             <div>
-                
+
                 @RenderBody()
             </div>
             <div class="container">
@@ -111,7 +143,7 @@
             <div class="row footerrow">
                 <div class="col-md-10">
                     <p class="text-center" style="padding-top:40px">
-                    Korte Hoogstraat 4 , 3001 Gl Rotterdam <strong>email</strong> info@honeymoonschop.nl <strong>tel</strong> (010) 412 61 43 <strong>whatsapp</strong> (06) 25199927
+                        Korte Hoogstraat 4 , 3001 Gl Rotterdam <strong>email</strong> info@honeymoonschop.nl <strong>tel</strong> (010) 412 61 43 <strong>whatsapp</strong> (06) 25199927
                     <p class="text-center">
                         <strong>Openeingstijden</strong> <strong>MA</strong> 12:00-17:30 <strong>DI t/m VR</strong> 09:30-17:30
                         <strong>ZA</strong> 09:30-18:00 <strong>DI t/M VR</strong> 11-17:00
