@@ -2001,7 +2001,7 @@ pre {
     margin-left: auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .container {
         width: 750px;
     }
@@ -8616,6 +8616,7 @@ body {
 
     width:99.8%;
 }
+
     #share-buttons img {
         width: 10%;
     }
