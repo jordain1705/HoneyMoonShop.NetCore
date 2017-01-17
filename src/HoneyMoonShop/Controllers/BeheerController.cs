@@ -56,6 +56,7 @@ namespace HoneymoonShop.Controllers
             }
         }
 
+        public ViewResult CreateCustom() => View("EditCustom", new Jurk());
         public ViewResult Create()
         {
             using (var context = new HoneyMoonShopContext())
