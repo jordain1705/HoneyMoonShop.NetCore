@@ -9,9 +9,12 @@ namespace HoneymoonShop.Data
     public interface IHoneymoonshopRepository
     {
         IEnumerable<Jurk> Jurken { get; }
+        IEnumerable<Afspraak> Afspraken { get; }
 
         void SaveJurk(Jurk jurk);
+        void SaveAfspraak(Afspraak afspraak);
 
         Jurk DeleteJurk(int id);
+        Afspraak DeleteAfspraak(int id);
     }
 }

@@ -15,6 +15,7 @@ namespace HoneymoonShop.Data
         }
 
         public IEnumerable<Jurk> Jurken => context.Jurken;
+        public IEnumerable<Afspraak> Afspraken => context.Afspraak;
 
         public void SaveJurk(Jurk jurk)
         {
@@ -47,6 +48,41 @@ namespace HoneymoonShop.Data
             if (dbEntry != null)
             {
                 context.Jurken.Remove(dbEntry);
+                context.SaveChanges();
+            }
+            return dbEntry;
+        }
+
+        public void SaveAfspraak(Afspraak afspraak)
+        {
+            if (afspraak.AfspraakId == 0)
+            {
+                context.Afspraak.Add(afspraak);
+            }
+            else
+            {
+                Afspraak dbEntry = context.Afspraak
+                    .FirstOrDefault(p => p.AfspraakId == afspraak.AfspraakId);
+                if (dbEntry != null)
+                {
+                    dbEntry.Achternaam = afspraak.Achternaam;
+                    dbEntry.Voornaam = afspraak.Voornaam;
+                    dbEntry.DatumTijd = afspraak.DatumTijd;
+                    dbEntry.EmailAdres = afspraak.EmailAdres;
+                    dbEntry.SoortAfspraak = afspraak.SoortAfspraak;
+                    dbEntry.TelefoonNummer = afspraak.TelefoonNummer;
+                    dbEntry.Trouwdatum = afspraak.Trouwdatum;
+                }
+            }
+            context.SaveChanges();
+        }
+        public Afspraak DeleteAfspraak(int afspraakId)
+        {
+            Afspraak dbEntry = context.Afspraak
+                .FirstOrDefault(p => p.AfspraakId == afspraakId);
+            if (dbEntry != null)
+            {
+                context.Afspraak.Remove(dbEntry);
                 context.SaveChanges();
             }
             return dbEntry;

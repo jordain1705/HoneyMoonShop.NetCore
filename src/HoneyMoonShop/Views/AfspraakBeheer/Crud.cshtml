@@ -1,0 +1,46 @@
+﻿@model IEnumerable<HoneymoonShop.Models.Afspraak>
+@{
+    Layout = "_HoneyMoon";
+}
+<div class="container" style="padding: 150px;">
+    <table class="table table-striped table-bordered table-condensed" style="padding: 100px;">
+        <tr>
+            <th class="text-right">Achternaam</th>
+            <th>Voornaam</th>
+            <th>Datum en Tijd</th>
+            <th>Email Adres</th>
+            <th>Soort Afspraak</th>
+            <th>TelefoonNummer</th>
+            <th>Trouw Datum</th>
+            <th class="text-center">Edit/Verwijderen</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-left">@item.Achternaam</td>
+                <td>@item.Voornaam</td>
+                <td>@item.DatumTijd</td>
+                <td>@item.EmailAdres</td>
+                <td>@item.SoortAfspraak</td>
+                <td>@item.TelefoonNummer</td>
+                <td>@item.Trouwdatum</td>
+                <td class="text-center">
+                    <form asp-action="Delete" method="post">
+                        <a asp-action="Edit" class="btn btn-sm btn-warning"
+                           asp-route-AfspraakId="@item.AfspraakId">
+                            Edit
+                        </a>
+                        <input type="hidden" name="AfspraakId" value="@item.AfspraakId" />
+                        <button type="submit" class="btn btn-danger btn-sm">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+    <div class="text-center">
+        <a asp-action="Create" class="btn btn-primary">Add Jurk</a>
+       <!-- <a asp-action="CreateCustom" class="btn btn-primary">Add Custom Jurk</a>-->
+    </div>
+</div>
