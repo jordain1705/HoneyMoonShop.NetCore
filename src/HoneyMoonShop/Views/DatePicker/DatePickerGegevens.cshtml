@@ -12,25 +12,26 @@
         <div class="row">
 
             <div class="row ">
-                <div class="col-md-12" style="height: 220px; margin-top: 50px;" align="center">
+                <div class="col-md-12" style="height: 100%; margin-top: 50px;" align="center">
                     <div class="colltekst" style="display: inline-block;">
-                        <h1 class="header-roze" style="position: relative; text-align: center; top: 0px; bottom: 0px; margin-left: 10%; margin-top: 26px; padding-top: 0px; padding-bottom: 0px; font-family: Georgia, Times, serif; color: #ffe5e8; font-size: 79px; font-style: italic; font-weight: 700;">Trouwjurken</h1>
-                        <p class="ondertitel" style="position: absolute; text-align: center; margin-top: -3%; margin-left: 15%; padding-top: 0px; padding-bottom: 5px; font-family: Verdana, Geneva, sans-serif; font-size: 24px; font-weight: 700; text-transform: uppercase;">Maak je pasafspraak</p>
+                        <h1 class="header-roze" >Trouwjurken</h1>
+                        <p class="ondertitel">Maak je pasafspraak</p>
                     </div>
                 </div>
             </div>
 
 
 
-            <div class="row" style="height:375px;">
+            <div class="" style="height:100%;">
 
 
                 <div class="col-md-7" align="left" style="padding:20px; box-shadow: 0px 0px 10px #e6e6e6;">
-                    <img src="~/Images/navStap2.png" class="img-responsive" alt="nav-bar" style="float: left;padding-top: 15px; padding-left:35px;padding-right: 20px;padding-bottom: 300px;" />
+                    <img  id="datepickerinvoervelden"src="~/Images/navStap2.png" class="img-responsive" alt="nav-bar"  />
 
-                    <h3><strong>Stap 2, Gegevens invullen</strong></h3>
+                    
                     <br />
                     <form action="demo_form.asp">
+                        <h3><strong>Stap 2, Gegevens invullen</strong></h3>
                         <p>Voor- en achternaam*</p>
                         <input type="text" name="naam" style="height: 30px" size="35"><br /><br />
                         <p>Trouwdatum*</p>
@@ -49,10 +50,10 @@
                 </div>
 
 
-                <div class="col-md-5" align="left" style="height:375px;background-color: #F0597A;padding-left: 50px;color: #fff">
+                <div class="col-md-5 gekozentijd" align="left" >
                     <h3>Gekozen tijd en datum:</h3>
                     <br />
-                    <p class="testing" align="center" style="padding: 15px; width: 350px; "><strong>DO 15 september 2016 om 9.30</strong></p>
+                    <p class="testing" align="center"><strong>DO 15 september 2016 om 9.30</strong></p>
                     <p style="text-wrap: normal">Vul je persoonkijke gegevens in om de<br /> pasafpraak compleet te maken.</p>
                     <a href="@Url.Action("DatePickerDatum", "DatePicker")" style="color: #FFF; line-height: 300px; vertical-align: bottom">Terug naar stap 1 om datum te wijzigen</a>
 
