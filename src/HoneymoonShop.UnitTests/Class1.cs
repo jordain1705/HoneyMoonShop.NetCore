@@ -5,30 +5,13 @@ using HoneymoonShop.Models;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Xunit.Sdk;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace HoneymoonShop.UnitTests
 {
     public class Class1
     {
-
-        [Fact]
-        public void PassingTest()
-        {
-            Assert.Equal(4, Add(2, 2));
-        }
-
-        [Fact]
-        public void FailingTest()
-        {
-            Assert.Equal(5, Add(2, 2));
-        }
-
-        int Add(int x, int y)
-        {
-            return x + y;
-        }
-
-
         [Fact]
         public void TestDelete()
         {
@@ -58,29 +41,35 @@ namespace HoneymoonShop.UnitTests
             Assert.Null(redirectToActionResult.ControllerName);
             Assert.Equal("Crud", redirectToActionResult.ActionName);
         }
-
-        public void FilterReturnedJuisteJurk()
+      
+        [Fact]
+        public void FilterVerwerkenReturnsJuisteJurk()
         {
             string[] filterMerk = { "Maggie Sottero" };
             string[] filterStijl = { "Kant" };
-            string neklijnDd =  "strapless";
-            string silhouetteDd =  "Fishtail" ;
+            string neklijnDd = "strapless";
+            string silhouetteDd = "Fishtail";
             string[] slider = { "1200", "2300" };
-            string orderType = "ascending";
             string kleurenDd = null;
             Jurk jurk1 = new Jurk() { JurkId = 34, Artikelnummer = 34, Merk = "Maggie Sottero", Stijl = "Kant", MinPrijs = 1200, MaxPrijs = 2300, Neklijn = "strapless", Silhouette = "Fishtail" };
-            Jurk jurk2 = new Jurk() { JurkId = 34, Artikelnummer = 012, Merk = "Ladybird", Stijl = "Kant", MinPrijs = 1200, MaxPrijs = 2300, Neklijn = "strapless", Silhouette = "Fishtail" };
-
+            Jurk jurk2 = new Jurk() { JurkId = 35, Artikelnummer = 012, Merk = "Ladybird", Stijl = "Kant", MinPrijs = 1200, MaxPrijs = 2300, Neklijn = "strapless", Silhouette = "Fishtail" };
+            Jurk jurk3 = new Jurk() { JurkId = 36, Artikelnummer = 012, Merk = "Ladybird", Stijl = "Verleidelijk", MinPrijs = 1200, MaxPrijs = 2300, Neklijn = "strapless", Silhouette = "Fishtail" };
+            // Arrange
+            // - create the mock repository
             Mock<IHoneymoonshopRepository> mock = new Mock<IHoneymoonshopRepository>();
+            mock.Setup(m => m.Jurken).Returns(new List<Jurk>()  {
+              jurk1, jurk2, jurk3
+            }.AsQueryable());
+
+            // Arrange - create a controller
             DressFinderController dtf = new DressFinderController();
-            var result = dtf.FilterVerwerken(filterMerk, filterStijl, neklijnDd, silhouetteDd, kleurenDd ,slider, orderType);
 
-            var redirectToActionResult = Assert.IsType<RedirectToActionResult>(result);
-            Assert.Null(redirectToActionResult.ControllerName);
-            Assert.Equal("ProductsPartial", redirectToActionResult.ActionName);
+            // Action
+            PartialViewResult result = (PartialViewResult)dtf.FilterVerwerken(filterMerk, filterStijl, neklijnDd, silhouetteDd, kleurenDd, slider, null);
 
-            // string[] filterMerk, string[] filterStijl, string neklijnDd, string silhouetteDd, string kleurenDd, string[] slider, string orderType 
-
+            // Assert
+            Assert.Equal(((IEnumerable<Jurk>)result.ViewData.Model).Count(), 1);
+            Assert.True(((IEnumerable<Jurk>)result.ViewData.Model).Count(j => j.Merk == "Maggie Sottero") == 1);
         }
     }
 }   
