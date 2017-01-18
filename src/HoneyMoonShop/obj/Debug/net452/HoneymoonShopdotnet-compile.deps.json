@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETFramework,Version=v4.5.2/",
-    "signature": "304c690113775e2b5a85adfeaee422c8762d0aec"
+    "signature": "64c0f347da920ef9dfe97cd7bca060722d66207f"
   },
   "compilationOptions": {
     "defines": [
@@ -32,10 +32,16 @@
           "Microsoft.Extensions.Logging.Console": "1.0.0",
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
-          "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0"
+          "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
+          "Moq": "4.5.30"
         },
         "compile": {
           "HoneymoonShop.exe": {}
+        }
+      },
+      "Castle.Core/3.3.3": {
+        "compile": {
+          "lib/net45/Castle.Core.dll": {}
         }
       },
       "Libuv/1.9.0": {
@@ -862,6 +868,14 @@
           "lib/net451/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
         }
       },
+      "Moq/4.5.30": {
+        "dependencies": {
+          "Castle.Core": "3.3.3"
+        },
+        "compile": {
+          "lib/net45/Moq.dll": {}
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -1240,10 +1254,16 @@
           "Microsoft.Extensions.Logging.Console": "1.0.0",
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
-          "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0"
+          "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
+          "Moq": "4.5.30"
         },
         "runtime": {
           "HoneymoonShop.exe": {}
+        }
+      },
+      "Castle.Core/3.3.3": {
+        "runtime": {
+          "lib/net45/Castle.Core.dll": {}
         }
       },
       "Libuv/1.9.0": {
@@ -2066,6 +2086,14 @@
           "lib/net451/Microsoft.VisualStudio.Web.BrowserLink.Loader.dll": {}
         }
       },
+      "Moq/4.5.30": {
+        "dependencies": {
+          "Castle.Core": "3.3.3"
+        },
+        "runtime": {
+          "lib/net45/Moq.dll": {}
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -2252,6 +2280,11 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Castle.Core/3.3.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tvVrLbHhtAGubUUDbEkH9JlivdlJOTI25u3hlyHpPxuJdTVi/yVQKWCYvGpafGPm7G1ibdWj4brqhtSQkAmN+g=="
     },
     "Libuv/1.9.0": {
       "type": "package",
@@ -2662,6 +2695,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-f01OAOfsctcN7gSa05qYK8AgU1E/BFeZizvszNJMXY3BMJbYSj+3+YqyLunkMSf7LN92kcl7gQsAY9FayEH3ag=="
+    },
+    "Moq/4.5.30": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+PsSIGUQmEqgS9JJ87lRJXExkR2sTSGC3Rg6v/gJ4zObsI+AaGLxvHvG/oeUnS4zZW6gMw9wCDA4w0Jf+qo+vA=="
     },
     "NETStandard.Library/1.6.1": {
       "type": "package",

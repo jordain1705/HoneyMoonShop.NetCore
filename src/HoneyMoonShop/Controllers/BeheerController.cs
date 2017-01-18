@@ -21,13 +21,28 @@ namespace HoneymoonShop.Controllers
 
         public ViewResult Crud() => View(repository.Jurken);
 
-        public ViewResult Edit(int jurkId) =>
-            View(repository.Jurken
-                .FirstOrDefault(p => p.JurkId == jurkId));
+        public ViewResult EditCustom(int jurkId)
+        {
+            Jurk jurk = repository.Jurken
+                .FirstOrDefault(p => p.JurkId == jurkId);
+
+            List<string> alleMerken = repository.Jurken.Select(g => g.Merk).Distinct().ToList();
+            ViewData["merken"] = alleMerken;
+            List<string> alleStijlen = repository.Jurken.Select(g => g.Stijl).Distinct().ToList();
+            ViewData["stijlen"] = alleStijlen;
+            List<string> neklijnen = repository.Jurken.Select(g => g.Neklijn).Distinct().ToList();
+            ViewData["neklijnen"] = neklijnen;
+            List<string> silhouettes = repository.Jurken.Select(g => g.Silhouette).Distinct().ToList();
+            ViewData["silhouettes"] = silhouettes;
+
+            return View(jurk);
+        }
+           
 
         [HttpPost]
         public IActionResult Edit(Jurk jurk)
         {
+
             if (ModelState.IsValid)
             {
                 repository.SaveJurk(jurk);
@@ -41,7 +56,33 @@ namespace HoneymoonShop.Controllers
             }
         }
 
-        public ViewResult Create() => View("Edit", new Jurk());
+        public ViewResult CreateCustom() => View("EditCustom", new Jurk());
+        public ViewResult Create()
+        {
+            using (var context = new HoneyMoonShopContext())
+            {
+                // .Where(b => b.Artikelnummer.Equals(12649));
+                List<string> alleMerken = context.Jurken.Select(g => g.Merk).Distinct().ToList();
+                ViewData["merken"] = alleMerken;
+
+                List<string> alleStijlen = context.Jurken.Select(g => g.Stijl).Distinct().ToList();
+                ViewData["stijlen"] = alleStijlen;
+                List<int> minprijs = context.Jurken.Select(g => g.MinPrijs).ToList();
+
+                ViewData["minprijs"] = minprijs.Min();
+
+                List<int> maxprijs = context.Jurken.Select(g => g.MaxPrijs).ToList();
+                ViewData["maxprijs"] = maxprijs.Max();
+
+                List<string> neklijnen = context.Jurken.Select(g => g.Neklijn).Distinct().ToList();
+                ViewData["neklijnen"] = neklijnen;
+
+                List<string> silhouettes = context.Jurken.Select(g => g.Silhouette).Distinct().ToList();
+                ViewData["silhouettes"] = silhouettes;
+
+                return View("Edit", new Jurk());
+            }
+        }
 
         [HttpPost]
         public IActionResult Delete(int jurkId)
@@ -53,6 +94,5 @@ namespace HoneymoonShop.Controllers
             }
             return RedirectToAction("Crud");
         }
-
     }
 }

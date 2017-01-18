@@ -26,7 +26,7 @@
                 <td>@item.Silhouette</td>
                 <td class="text-center">
                     <form asp-action="Delete" method="post">
-                        <a asp-action="Edit" class="btn btn-sm btn-warning"
+                        <a asp-action="EditCustom" class="btn btn-sm btn-warning"
                            asp-route-JurkId="@item.JurkId">
                             Edit
                         </a>
@@ -40,6 +40,7 @@
         }
     </table>
     <div class="text-center">
-        <a asp-action="Create" class="btn btn-primary">Add Product</a>
+        <a asp-action="Create" class="btn btn-primary">Add Jurk</a>
+        <a asp-action="CreateCustom" class="btn btn-primary">Add Custom Jurk</a>
     </div>
 </div>
