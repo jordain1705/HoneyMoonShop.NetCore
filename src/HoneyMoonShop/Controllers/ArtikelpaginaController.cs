@@ -46,6 +46,7 @@ namespace HoneymoonShop.Controllers
                 ViewData["pl1"] = img1;
                 ViewData["pl2"] = img2;
                 ViewData["pl3"] = img3;
+
                 //hieronder laad het de bijbehorende accesoires(random)
                 var alleAccessoires = context.Accessoire.ToList();
                 var juisteAccessoires = new List<Accessoire>();

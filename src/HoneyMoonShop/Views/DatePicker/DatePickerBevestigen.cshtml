@@ -1,0 +1,63 @@
+﻿@{
+    Layout = "_HoneyMoon";
+    ViewData["Title"] = "Afsraak Pagina";
+}
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div class="container">
+
+        <div class="row ">
+            <div class="col-md-12" style="height: 220px; margin-top: 50px;" align="center">
+                <div class="colltekst" style="display: inline-block;">
+                    <h1 class="header-roze" style="position: relative; text-align: center; top: 0px; bottom: 0px; margin-left: 10%; margin-top: 26px; padding-top: 0px; padding-bottom: 0px; font-family: Georgia, Times, serif; color: #ffe5e8; font-size: 79px; font-style: italic; font-weight: 700;">Trouwjurken</h1>
+                    <p class="ondertitel" style="position: absolute; text-align: center; margin-top: -3%; margin-left: 15%; padding-top: 0px; padding-bottom: 5px; font-family: Verdana, Geneva, sans-serif; font-size: 24px; font-weight: 700; text-transform: uppercase;">Maak je pasafspraak</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row" style="box-shadow: 0px 0px 10px #e6e6e6">
+            <div class="col-md-2" align="left">
+                <img src="~/Images/navStap3.png" class="img-responsive" alt="nav-bar" style="padding-top: 15px; padding-left:35px;" />
+            </div>
+
+            <div class="col-md-5" align="left" style="height:375px; padding-top: 30px;">
+                <h3><strong>Stap 3, Gegevens controleren</strong></h3>
+                <p style="text-wrap: normal">Controleer alle gegevens voor je <br />pasafspraak bij Honeymoon shop aan <br /> Korte Hoogstraat 4, te Rotterdam.</p>
+                <br />
+                <br />
+                <a class="pink-button" href=""><strong>Afspraak bevestigen</strong></a>
+            </div>
+
+            <div class="col-md-5" align="left" style="height:375px;background-color: #F0597A;padding-left: 50px;">
+                <h3 style="color: #fff">Controleer je Gegevens:</h3>
+                <br />
+                <table style="color: #fff">
+                    <tr>
+                        <th><strong>Naam:</strong></th>
+                        <th style="text-indent: 10%"></th>
+                    </tr>
+                    <tr>
+                        <th><strong>Trouwdatum:</strong></th>
+                        <th style="text-indent: 10%"></th>
+                    </tr>
+                    <tr>
+                        <th><strong>Telefoon:</strong></th>
+                        <th style="text-indent: 10%"></th>
+                    </tr>
+                    <tr>
+                        <th><strong>E-mail:</strong></th>
+                        <th style="text-indent: 10%"></th>
+                    </tr>
+                </table></p>
+                <a href="@Url.Action("DatePickerGegevens", "DatePicker")" style="color: #FFF; line-height: 350px; vertical-align: bottom">Terug naar stap 2 om gegevens te wijzigen</a>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
