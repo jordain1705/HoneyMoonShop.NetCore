@@ -48,6 +48,7 @@ namespace HoneymoonShop.Controllers
         {
             using (var context = new HoneyMoonShopContext())
             {
+
                 Models.Afspraak afspraak = new Models.Afspraak();
                 Models.JurkAfspraak jurkAfspraak = new Models.JurkAfspraak();
                 jurkAfspraak.Afspraak = afspraak;
@@ -76,11 +77,11 @@ namespace HoneymoonShop.Controllers
                 return View(afspraak);
             }
         }
-        public IActionResult DatePickerTime(Models.Afspraak afspraak)
+        public IActionResult DatePickerTijd(Models.Afspraak afspraak)
         {
             using (var context = new HoneyMoonShopContext())
             {
-                //get available times on thed ate and return them to the view
+                //get available times on the date and return them to the view
                 var mogelijkeTijden = new List<DateTime>();
                 var date1 = new DateTime(afspraak.DatumTijd.Year, afspraak.DatumTijd.Month, afspraak.DatumTijd.Day, 9, 30, 0);
                 var date2 = new DateTime(afspraak.DatumTijd.Year, afspraak.DatumTijd.Month, afspraak.DatumTijd.Day, 12, 30, 0);
@@ -95,7 +96,7 @@ namespace HoneymoonShop.Controllers
             }
         }
 
-        public ActionResult DatePickerGegeven(Models.Afspraak afspraak)
+        public ActionResult DatePickerGegevens(Models.Afspraak afspraak)
         {
             //eerst in view de datum aan de afspraak toevoegen, dan die afspraak meegeven aan deze functie
             //return de afspraak to the datePickerGegevens
@@ -119,19 +120,5 @@ namespace HoneymoonShop.Controllers
             // go to the voltooid view
             return View();
         }
-
-        public IActionResult DatePickerTijd()
-            {  
-                return View();  
-            }  
-            public IActionResult DatePickerGegevens()
-            {  
-                return View();  
-            }  
-            public IActionResult DatePickerBevestigen()
-           {  
-                return View();  
-            }  
-
     }
 }
