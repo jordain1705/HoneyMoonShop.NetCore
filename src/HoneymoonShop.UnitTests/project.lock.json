@@ -4265,10 +4265,10 @@
           "xunit.core": "2.1.0"
         },
         "compile": {
-          "netcoreapp1.0/HoneymoonShop.dll": {}
+          "netcoreapp1.0/HoneyMoonShop.dll": {}
         },
         "runtime": {
-          "netcoreapp1.0/HoneymoonShop.dll": {}
+          "netcoreapp1.0/HoneyMoonShop.dll": {}
         }
       }
     }
@@ -10993,7 +10993,7 @@
     "HoneymoonShop/1.0.0": {
       "type": "project",
       "path": "../HoneymoonShop/project.json",
-      "msbuildProject": "../HoneymoonShop/HoneymoonShop.xproj"
+      "msbuildProject": "../HoneymoonShop/HoneyMoonShop.xproj"
     }
   },
   "projectFileDependencyGroups": {
