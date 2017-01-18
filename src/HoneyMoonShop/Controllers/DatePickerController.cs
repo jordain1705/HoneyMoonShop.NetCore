@@ -51,5 +51,19 @@ namespace HoneymoonShop.Controllers
             //check for reportName parameter value now
             //to do : Return something
         }
+
+        public IActionResult DatePickerTijd()
+            {  
+                return View();  
+            }  
+            public IActionResult DatePickerGegevens()
+            {  
+                return View();  
+            }  
+            public IActionResult DatePickerBevestigen()
+           {  
+                return View();  
+            }  
+
     }
 }
