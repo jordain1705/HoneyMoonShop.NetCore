@@ -8547,6 +8547,11 @@ height:100%;
     width:97.4%;
 }
 
+
+
+
+
+
 #menuoptie{
    border: none;
    outline:none;
@@ -8701,6 +8706,61 @@ body {
 #date-pick-container .show-date-pick {
   display: block;
 }
+
+@media only screen and (max-width: 800px) {
+body {
+        background: lightblue;
+    }
+
+.box1{  font-size:90%;
+        width: 30%;
+        
+    margin-left: 10px;
+
+
+}
+.box2{  font-size:90%;
+        width: 30%;
+        
+    margin-left: 10px;
+
+}
+.footerlinks{
+    font-size:small;
+
+}
+.footercollom2{
+
+}
+.box3{  font-size:90%;
+        width: 30%;
+        
+    margin-left: 10px;
+
+}
+
+.terugbutton{
+    margin-top:30%;
+}
+.rarerug{
+
+    width:99.8%;
+}
+
+    #share-buttons img {
+        width: 10%;
+    }
+
+    .navbar-nav > li > a{
+        font-size:20%;
+    }
+   
+}
+
+.active2{
+ background-color: #fff;
+}
+
 
 
 
