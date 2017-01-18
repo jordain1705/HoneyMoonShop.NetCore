@@ -2001,7 +2001,7 @@ pre {
     margin-left: auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .container {
         width: 750px;
     }
@@ -8197,6 +8197,120 @@ button.close {
         background: white;
     }
 }
+
+
+
+/* http://www.w3schools.com/howto/howto_js_topnav.asp */
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: transparent;
+    position:absolute;
+}
+
+
+
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+
+ul.topnav li a:hover {background-color: transparent;}
+
+
+ul.topnav li.icon {display: none;}
+
+@media screen and (max-width:900px) {
+  ul.topnav li:not(:first-child) {display: none;}
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
+   
+  }
+}
+
+@media screen and (max-width:900px) {
+  ul.topnav.responsive {position: relative;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
+}
+
+
+
+
+ul.topnav2 {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #FAC9C4;
+}
+
+ul.topnav2 li {float: left;}
+
+ul.topnav2 li a {
+  display: inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+ul.topnav2 li a:hover {background-color: transparent;}
+
+ul.topnav2 li.icon {display: none;}
+
+@media screen and (max-width:900px) {
+  ul.topnav2 li:not(:first-child) {display: none;}
+  ul.topnav2 li.icon {
+    float: right;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width:900px) {
+  ul.topnav2.responsive {position: relative;}
+  ul.topnav2.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.topnav2.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav2.responsive li a {
+    display: block;
+    text-align: left;
+  }
+}
+
+
+
     .box1{
 
   background-color: #F0597C ;
@@ -8424,9 +8538,26 @@ ul.pagination li a.active {
     height: 30px;
 }
 
+.rarerug{
+height:100%;
+    width:97.4%;
+}
+.footerimage{
+    height:100%;
+    width:97.4%;
+}
+
+
+
+
+
+
 #menuoptie{
    border: none;
    outline:none;
+}
+.terugbutton{
+    margin-top:5%;
 }
 
 #checkboxMerk{
@@ -8456,6 +8587,12 @@ font-family: 'Raleway', sans-serif;
                 h4:after {
                     left: 100%;
                 }
+
+                
+@media only screen and (max-width: 800px) {
+body {
+        background: lightblue;
+    }
 
 .tijd{
   color: #FFF;
@@ -8501,8 +8638,6 @@ font-family: 'Raleway', sans-serif;
   -ms-user-select: none;
   user-select: none;
 }
-
-
 #date-pick-container .date-pick .date-pick-body {
   font-size: 0;
   height: 100%;
@@ -8571,6 +8706,61 @@ font-family: 'Raleway', sans-serif;
 #date-pick-container .show-date-pick {
   display: block;
 }
+
+@media only screen and (max-width: 800px) {
+body {
+        background: lightblue;
+    }
+
+.box1{  font-size:90%;
+        width: 30%;
+        
+    margin-left: 10px;
+
+
+}
+.box2{  font-size:90%;
+        width: 30%;
+        
+    margin-left: 10px;
+
+}
+.footerlinks{
+    font-size:small;
+
+}
+.footercollom2{
+
+}
+.box3{  font-size:90%;
+        width: 30%;
+        
+    margin-left: 10px;
+
+}
+
+.terugbutton{
+    margin-top:30%;
+}
+.rarerug{
+
+    width:99.8%;
+}
+
+    #share-buttons img {
+        width: 10%;
+    }
+
+    .navbar-nav > li > a{
+        font-size:20%;
+    }
+   
+}
+
+.active2{
+ background-color: #fff;
+}
+
 
 
 
