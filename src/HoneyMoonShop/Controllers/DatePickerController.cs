@@ -17,7 +17,7 @@ namespace HoneymoonShop.Controllers
             return View() ;
         }*/
         public IActionResult DatePickerDatum()
-        {
+        { 
             using (var context = new HoneyMoonShopContext())
             {
                 DateTime localDate = DateTime.Now;
