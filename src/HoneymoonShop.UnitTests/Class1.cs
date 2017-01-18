@@ -46,11 +46,12 @@ namespace HoneymoonShop.UnitTests
         public void FilterVerwerkenReturnsJuisteJurk()
         {
             string[] filterMerk = { "Maggie Sottero" };
-            string[] filterStijl = { "Kant" };
-            string neklijnDd = "strapless";
-            string silhouetteDd = "Fishtail";
-            string[] slider = { "1200", "2300" };
+            string[] filterStijl = {}; // { "Kant" };
+            string neklijnDd = null;// "strapless";
+            string silhouetteDd = null; //"Fishtail";
+            string[] slider = {}; //{ "1200", "2300" };
             string kleurenDd = null;
+            /*
             Jurk jurk1 = new Jurk() { JurkId = 34, Artikelnummer = 34, Merk = "Maggie Sottero", Stijl = "Kant", MinPrijs = 1200, MaxPrijs = 2300, Neklijn = "strapless", Silhouette = "Fishtail" };
             Jurk jurk2 = new Jurk() { JurkId = 35, Artikelnummer = 012, Merk = "Ladybird", Stijl = "Kant", MinPrijs = 1200, MaxPrijs = 2300, Neklijn = "strapless", Silhouette = "Fishtail" };
             Jurk jurk3 = new Jurk() { JurkId = 36, Artikelnummer = 012, Merk = "Ladybird", Stijl = "Verleidelijk", MinPrijs = 1200, MaxPrijs = 2300, Neklijn = "strapless", Silhouette = "Fishtail" };
@@ -60,7 +61,7 @@ namespace HoneymoonShop.UnitTests
             mock.Setup(m => m.Jurken).Returns(new List<Jurk>()  {
               jurk1, jurk2, jurk3
             }.AsQueryable());
-
+            */
             // Arrange - create a controller
             DressFinderController dtf = new DressFinderController();
 
