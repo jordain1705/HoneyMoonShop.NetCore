@@ -1,0 +1,49 @@
+﻿@model HoneymoonShop.Models.Afspraak
+
+@{
+    Layout = "_HoneyMoon";
+}
+
+<form asp-action="Edit" method="post" style="margin-top: 80px">
+    <input type="hidden" asp-for="AfspraakId" />
+    <div class="form-group">
+        <label asp-for="Achternaam"></label>
+        <div><span asp-validation-for="Achternaam" class="text-danger"></span></div>
+        <input asp-for="Achternaam" class="form-control" style="box-shadow:2px 2px 2px #FAC9C4" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Voornaam"></label>
+        <div><span asp-validation-for="Voornaam" class="text-danger"></span></div>
+        <input id="MerkForm" asp-for="Voornaam" class="form-control" style="box-shadow:2px 2px 2px #FAC9C4" />
+
+    </div>
+    <div class="form-group">
+        <label asp-for="DatumTijd"></label>
+        <div><span asp-validation-for="DatumTijd" class="text-danger"></span></div>
+        <input asp-for="DatumTijd" class="form-control" style="box-shadow:2px 2px 2px #FAC9C4" />
+    </div>
+    <div class="form-group">
+        <label asp-for="EmailAdres"></label>
+        <div><span asp-validation-for="EmailAdres" class="text-danger"></span></div>
+        <input asp-for="EmailAdres" class="form-control" style="box-shadow:2px 2px 2px #FAC9C4" />
+    </div>
+    <div class="form-group">
+        <label asp-for="SoortAfspraak"></label>
+        <div><span asp-validation-for="SoortAfspraak" class="text-danger"></span></div>
+        <input asp-for="SoortAfspraak" class="form-control" style="box-shadow:2px 2px 2px #FAC9C4" />
+    </div>
+    <div class="form-group">
+        <label asp-for="TelefoonNummer"></label>
+        <div><span asp-validation-for="TelefoonNummer" class="text-danger"></span></div>
+        <input asp-for="TelefoonNummer" class="form-control" style="box-shadow:2px 2px 2px #FAC9C4" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Trouwdatum"></label>
+        <div><span asp-validation-for="Trouwdatum" class="text-danger"></span></div>
+        <input asp-for="Trouwdatum" class="form-control" style="box-shadow:2px 2px 2px #FAC9C4" />
+    </div>
+    <div class="text-center">
+        <button class="btn btn-primary" type="submit">Save</button>
+        <a asp-action="Crud" class="btn btn-default">Cancel</a>
+    </div>
+</form>
