@@ -8358,6 +8358,12 @@ ul.topnav2 li.icon {display: none;}
   font-family: 'Pacifico', cursive;
 }
 
+.header-roze{
+    position: relative; text-align: center; top: 0px; bottom: 0px; margin-left: 10%; margin-top: 26px; padding-top: 0px; padding-bottom: 0px; font-family: Georgia, Times, serif; color: #ffe5e8; font-size: 79px; font-style: italic; font-weight: 700;
+}
+.ondertitel{
+    position: absolute; text-align: center; margin-top: -3%; margin-left: 15%; padding-top: 0px; padding-bottom: 5px; font-family: Verdana, Geneva, sans-serif; font-size: 24px; font-weight: 700; text-transform: uppercase;
+}
 .dresscontainer{
    width: 230px;
     height: 390px;
@@ -8588,11 +8594,15 @@ font-family: 'Raleway', sans-serif;
                     left: 100%;
                 }
 
-                
-@media only screen and (max-width: 800px) {
-body {
-        background: lightblue;
-    }
+    .timepicker{
+        height:400px;background-color: #F0597A;
+        padding-left: 50px;
+       
+    }   
+    .timepickertext{
+        height:375px; padding-top: 25px; padding-bottom: 25px
+    }         
+
 
 .tijd{
   color: #FFF;
@@ -8602,15 +8612,17 @@ body {
   text-transform: uppercase;
   text-align: center;
   font-size: 1em;
-  width: 5px;
+ 
   height: 45px;
   padding-left: -15px;
   background-color: rgba(236, 240, 241 , 0.2);
+  padding: 15px; width: 350px;color:#fff;font-size: 1.2em;
 }
 
 #date-pick-container * {
   box-sizing: border-box;
 }
+
 #date-pick-container .modal-bg {
   top: 0;
   left: 0;
@@ -8725,18 +8737,32 @@ body {
     margin-left: 10px;
 
 }
+.testing{
+    width:150px;
+    padding-left:0px;
+    height:80px;
+
+}
 .footerlinks{
     font-size:small;
 
 }
-.footercollom2{
-
+.header-roze{
+    font-size:43px;
+    margin-left:0%;
 }
+.ondertitel{
+    font-size:16px;
+}
+
 .box3{  font-size:90%;
         width: 30%;
         
     margin-left: 10px;
 
+}
+#date-pick-container .date-pick{
+width:220px;
 }
 
 .terugbutton{
@@ -8746,6 +8772,11 @@ body {
 
     width:99.8%;
 }
+
+ .timepickertext{
+        margin-bottom: 80px
+    }         
+
 
     #share-buttons img {
         width: 10%;
