@@ -12,12 +12,12 @@ namespace HoneymoonShop.Controllers
     public class DatePickerController : Controller
     {
         // GET: /<controller>/
-        public IActionResult DatePicker()
+       /* public IActionResult DatePicker()
         {
             return View() ;
-        }
+        }*/
         public IActionResult DatePickerDatum()
-        {
+        { 
             using (var context = new HoneyMoonShopContext())
             {
                 DateTime localDate = DateTime.Now;
@@ -25,8 +25,8 @@ namespace HoneymoonShop.Controllers
                 List<DateTime> datumsDisabled = new List<DateTime>(); //alle datums die niet bezet zijn en geen feestdagen zijn
                 List<DateTime> feestdagen = new List<DateTime>(); //de feestdagen of andere datums die niet beschikbaar zijn.(hardcoded)
                 var datumsBezet = context.Afspraak.Where(a => a.DatumTijd > localDate).Select(a => a.DatumTijd).ToList();
-                //todo: als er 3 afspraken zijn dan komt die datum in datumsDisabled
                 datumsBezet = datumsBezet.Distinct().ToList();
+                Models.Afspraak afspraak = new Models.Afspraak();
                 for (int i = 0; i < datumsBezet.Count(); i++)
                 {
                     //als de datum (jaar maand en dag hetzelfde) meer dan 2 keer voorkomt, dan word deze toegevoegd aan de disabled dates
@@ -39,17 +39,51 @@ namespace HoneymoonShop.Controllers
                 datumsDisabled = datumsDisabled.Union(feestdagen).ToList(); //alle datums die disabled moeten zijn
                 //viewdata's die door de view opgevraagd kunnen worden.
                 ViewData["datumsDisabled"] = datumsDisabled;
-                return View();
+                return View(afspraak);
+            }
+        }
+        public IActionResult DatePickerTime(Models.Afspraak afspraak)
+        {
+            using (var context = new HoneyMoonShopContext())
+            {
+                //get available times on thed ate and return them to the view
+                var mogelijkeTijden = new List<DateTime>();
+                var date1 = new DateTime(afspraak.DatumTijd.Year, afspraak.DatumTijd.Month, afspraak.DatumTijd.Day, 9, 30, 0);
+                var date2 = new DateTime(afspraak.DatumTijd.Year, afspraak.DatumTijd.Month, afspraak.DatumTijd.Day, 12, 30, 0);
+                var date3 = new DateTime(afspraak.DatumTijd.Year, afspraak.DatumTijd.Month, afspraak.DatumTijd.Day, 15, 0, 0);
+                mogelijkeTijden.Add(date1);
+                mogelijkeTijden.Add(date2);
+                mogelijkeTijden.Add(date3);
+                var bezetteTijden = context.Afspraak.Where(A => A.DatumTijd == date1 || A.DatumTijd == date2|| A.DatumTijd == date3).Select(a => a.DatumTijd).ToList();
+                mogelijkeTijden = mogelijkeTijden.Except(bezetteTijden).ToList();
+                ViewData["mogelijkeTijden"] = mogelijkeTijden;
+                return View(afspraak);
             }
         }
 
-        [HttpPost]
-        public ActionResult DatePicker(String datepicker)
+        public ActionResult DatePickerGegeven(Models.Afspraak afspraak)
         {
-            ViewData["Datum"] = datepicker;
+            //eerst in view de datum aan de afspraak toevoegen, dan die afspraak meegeven aan deze functie
+            //return de afspraak to the datePickerGegevens
+            return View(afspraak);
+        }
+        public ActionResult DatePickerBevestigen(Models.Afspraak afspraak)
+        {
+            // eerst via het form de gegevens vullen van afspraak, als die goed zijn(check in html) dan meegeven aan deze functie
+            // returns the Afspraak naar voltooid
+            return View(afspraak);
+        }
+        public ActionResult DatePickerVoltooid(Models.Afspraak afspraak)
+        {
+            if (ModelState.IsValid) { 
+            HoneyMoonShopContext context = new HoneyMoonShopContext();
+            context.Afspraak.Add(afspraak);
+            context.SaveChanges();
+        }
+            // puts the afspraak into the database
+            
+            // go to the voltooid view
             return View();
-            //check for reportName parameter value now
-            //to do : Return something
         }
 
         public IActionResult DatePickerTijd()
