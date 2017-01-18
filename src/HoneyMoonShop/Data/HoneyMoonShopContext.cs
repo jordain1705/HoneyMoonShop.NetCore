@@ -11,6 +11,7 @@ namespace HoneymoonShop.Data
          * update-database -context HoneyMoonShopContext = push naar database
          * https://docs.microsoft.com/en-us/ef/core/modeling/relationships
          */
+ 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

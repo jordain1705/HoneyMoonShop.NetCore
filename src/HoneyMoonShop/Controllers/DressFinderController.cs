@@ -9,6 +9,16 @@ namespace HoneymoonShop.Controllers
 {
     public class DressFinderController : Controller
     {
+        private readonly HoneyMoonShopContext _context;
+
+        public DressFinderController(HoneyMoonShopContext context)
+        {
+            _context = context;
+        }
+
+        public DressFinderController()
+        {  }
+
         public IActionResult Dressfinder()
         {
             using (var context = new HoneyMoonShopContext())
@@ -49,6 +59,8 @@ namespace HoneymoonShop.Controllers
             {
                 List<Jurk> jurken = new List<Jurk>();
                 jurken = context.Jurken.ToList();
+                var queryable = jurken.AsQueryable();
+
                 if (filterMerk.Any())
                     //filter op merken. als geen merk is ingevoegd dan laat het alle merken zien
                     jurken = jurken.Intersect(context.Jurken.Where(g => filterMerk.Contains(g.Merk)).ToList()).ToList();
