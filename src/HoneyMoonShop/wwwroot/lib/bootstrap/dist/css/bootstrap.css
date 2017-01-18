@@ -8551,6 +8551,9 @@ height:100%;
    border: none;
    outline:none;
 }
+.terugbutton{
+    margin-top:5%;
+}
 
 #checkboxMerk{
 font-family: 'Raleway', sans-serif;
@@ -8611,6 +8614,10 @@ body {
         
     margin-left: 10px;
 
+}
+
+.terugbutton{
+    margin-top:30%;
 }
 .rarerug{
 
