@@ -16,8 +16,6 @@ namespace HoneymoonShop.Controllers
             _context = context;
         }
 
-        public DressFinderController()
-        {  }
 
         public IActionResult Dressfinder()
         {

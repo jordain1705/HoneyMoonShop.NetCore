@@ -66,6 +66,7 @@ window.onload = function(){
     function daysInMonth(year,month) {
         return new Date(year, month + 1, 0).getDate();
     }
+     
 
     window._makeCalender = function(status){
       var offset; // increases or decreases month
@@ -177,6 +178,19 @@ window.onload = function(){
       }
     }
 
+    @{var unavailableDates = ViewData["datumsDisabled"];}
+
+    function unavailable(date) {
+        dmy = date.getDate() + date.getMonth()  + date.getYear();
+        if ($.inList(dmy, unavailableDates) < 0) {
+            return [true, "", "Selecteer"];
+        } else {
+            return [false, "", "Niet beschikbaar, kies een andere datum."];
+        }
+    }
+
+    $('#unvailable').datepicker({ beforeShowDay: unavailable });
+
     function changeSelectedDay(){
       datePickSelectedDay = document.getElementsByClassName("date-pick-selected-day");
       if (datePickSelectedDay[0] !== undefined){
@@ -258,6 +272,7 @@ window.onload = function(){
           }
           return -1;
       }
+
       // Vendors: please allow content code to instantiate DOMExceptions
       , DOMEx = function (type, message) {
           this.name = type;
@@ -500,7 +515,7 @@ window.onload = function(){
 
                     </table>
                 </p>
-                <p>*Op alle werkdagen kunnen er ook schoenen worden <br /> gepast.helaasis dit niet mogelijk in het weekend.</p>
+                <p>*Op alle werkdagen kunnen er ook schoenen worden <br /> gepast. Helaas is dit niet mogelijk in het weekend.</p>
             </div>
 
             <div class="col-md-5" align="center" style="height:450px;background-color: #F0597A;padding: 20px;">

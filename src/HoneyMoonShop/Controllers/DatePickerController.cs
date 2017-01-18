@@ -25,7 +25,7 @@ namespace HoneymoonShop.Controllers
                 //voegd de jurkafspraak toe aan de model als de pagina is geladen vanuit de artiekelpagina vna een jurk
                 List<DateTime> datumsDisabled = new List<DateTime>(); //alle datums die niet bezet zijn en geen feestdagen zijn
                 List<DateTime> feestdagen = new List<DateTime>(); //de feestdagen of andere datums die niet beschikbaar zijn.(hardcoded)
-                var datumsBezet = context.Afspraak.Where(a => a.DatumTijd > localDate).Select(a => a.DatumTijd).ToList();
+                var datumsBezet = context.Afspraak.Where(a => a.DatumTijd > localDate).Select(a => a.DatumTijd).ToList(); //datumsBezet als 
                 datumsBezet = datumsBezet.Distinct().ToList();
                 Afspraak afspraak = new Afspraak();
 
@@ -44,6 +44,7 @@ namespace HoneymoonShop.Controllers
                 return View(afspraak);
             }
         }
+
         public IActionResult DatePickerDatum(Models.Jurk jurk)
         {
             using (var context = new HoneyMoonShopContext())
