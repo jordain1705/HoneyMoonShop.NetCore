@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using HoneymoonShop.Data;
 using HoneymoonShop.Models;
@@ -61,7 +60,7 @@ namespace HoneymoonShop.Controllers
                 mogelijkeTijden.Add(date1);
                 mogelijkeTijden.Add(date2);
                 mogelijkeTijden.Add(date3);
-                var bezetteTijden = context.Afspraak.Where(A => A.DatumTijd == date1 || A.DatumTijd == date2 || A.DatumTijd == date3).Select(a => a.DatumTijd).ToList();
+                var bezetteTijden = context.Afspraak.Where(a => a.DatumTijd == date1 || a.DatumTijd == date2 || a.DatumTijd == date3).Select(a => a.DatumTijd).ToList();
                 mogelijkeTijden = mogelijkeTijden.Except(bezetteTijden).ToList();
                 ViewData["mogelijkeTijden"] = mogelijkeTijden;
 
@@ -71,18 +70,19 @@ namespace HoneymoonShop.Controllers
 
         public IActionResult DatePickerGegevens(DateTime tijd)
         {
-            Models.Afspraak afs = new Afspraak();
-            afs.DatumTijd = tijd;
+            Models.Afspraak afs = new Afspraak {DatumTijd = tijd};
             return View(afs);
         }
 
         public IActionResult DatePickerBevestigen(String naam, DateTime datum, int tel, String email)
         {
-            Models.Afspraak afs = new Afspraak();
-            afs.Achternaam = naam;
-            afs.DatumTijd = datum;
-            afs.TelefoonNummer = tel;
-            afs.EmailAdres = email;
+            Models.Afspraak afs = new Afspraak
+            {
+                Achternaam = naam,
+                DatumTijd = datum,
+                TelefoonNummer = tel,
+                EmailAdres = email
+            };
 
             return View(afs);
 
