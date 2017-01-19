@@ -17,7 +17,7 @@ namespace HoneymoonShop.Controllers
          {
              return View() ;
          }*/
-        //DateTime date5 = new DateTime(2017, 01, 19, 9, 30, 0);
+        
 
         public IActionResult DatePickerDatum()
         {
@@ -73,10 +73,6 @@ namespace HoneymoonShop.Controllers
         {
             Models.Afspraak afs = new Afspraak();
             afs.DatumTijd = tijd;
-            //afs.DatumTijd = date5;
-
-            //eerst in view de datum aan de afspraak toevoegen, dan die afspraak meegeven aan deze functie
-            //return de afspraak to the datePickerGegevens
             return View(afs);
         }
 
@@ -91,12 +87,6 @@ namespace HoneymoonShop.Controllers
             return View(afs);
 
         }
-        //  public ActionResult DatePickerBevestigen(Models.Afspraak afspraak)
-        // {
-        // eerst via het form de gegevens vullen van afspraak, als die goed zijn(check in html) dan meegeven aan deze functie
-        // returns the Afspraak naar voltooid
-        //   return View(afspraak);
-        //  }
         public ActionResult DatePickerVoltooid(Models.Afspraak afspraak)
         {
             if (ModelState.IsValid)
