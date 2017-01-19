@@ -38,6 +38,10 @@ namespace HoneymoonShop.Controllers
                         datumsDisabled.Add(datumsBezet[i]);
                     }
                 }
+                //var datea = new DateTime(2017, 3,20, 9, 30, 0);
+                //var dateb = new DateTime(2017, 3, 20,12,30,0);
+                //var datec = new DateTime(2017, 3, 20, 15,0,0);
+                //datumsDisabled.Add(datea); datumsDisabled.Add(dateb); datumsDisabled.Add(datec);
                 datumsDisabled = datumsDisabled.Union(feestdagen).ToList(); //alle datums die disabled moeten zijn
                 //viewdata's die door de view opgevraagd kunnen worden.
                 ViewData["datumsDisabled"] = datumsDisabled;
@@ -45,39 +49,7 @@ namespace HoneymoonShop.Controllers
             }
         }
 
-        public IActionResult DatePickerDatum(Models.Jurk jurk)
-        {
-            using (var context = new HoneyMoonShopContext())
-            {
-
-                Models.Afspraak afspraak = new Models.Afspraak();
-                Models.JurkAfspraak jurkAfspraak = new Models.JurkAfspraak();
-                jurkAfspraak.Afspraak = afspraak;
-                jurkAfspraak.Jurk = jurk;
-                jurkAfspraak.JurkId = jurk.JurkId;
-                List<JurkAfspraak> jurkafspraken = new List<JurkAfspraak>();
-
-                afspraak.JurkAfspraken = jurkafspraken;
-                DateTime localDate = DateTime.Now;
-                List<DateTime> datumsDisabled = new List<DateTime>(); //alle datums die niet bezet zijn en geen feestdagen zijn
-                List<DateTime> feestdagen = new List<DateTime>(); //de feestdagen of andere datums die niet beschikbaar zijn.(hardcoded)
-                var datumsBezet = context.Afspraak.Where(a => a.DatumTijd > localDate).Select(a => a.DatumTijd).ToList();
-                datumsBezet = datumsBezet.Distinct().ToList();
-                for (int i = 0; i < datumsBezet.Count(); i++)
-                {
-                    //als de datum (jaar maand en dag hetzelfde) meer dan 2 keer voorkomt, dan word deze toegevoegd aan de disabled dates
-                    //misschien kan dit zonder de database simpeler?
-                    if (context.Afspraak.Where(a => a.DatumTijd.Day == datumsBezet[i].Day && a.DatumTijd.Month == datumsBezet[i].Month && a.DatumTijd.Year == datumsBezet[i].Year).ToList().Count() > 2)
-                    {
-                        datumsDisabled.Add(datumsBezet[i]);
-                    }
-                }
-                datumsDisabled = datumsDisabled.Union(feestdagen).ToList(); //alle datums die disabled moeten zijn
-                //viewdata's die door de view opgevraagd kunnen worden.
-                ViewData["datumsDisabled"] = datumsDisabled;
-                return View(afspraak);
-            }
-        }
+      
         public IActionResult DatePickerTijd(Models.Afspraak afspraak)
         {
             using (var context = new HoneyMoonShopContext())

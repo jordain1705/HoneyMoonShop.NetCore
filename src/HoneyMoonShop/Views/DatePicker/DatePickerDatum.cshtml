@@ -74,6 +74,7 @@ window.onload = function(){
       var newContent; // for creating new day of month to go into span node
       var datePickBody = document.getElementById("date-pick-days-current");
 
+
       if (status === "current") {
         monthVariable = dInit.getMonth(); // sets monthVariable to current month
       } else if (status === "prev") {
@@ -89,7 +90,7 @@ window.onload = function(){
       } else {
         monthVariable = dInit.getMonth(); // sets monthVariable to current month by default
       } // if
-
+ 
       var currentD = new Date();
       var currentYear = currentD.getFullYear();
       var currentMonth = currentD.getMonth();
@@ -177,20 +178,9 @@ window.onload = function(){
         return number;
       }
     }
+    
 
-    @{var unavailableDates = ViewData["datumsDisabled"];}
-
-    function unavailable(date) {
-        dmy = date.getDate() + date.getMonth()  + date.getYear();
-        if ($.inList(dmy, unavailableDates) < 0) {
-            return [true, "", "Selecteer"];
-        } else {
-            return [false, "", "Niet beschikbaar, kies een andere datum."];
-        }
-    }
-
-    $('#unvailable').datepicker({ beforeShowDay: unavailable });
-
+        
     function changeSelectedDay(){
       datePickSelectedDay = document.getElementsByClassName("date-pick-selected-day");
       if (datePickSelectedDay[0] !== undefined){
@@ -214,6 +204,7 @@ window.onload = function(){
       dateInput.setAttribute("data-selected-day", globalDay);
     };
 
+   
     WebFontConfig = {
         google: { families: [ 'Roboto::latin' ] }
       };

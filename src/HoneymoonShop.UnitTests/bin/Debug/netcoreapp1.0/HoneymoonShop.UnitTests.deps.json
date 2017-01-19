@@ -9,6 +9,9 @@
       "HoneymoonShop.UnitTests/1.0.0": {
         "dependencies": {
           "xunit": "2.2.0-beta2-build3300",
+          "System.Linq.Queryable": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Interactive.Async": "3.0.0",
           "HoneymoonShop": "1.0.0",
           "dotnet-test-xunit": "2.2.0-preview2-build1029"
         },
