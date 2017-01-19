@@ -2,9 +2,22 @@
     Layout = "_HoneyMoon";
     ViewData["Title"] = "Afsraak Pagina";
 }
+@using HoneymoonShop.Models
+@model Afspraak
+
 <!DOCTYPE html>
 <html>
-
+<head>
+    <script>
+        var rates = document.getElementsByName('tijd');
+        var tijd_value;
+        for (var i = 0; i < rates.length; i++) {
+            if (rates[i].checked) {
+                rate_value = rates[i].value;
+            }
+        }
+    </script>
+</head>
 
 <body>
     <div class="container">
@@ -12,7 +25,7 @@
         <div class="row ">
             <div class="col-md-12" style="height: 220px; margin-top: 50px;" align="center">
                 <div class="colltekst" style="display: inline-block;">
-                    <h1 class="header-roze" >Trouwjurken</h1>
+                    <h1 class="header-roze">Trouwjurken</h1>
                     <p class="ondertitel">Maak je pasafspraak</p>
                 </div>
             </div>
@@ -24,35 +37,37 @@
                 <img src="~/Images/navStap1.png" class="img-responsive" alt="nav-bar" style="padding-top: 15px; padding-left:35px;" />
             </div>
 
-            <div class="col-md-5 timepickertext" align="left" >
+            <div class="col-md-5 timepickertext" align="left">
                 <h3><strong>Stap 1, Datum en tijd selecteren</strong></h3>
                 <p>Selecteer eerst een datum en vervolgens <br /> een tijdstip dat je wilt komen passen! </p>
                 <p>Openingstijden:</p>
                 <p>
-                        <table>
-                            <tr>
-                                <th><strong>MA</strong></th>
-                                <th>	<strong>12:00-17:30</strong></th>
-                            </tr>
-                            <tr>
-                                <th><strong>DI-VR</strong></th>
-                                <th> <strong> 9:30-17:30</strong></th>
-                            </tr>
-                            <tr>
-                                <th><strong>ZA</strong></th>
-                                <th>	<strong>9:30-18:00</strong></th>
-                            </tr>
-                            <tr>
-                                <th><strong>ZO</strong></th>
-                                <th> <strong>11:00-17:00</strong></th>
-                            </tr>
-                            
-                        </table>
-                   
+                    <table>
+                        <tr>
+                            <th><strong>MA</strong></th>
+                            <th>	<strong>12:00-17:30</strong></th>
+                        </tr>
+                        <tr>
+                            <th><strong>DI-VR</strong></th>
+                            <th> <strong> 9:30-17:30</strong></th>
+                        </tr>
+                        <tr>
+                            <th><strong>ZA</strong></th>
+                            <th>	<strong>9:30-18:00</strong></th>
+                        </tr>
+                        <tr>
+                            <th><strong>ZO</strong></th>
+                            <th> <strong>11:00-17:00</strong></th>
+                        </tr>
+
+                    </table>
+
                 </p>
-                <p>*Op alle werkdagen kunnen er ook schoenen worden <br /> gepast.helaasis dit niet mogelijk in het weekend.</p>
+                <p>*Op alle werkdagen kunnen er ook schoenen worden <br /> gepast. Helaas is dit niet mogelijk in het weekend.</p>
                 <br />
-                <a class="pink-button" href="@Url.Action("DatePickerGegevens", "DatePicker")"><strong>naar stap 2</strong></a>
+
+
+
                 <br />
                 <br />
             </div>
@@ -60,12 +75,19 @@
             <div class="col-md-5 timepicker" align="left">
                 <h3 style="color: #fff">Selecteer een tijdstip:</h3>
                 <br />
-                <p class="testing" align="center"><strong>DO 15 september 2016</strong></p>
+                <p class="testing" align="center"><strong>VR 20 jan 2017</strong></p>
                 <br />
-                <form action="" style="color: #FFF;">
-                    <input type="radio" name="tijd" value="9:30"><strong>9:30 uur</strong><br>
-                    <input type="radio" name="tijd" value="12:30"><strong>12:30 uur</strong><br>
-                    <input type="radio" name="tijd" value="15:00"><strong>15:00 uur</strong>
+                @{ var aantalTijden = (List<DateTime>)ViewData["mogelijkeTijden"]; }
+                @{  int aantalTijdenMogelijk = aantalTijden.Count(); }
+
+                <form action=@Url.Action("DatePickerGegevens", "DatePicker") methode="post" style="color: #FFF;">
+
+                    @{for (int i = 0; i < aantalTijdenMogelijk; i++)
+                        {
+                            <input type="radio" name="tijd" id="i" value="@aantalTijden[i]"><strong>@aantalTijden[i]</strong><br />
+                        }
+                        <input type="submit" class="pink-button" value="naar stap 2" />
+                    }
                 </form>
 
                 <a href="@Url.Action("DatePickerDatum", "DatePicker")" style="color: #FFF; line-height: 250px; vertical-align: bottom">Terug naar datum selecteren</a>

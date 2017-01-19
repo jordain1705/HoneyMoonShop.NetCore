@@ -13,19 +13,22 @@ namespace HoneymoonShop.Controllers
     public class DatePickerController : Controller
     {
         // GET: /<controller>/
-       /* public IActionResult DatePicker()
-        {
-            return View() ;
-        }*/
+        /* public IActionResult DatePicker()
+         {
+             return View() ;
+         }*/
+        //DateTime date5 = new DateTime(2017, 01, 19, 9, 30, 0);
+
         public IActionResult DatePickerDatum()
-        { 
+        {
             using (var context = new HoneyMoonShopContext())
             {
                 DateTime localDate = DateTime.Now;
+
                 //voegd de jurkafspraak toe aan de model als de pagina is geladen vanuit de artiekelpagina vna een jurk
                 List<DateTime> datumsDisabled = new List<DateTime>(); //alle datums die niet bezet zijn en geen feestdagen zijn
                 List<DateTime> feestdagen = new List<DateTime>(); //de feestdagen of andere datums die niet beschikbaar zijn.(hardcoded)
-                var datumsBezet = context.Afspraak.Where(a => a.DatumTijd > localDate).Select(a => a.DatumTijd).ToList(); //datumsBezet als 
+                var datumsBezet = context.Afspraak.Where(a => a.DatumTijd > localDate).Select(a => a.DatumTijd).ToList();
                 datumsBezet = datumsBezet.Distinct().ToList();
                 Afspraak afspraak = new Afspraak();
 
@@ -38,10 +41,6 @@ namespace HoneymoonShop.Controllers
                         datumsDisabled.Add(datumsBezet[i]);
                     }
                 }
-                //var datea = new DateTime(2017, 3,20, 9, 30, 0);
-                //var dateb = new DateTime(2017, 3, 20,12,30,0);
-                //var datec = new DateTime(2017, 3, 20, 15,0,0);
-                //datumsDisabled.Add(datea); datumsDisabled.Add(dateb); datumsDisabled.Add(datec);
                 datumsDisabled = datumsDisabled.Union(feestdagen).ToList(); //alle datums die disabled moeten zijn
                 //viewdata's die door de view opgevraagd kunnen worden.
                 ViewData["datumsDisabled"] = datumsDisabled;
@@ -49,11 +48,11 @@ namespace HoneymoonShop.Controllers
             }
         }
 
-      
-        public IActionResult DatePickerTijd(Models.Afspraak afspraak)
+        public IActionResult DatePickerTijd()
         {
             using (var context = new HoneyMoonShopContext())
             {
+                Models.Afspraak afspraak = new Models.Afspraak();
                 //get available times on the date and return them to the view
                 var mogelijkeTijden = new List<DateTime>();
                 var date1 = new DateTime(afspraak.DatumTijd.Year, afspraak.DatumTijd.Month, afspraak.DatumTijd.Day, 9, 30, 0);
@@ -62,34 +61,52 @@ namespace HoneymoonShop.Controllers
                 mogelijkeTijden.Add(date1);
                 mogelijkeTijden.Add(date2);
                 mogelijkeTijden.Add(date3);
-                var bezetteTijden = context.Afspraak.Where(A => A.DatumTijd == date1 || A.DatumTijd == date2|| A.DatumTijd == date3).Select(a => a.DatumTijd).ToList();
+                var bezetteTijden = context.Afspraak.Where(A => A.DatumTijd == date1 || A.DatumTijd == date2 || A.DatumTijd == date3).Select(a => a.DatumTijd).ToList();
                 mogelijkeTijden = mogelijkeTijden.Except(bezetteTijden).ToList();
                 ViewData["mogelijkeTijden"] = mogelijkeTijden;
+
                 return View(afspraak);
             }
         }
 
-        public ActionResult DatePickerGegevens(Models.Afspraak afspraak)
+        public IActionResult DatePickerGegevens(DateTime tijd)
         {
+            Models.Afspraak afs = new Afspraak();
+            afs.DatumTijd = tijd;
+            //afs.DatumTijd = date5;
+
             //eerst in view de datum aan de afspraak toevoegen, dan die afspraak meegeven aan deze functie
             //return de afspraak to the datePickerGegevens
-            return View(afspraak);
+            return View(afs);
         }
-        public ActionResult DatePickerBevestigen(Models.Afspraak afspraak)
+
+        public IActionResult DatePickerBevestigen(String naam, DateTime datum, int tel, String email)
         {
-            // eerst via het form de gegevens vullen van afspraak, als die goed zijn(check in html) dan meegeven aan deze functie
-            // returns the Afspraak naar voltooid
-            return View(afspraak);
+            Models.Afspraak afs = new Afspraak();
+            afs.Achternaam = naam;
+            afs.DatumTijd = datum;
+            afs.TelefoonNummer = tel;
+            afs.EmailAdres = email;
+
+            return View(afs);
+
         }
+        //  public ActionResult DatePickerBevestigen(Models.Afspraak afspraak)
+        // {
+        // eerst via het form de gegevens vullen van afspraak, als die goed zijn(check in html) dan meegeven aan deze functie
+        // returns the Afspraak naar voltooid
+        //   return View(afspraak);
+        //  }
         public ActionResult DatePickerVoltooid(Models.Afspraak afspraak)
         {
-            if (ModelState.IsValid) { 
-            HoneyMoonShopContext context = new HoneyMoonShopContext();
-            context.Afspraak.Add(afspraak);
-            context.SaveChanges();
-        }
+            if (ModelState.IsValid)
+            {
+                HoneyMoonShopContext context = new HoneyMoonShopContext();
+                context.Afspraak.Add(afspraak);
+                context.SaveChanges();
+            }
             // puts the afspraak into the database
-            
+
             // go to the voltooid view
             return View();
         }
