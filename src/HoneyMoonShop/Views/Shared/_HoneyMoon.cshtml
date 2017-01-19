@@ -39,7 +39,7 @@ function responsivemenu2() {
                 </li>
 
                 <li style="float:right">
-                    <a href="https://youtube.com" style="color: #000000"><strong style="color: #000000">T </strong>(010) 4126143</a>
+                    <a href="@Url.Action("Error", "Home")" style="color: #000000"><strong style="color: #000000">T </strong>(010) 4126143</a>
                 </li>
 
                 <li style="float:right">
@@ -60,14 +60,14 @@ function responsivemenu2() {
 
 
                     <li>
-                        <a href="https://youtube.com"><strong style="font-size: 140%; font-family: 'Times New Roman', Times, serif; color:#000000;">HONEYMOONSHOP </strong> <strong style="color:black;">&#169;</strong></a>
+                        <a href="@Url.Action("Index", "Home")"><strong style="font-size: 140%; font-family: 'Times New Roman', Times, serif; color:#000000;">HONEYMOONSHOP </strong> <strong style="color:black;">&#169;</strong></a>
                     </li>
 
                     <li>
                         <a href="@Url.Action("Index", "Home")"><strong style="color: #F0597A">HOME</strong></a>
                     </li>
                     <li>
-                        <a href="@Url.Action("Bruid", "Bruid")"><strong style="color:#000000">BRUID</strong></a>
+                        <a href="@Url.Action("Dressfinder", "Dressfinder")"><strong style="color:#000000">BRUID</strong></a>
                     </li>
                     <li>
                         <a href="https://youtube.com"><strong style="color: #000000">BRUIDEGOM</strong></a>
@@ -96,10 +96,10 @@ function responsivemenu2() {
                 @RenderBody()
             </div>
             <div class="container">
-                <div class="row" style="padding-top: 80px;">
+                <div class="row boxrow">
                     <div class="col-md-4 box1">
                         <p><strong style="color: #FB999E ">Afspraak</strong></p>
-                        <a href="http://www.google.nl" style="color: #FFFFFF">Maak afspraak</a>
+                        <a href="@Url.Action("Error", "Home")" style="color: #FFFFFF">Maak afspraak</a>
                     </div>
                     <div class="col-md-4 box2">
                         <p><strong style="color: #FB999E">Social</strong></p>
@@ -107,7 +107,7 @@ function responsivemenu2() {
                         <div id="share-buttons">
 
                             <!-- Facebook -->
-                            <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
+                            <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.honeymoonshop.nl%2F" target="_blank">
                                 <img src="~/Images/Facebook.png" alt="Facebook" />
                             </a>
 
@@ -118,7 +118,7 @@ function responsivemenu2() {
                             </a>
 
                             <!-- Twitter -->
-                            <a href="https://twitter.com/share?url=https://simplesharebuttons.com&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons" target="_blank">
+                            <a href="https://twitter.com/intent/tweet?text=Ik%20heb%20de%20Honeymoonschop%20Bezocht" target="_blank">
                                 <img src="~/Images/Twitter.png" alt="Twitter" />
                             </a>
 
@@ -136,7 +136,7 @@ function responsivemenu2() {
                     </div>
                     <div class="col-md-4 box3">
                         <p><strong style="color: #FB999E">Reviews</strong></p>
-                        <a href="http://www.google.nl" style="color: #FFFFFF">Bekijk onze reviews</a>
+                        <a href="@Url.Action("Error", "Home")" style="color: #FFFFFF">Bekijk onze reviews</a>
                     </div>
                 </div>
             </div>
@@ -166,29 +166,30 @@ function responsivemenu2() {
                 <div>
                     <p><strong style="color: #F0597A">De winkel</strong></p>
                     <ul class="footerlinks"list-style-type:none>
-                        <li><a href="http://www.google.nl" style="text-decoration:none">Over de Honeymoon</a></li>
-                        <li><a href="http://www.google.nl" style="text-decoration:none">Servicepunten</a></li>
-                        <li><a href="http://www.google.nl" style="text-decoration:none">Routebeschrijving</a></li>
-                        <li><a href="http://www.google.nl" style="text-decoration:none">Beurzen Evenement</a></li>
-                        <li><a href="http://www.google.nl" style="text-decoration:none">Vacatures</a></li>
-                        <li><a href="http://www.google.nl" style="text-decoration:none">Verkoopvoorwaarden</a></li>
-                        <li><a href="http://www.google.nl" style="text-decoration:none">CBW erkend</a></li>
-                        <li><a href="http://www.google.nl" style="text-decoration:none">Contact</a></li>
+                        <li><a href="@Url.Action("Error", "Home")" style="text-decoration:none">Over de Honeymoon</a></li>
+                        <li><a href="@Url.Action("Error", "Home")" style="text-decoration:none">Servicepunten</a></li>
+                        <li><a href="@Url.Action("Error", "Home")" style="text-decoration:none">Routebeschrijving</a></li>
+                        <li><a href="@Url.Action("Error", "Home")" style="text-decoration:none">Beurzen Evenement</a></li>
+                        <li><a href="@Url.Action("Error", "Home")" style="text-decoration:none">Vacatures</a></li>
+                        <li><a href="@Url.Action("Error", "Home")" style="text-decoration:none">Verkoopvoorwaarden</a></li>
+                        <li><a href="@Url.Action("Error", "Home")" style="text-decoration:none">CBW erkend</a></li>
+                        <li><a href="@Url.Action("Error", "Home")" style="text-decoration:none">Contact</a></li>
                     </ul>
+
                 </div>
             </div>
             <div class="col-md-4">
                 <p><strong style="color: #F0597A">Service</strong></p>
                 <ul class="footerlinks"list-style-type:none>
-                    <li><a href="http://www.google.nl" style="text-decoration:none">Beoordelingen</a></li>
+                    <li><a href="@Url.Action("Error", "Home")" style="text-decoration:none">Beoordelingen</a></li>
                     <li><a href="@Url.Action("DressFinder", "DressFinder")" class="elements" style="text-decoration:none">Dressfinder</a></li>
-                    <li><a href="http://www.google.nl" style="text-decoration:none">Grattis trouwmagazine</a></li>
-                    <li><a href="http://www.google.nl" style="text-decoration:none">Nieuws brief</a></li>
-                    <li><a href="http://www.google.nl" style="text-decoration:none">Veel gestelde vragen</a></li>
-                    <li><a href="http://www.google.nl" style="text-decoration:none">CBW erkend</a></li>
-                    <li><a href="http://www.google.nl" style="text-decoration:none">Reiniging van je trouwjurk</a></li>
-                    <li><a href="http://www.google.nl" style="text-decoration:none">10 redenen om je afspraak te maken</a></li>
-                    <li><a href="http://www.google.nl" style="text-decoration:none">The perfect match</a></li>
+                    <li><a href="@Url.Action("Error", "Home")" style="text-decoration:none">Grattis trouwmagazine</a></li>
+                    <li><a href="@Url.Action("Error", "Home")" style="text-decoration:none">Nieuws brief</a></li>
+                    <li><a href="@Url.Action("Error", "Home")" style="text-decoration:none">Veel gestelde vragen</a></li>
+                    <li><a href="@Url.Action("Error", "Home")" style="text-decoration:none">CBW erkend</a></li>
+                    <li><a href="@Url.Action("Error", "Home")" style="text-decoration:none">Reiniging van je trouwjurk</a></li>
+                    <li><a href="@Url.Action("Error", "Home")" style="text-decoration:none">10 redenen om je afspraak te maken</a></li>
+                    <li><a href="@Url.Action("Error", "Home")" style="text-decoration:none">The perfect match</a></li>
                     <li><a href="@Url.Action("Crud", "Beheer")" style="text-decoration:none">Database Beheer</a></li>
                 </ul>
             </div>
@@ -196,10 +197,10 @@ function responsivemenu2() {
                 <div class="">
                     <p><strong style="color: #F0597A">Acties</strong></p>
                     <ul class="footerlinks" list-style-type:none>
-                        <li><a href="http://www.google.nl" style="text-decoration:none">The grand wedding show</a></li>
-                        <li><a href="http://www.google.nl" style="text-decoration:none">Summersale</a></li>
-                        <li><a href="http://www.google.nl" style="text-decoration:none">Trouw jurken onder 1000 euro</a></li>
-                        <li><a href="http://www.google.nl" style="text-decoration:none">Trouwjurken voor de volslanke bruid</a></li>
+                        <li><a href="@Url.Action("Error", "Home")" style="text-decoration:none">The grand wedding show</a></li>
+                        <li><a href="@Url.Action("Error", "Home")" style="text-decoration:none">Summersale</a></li>
+                        <li><a href="@Url.Action("Error", "Home")" style="text-decoration:none">Trouw jurken onder 1000 euro</a></li>
+                        <li><a href="@Url.Action("Error", "Home")" style="text-decoration:none">Trouwjurken voor de volslanke bruid</a></li>
                     </ul>
                 </div>
             </div>

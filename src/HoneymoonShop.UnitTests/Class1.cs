@@ -93,13 +93,13 @@ namespace HoneymoonShop.UnitTests
             mockDbSetJurk.As<IQueryable<Jurk>>().Setup(j => j.GetEnumerator()).Returns(dummyData.GetEnumerator());
             mockDbSetJurk.As<IQueryable<Jurk>>().Setup(j => j.GetEnumerator()).Returns(dummyData.GetEnumerator());
 
-            var DressFinderControllerm = new DressFinderController(mockDbContext.Object);
+            var DressFinderController = new DressFinderController(mockDbContext.Object);
 
 
             //alle property van IQueryable correct toekennen
 
 
-            var result = DressFinderControllerm.FilterVerwerken(filterMerk, filterStijl,null,null,null,slider, null);
+            var result = DressFinderControllerm.FilterVerwerken(filterMerk, filterStijl, neklijnDd, silhouetteDd, kleurenDd, slider, null);
 
             var viewResult = Assert.IsType<PartialViewResult>(result);
             //check model data
