@@ -36,11 +36,12 @@
                     <br />
                     <form action=@Url.Action("DatePickerBevestigen", "DatePicker") methode="post" autocomplete="off">
                         <h3><strong>Stap 2, Gegevens invullen</strong></h3>
+                        <input type="hidden" name="datum" value="@Model.DatumTijd" readonly style="height: 30px" size="35"><br /><br />
 
                         <p>Voor- en achternaam*</p>
                         <input type="text" runat="server" name="naam" id="name" style="height: 30px" size="35"><br /><br />
                         <p>Trouwdatum*</p>
-                        <input type="date" name="datum" style="height: 30px" size="35"><br /><br />
+                        <input type="date" name="Trouwdatum" style="height: 30px" size="35"><br /><br />
                         <p>Telefoonnummer</p>
                         <input type="tel" name="tel" id="telefoon" style="height: 30px" size="35"><br /><br />
                         <p>E-mailadres*</p>

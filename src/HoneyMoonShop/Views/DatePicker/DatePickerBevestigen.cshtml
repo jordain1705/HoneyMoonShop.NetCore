@@ -32,7 +32,7 @@
                 <p style="text-wrap: normal">Controleer alle gegevens voor je <br />pasafspraak bij Honeymoon shop aan <br /> Korte Hoogstraat 4, te Rotterdam.</p>
                 <br />
                 <br />
-                <a class="pink-button" href="@Url.Action("DatePickerVoltooid", "DatePicker")"><strong>Afspraak bevestigen</strong></a>
+                <a class="pink-button" href="@Url.Action("DatePickerVoltooid","DatePicker",new {tel = Model.TelefoonNummer, achternaam = Model.Achternaam, datum = Model.DatumTijd, email = Model.EmailAdres})"><strong>Afspraak bevestigen</strong></a>
             </div>
 
             <div class="col-md-5" align="left" style="height:375px;background-color: #F0597A;padding-left: 50px;">
@@ -55,7 +55,7 @@
                         <th><strong>E-mail: @Model.EmailAdres</strong></th>
                         <th style="text-indent: 10%"></th>
                     </tr>
-                </table></p>
+                </table>
                 <a href="@Url.Action("DatePickerGegevens", "DatePicker")" style="color: #FFF; line-height: 350px; vertical-align: bottom">Terug naar stap 2 om gegevens te wijzigen</a>
 
             </div>
