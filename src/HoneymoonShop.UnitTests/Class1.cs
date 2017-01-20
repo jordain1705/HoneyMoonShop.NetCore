@@ -77,8 +77,7 @@ namespace HoneymoonShop.UnitTests
             string[] filterMerk = { "Maggie Sottero" };
             string[] filterStijl = { };
             string neklijnDd = "strapless";
-            string silhouetteDd = "Fishtail";
-            string[] slider = { "2000", "2300" };
+            string[] slider = { "1999", "2300" };
             string kleurenDd = null;
 
             var mockDbContext = new Mock<HoneyMoonShopContext>();
@@ -93,24 +92,19 @@ namespace HoneymoonShop.UnitTests
             mockDbSetJurk.As<IQueryable<Jurk>>().Setup(j => j.GetEnumerator()).Returns(dummyData.GetEnumerator());
             mockDbSetJurk.As<IQueryable<Jurk>>().Setup(j => j.GetEnumerator()).Returns(dummyData.GetEnumerator());
 
-            var DressFinderController = new DressFinderController(mockDbContext.Object);
+            var dfc = new DressFinderController(mockDbContext.Object);
 
 
             //alle property van IQueryable correct toekennen
 
 
-            var result = DressFinderControllerm.FilterVerwerken(filterMerk, filterStijl, neklijnDd, silhouetteDd, kleurenDd, slider, null);
+            var result = dfc.FilterVerwerken(filterMerk, filterStijl, neklijnDd, null, kleurenDd, slider, null);
 
             var viewResult = Assert.IsType<PartialViewResult>(result);
             //check model data
             var model = viewResult.ViewData.Model;
             // int aantal = model.Count(); 
-      
-            var bonus = 0;
            // Assert.Equal("Maggie Sottero", model.ElementAt(0).Merk);
-     
-
-           
        }
         }
     }

@@ -38,6 +38,7 @@ namespace HoneymoonShop.Controllers
                         datumsDisabled.Add(datumsBezet[i]);
                     }
                 }
+                
                 //var datea = new DateTime(2017, 3,20, 9, 30, 0);
                 //var dateb = new DateTime(2017, 3, 20,12,30,0);
                 //var datec = new DateTime(2017, 3, 20, 15,0,0);
@@ -54,6 +55,7 @@ namespace HoneymoonShop.Controllers
         {
             using (var context = new HoneyMoonShopContext())
             {
+              
                 //get available times on the date and return them to the view
                 var mogelijkeTijden = new List<DateTime>();
                 var date1 = new DateTime(afspraak.DatumTijd.Year, afspraak.DatumTijd.Month, afspraak.DatumTijd.Day, 9, 30, 0);
@@ -83,11 +85,15 @@ namespace HoneymoonShop.Controllers
         }
         public ActionResult DatePickerVoltooid(Models.Afspraak afspraak)
         {
-            if (ModelState.IsValid) { 
-            HoneyMoonShopContext context = new HoneyMoonShopContext();
-            context.Afspraak.Add(afspraak);
-            context.SaveChanges();
-        }
+            if (ModelState.IsValid) {
+                HoneyMoonShopContext context = new HoneyMoonShopContext();
+                context.Afspraak.Add(afspraak);
+                context.SaveChanges(); }
+
+            else {
+                TempData["Message"] = "Er is iets mis gegaan. Ga terug en probeer het opnieuw.";
+            }
+        
             // puts the afspraak into the database
             
             // go to the voltooid view
