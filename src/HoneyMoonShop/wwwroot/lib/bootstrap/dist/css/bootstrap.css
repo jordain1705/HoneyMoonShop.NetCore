@@ -8596,6 +8596,15 @@ font-family: 'Raleway', sans-serif;
  
 }
 
+.Menulinks{
+    color:#000000
+
+}
+.menuafspraaklink{
+   background: #F0597A;border:15px solid #F0597A; color: #fff;
+
+}
+
 
 /*Afspraak maken*/
 #datepickerinvoervelden{
@@ -8717,6 +8726,13 @@ body {
         width: 30%;
         
     margin-left: 10px;
+    padding:20px;
+
+
+}
+
+.box3{  
+    padding:20px;
 
 
 }
@@ -8780,7 +8796,7 @@ width:220px;
         margin-bottom: 80px
     }         
     #share-buttons img {
-        width: 10%;
+        width: 30%;
     }
     .navbar-nav > li > a{
         font-size:20%;
@@ -8802,6 +8818,15 @@ width:220px;
     padding-left:20px;
  
 }
+.Menulinks{
+   
+
+    font-size: x-small;
+}
+}
+.menuafspraaklink{
+  font-size:smaller;
+
 }
 
 

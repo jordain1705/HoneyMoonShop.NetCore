@@ -53,6 +53,8 @@ namespace HoneymoonShop.Controllers
             {
                 Models.Afspraak afspraak = new Models.Afspraak();
                 //get available times on the date and return them to the view
+                var date = new DateTime(2017, 1, 20, 0, 0, 0);
+                afspraak.DatumTijd = date;
                 var mogelijkeTijden = new List<DateTime>();
                 var date1 = new DateTime(afspraak.DatumTijd.Year, afspraak.DatumTijd.Month, afspraak.DatumTijd.Day, 9, 30, 0);
                 var date2 = new DateTime(afspraak.DatumTijd.Year, afspraak.DatumTijd.Month, afspraak.DatumTijd.Day, 12, 30, 0);
@@ -74,12 +76,13 @@ namespace HoneymoonShop.Controllers
             return View(afs);
         }
 
-        public IActionResult DatePickerBevestigen(String naam, DateTime datum, int tel, String email)
+        public IActionResult DatePickerBevestigen(String naam, DateTime datum, DateTime Trouwdatum, int tel, String email)
         {
             Models.Afspraak afs = new Afspraak()
             {
                 Achternaam = naam,
                 DatumTijd = datum,
+                Trouwdatum = Trouwdatum,
                 TelefoonNummer = tel,
                 EmailAdres = email
             };
@@ -87,8 +90,16 @@ namespace HoneymoonShop.Controllers
             return View(afs);
 
         }
-        public ActionResult DatePickerVoltooid(Models.Afspraak afspraak)
+        public ActionResult DatePickerVoltooid(int tel, String achternaam, DateTime datum, String email)
         {
+            Afspraak afspraak = new Afspraak()
+            {
+                Achternaam = achternaam,
+                TelefoonNummer = tel,
+                DatumTijd = datum,
+                EmailAdres = email
+                
+            };
             if (ModelState.IsValid)
             {
                 HoneyMoonShopContext context = new HoneyMoonShopContext();
