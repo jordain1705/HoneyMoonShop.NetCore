@@ -2,6 +2,9 @@
     Layout = "_HoneyMoon";
     ViewData["Title"] = "Afsraak Pagina";
 }
+@using HoneymoonShop.Models
+@model Afspraak
+
 <!DOCTYPE html>
 <html>
 
@@ -29,7 +32,7 @@
                 <p style="text-wrap: normal">Controleer alle gegevens voor je <br />pasafspraak bij Honeymoon shop aan <br /> Korte Hoogstraat 4, te Rotterdam.</p>
                 <br />
                 <br />
-                <a class="pink-button" href=""><strong>Afspraak bevestigen</strong></a>
+                <a class="pink-button" href="@Url.Action("DatePickerVoltooid", "DatePicker")"><strong>Afspraak bevestigen</strong></a>
             </div>
 
             <div class="col-md-5" align="left" style="height:375px;background-color: #F0597A;padding-left: 50px;">
@@ -37,19 +40,19 @@
                 <br />
                 <table style="color: #fff">
                     <tr>
-                        <th><strong>Naam:</strong></th>
+                        <th><strong>Naam:@Model.Achternaam</strong></th>
                         <th style="text-indent: 10%"></th>
                     </tr>
                     <tr>
-                        <th><strong>Trouwdatum:</strong></th>
+                        <th><strong>Trouwdatum: @Model.DatumTijd</strong></th>
                         <th style="text-indent: 10%"></th>
                     </tr>
                     <tr>
-                        <th><strong>Telefoon:</strong></th>
+                        <th><strong>Telefoon:@Model.TelefoonNummer</strong></th>
                         <th style="text-indent: 10%"></th>
                     </tr>
                     <tr>
-                        <th><strong>E-mail:</strong></th>
+                        <th><strong>E-mail: @Model.EmailAdres</strong></th>
                         <th style="text-indent: 10%"></th>
                     </tr>
                 </table></p>

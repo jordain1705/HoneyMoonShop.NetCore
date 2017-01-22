@@ -33,7 +33,7 @@ namespace HoneymoonShop.Data
                 );
         }
 
-        private static void AddJurk(HoneyMoonShopContext context)
+        public static void AddJurk(HoneyMoonShopContext context)
         {
             Jurk jurk;
             context.Add(

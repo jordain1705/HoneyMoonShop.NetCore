@@ -1,7 +1,11 @@
 ﻿@{
     Layout = "_HoneyMoon";
     ViewData["Title"] = "Afsraak Pagina";
+
 }
+@using HoneymoonShop.Models
+@model Afspraak
+
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +18,7 @@
             <div class="row ">
                 <div class="col-md-12" style="height: 100%; margin-top: 50px;" align="center">
                     <div class="colltekst" style="display: inline-block;">
-                        <h1 class="header-roze" >Trouwjurken</h1>
+                        <h1 class="header-roze">Trouwjurken</h1>
                         <p class="ondertitel">Maak je pasafspraak</p>
                     </div>
                 </div>
@@ -26,40 +30,43 @@
 
 
                 <div class="col-md-7" align="left" style="padding:20px; box-shadow: 0px 0px 10px #e6e6e6;">
-                    <img  id="datepickerinvoervelden"src="~/Images/navStap2.png" class="img-responsive" alt="nav-bar"  />
+                    <img id="datepickerinvoervelden" src="~/Images/navStap2.png" class="img-responsive" alt="nav-bar" />
 
-                    
+
                     <br />
-                    <form action="demo_form.asp">
+                    <form action=@Url.Action("DatePickerBevestigen", "DatePicker") methode="post" autocomplete="off">
                         <h3><strong>Stap 2, Gegevens invullen</strong></h3>
+
                         <p>Voor- en achternaam*</p>
-                        <input type="text" name="naam" style="height: 30px" size="35"><br /><br />
+                        <input type="text" runat="server" name="naam" id="name" style="height: 30px" size="35"><br /><br />
                         <p>Trouwdatum*</p>
-                        <input type="date" name="datum"style="height: 30px" size="35"><br /><br />
+                        <input type="date" name="datum" style="height: 30px" size="35"><br /><br />
                         <p>Telefoonnummer</p>
-                        <input type="tel" name="tel" style="height: 30px" size="35"><br /><br />
+                        <input type="tel" name="tel" id="telefoon" style="height: 30px" size="35"><br /><br />
                         <p>E-mailadres*</p>
-                        <input type="text" name="email" style="height: 30px" size="35"><br /><br />
+                        <input type="text" name="email" style="height: 30px" size="35" autocomplete="on"><br /><br />
                         <p>Herhaal E-mailadres*</p>
-                        <input type="text" name="email2" style="height: 30px" size="35"><br />
+                        <input type="text" name="email2" style="height: 30px" size="35" autocomplete="on"><br />
                         <input type="checkbox" name="nieuwsbrief" value="ja/nee">Ja, ik wil me graag aanmelden voor de <br /> inspirerende niewsbrief van Honeymoon Shop.
+                        <br />
+                        <br />
+                        <input class="pink-button" type="submit" value="stap 3" />
                     </form>
-                    <br />
-                    <br />
-                    <a class="pink-button" href="@Url.Action("DatePickerBevestigen", "DatePicker")"><strong>naar stap 3</strong></a>
+
+
                 </div>
 
 
-                <div class="col-md-5 gekozentijd" align="left" >
+                <div class="col-md-5 gekozentijd" align="left">
                     <h3>Gekozen tijd en datum:</h3>
                     <br />
-                    <p class="testing" align="center"><strong>DO 15 september 2016 om 9.30</strong></p>
+                    <p class="testing" align="center"><strong>@Model.DatumTijd</strong></p>
                     <p style="text-wrap: normal">Vul je persoonkijke gegevens in om de<br /> pasafpraak compleet te maken.</p>
                     <a href="@Url.Action("DatePickerDatum", "DatePicker")" style="color: #FFF; line-height: 300px; vertical-align: bottom">Terug naar stap 1 om datum te wijzigen</a>
 
                 </div>
 
-              
+
             </div>
 
         </div>

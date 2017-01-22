@@ -66,14 +66,12 @@ window.onload = function(){
     function daysInMonth(year,month) {
         return new Date(year, month + 1, 0).getDate();
     }
-     
 
     window._makeCalender = function(status){
       var offset; // increases or decreases month
       var newSpan; // for creating a new span node
       var newContent; // for creating new day of month to go into span node
       var datePickBody = document.getElementById("date-pick-days-current");
-
 
       if (status === "current") {
         monthVariable = dInit.getMonth(); // sets monthVariable to current month
@@ -90,7 +88,7 @@ window.onload = function(){
       } else {
         monthVariable = dInit.getMonth(); // sets monthVariable to current month by default
       } // if
- 
+
       var currentD = new Date();
       var currentYear = currentD.getFullYear();
       var currentMonth = currentD.getMonth();
@@ -164,10 +162,12 @@ window.onload = function(){
 
       var datePickSelectatble = document.getElementsByClassName("date-pick-selectatble");
       for(var i=0; i<datePickSelectatble.length; i++) { // adds changeSelectedDay event listener to each day
+          datePickSelectatble[i].onhover = diableDates();
           datePickSelectatble[i].onclick = changeSelectedDay;
       };
 
     } // makeCalender
+
 
     _makeCalender("current");
 
@@ -178,9 +178,7 @@ window.onload = function(){
         return number;
       }
     }
-    
 
-        
     function changeSelectedDay(){
       datePickSelectedDay = document.getElementsByClassName("date-pick-selected-day");
       if (datePickSelectedDay[0] !== undefined){
@@ -204,7 +202,6 @@ window.onload = function(){
       dateInput.setAttribute("data-selected-day", globalDay);
     };
 
-   
     WebFontConfig = {
         google: { families: [ 'Roboto::latin' ] }
       };
@@ -263,7 +260,6 @@ window.onload = function(){
           }
           return -1;
       }
-
       // Vendors: please allow content code to instantiate DOMExceptions
       , DOMEx = function (type, message) {
           this.name = type;
@@ -468,8 +464,8 @@ window.onload = function(){
         <div class="row ">
             <div class="col-md-12" style="height: 220px; margin-top: 50px;" align="center">
                 <div class="colltekst" style="display: inline-block;">
-                    <h1 class="header-roze" >Trouwjurken</h1>
-                    <p class="ondertitel" >Maak je pasafspraak</p>
+                    <h1 class="header-roze">Trouwjurken</h1>
+                    <p class="ondertitel">Maak je pasafspraak</p>
                 </div>
             </div>
         </div>
@@ -506,7 +502,7 @@ window.onload = function(){
 
                     </table>
                 </p>
-                <p>*Op alle werkdagen kunnen er ook schoenen worden <br /> gepast. Helaas is dit niet mogelijk in het weekend.</p>
+                <p>*Op alle werkdagen kunnen er ook schoenen worden <br /> gepast.Helaas is dit niet mogelijk in het weekend.</p>
             </div>
 
             <div class="col-md-5" align="center" style="height:450px;background-color: #F0597A;padding: 20px;">
@@ -525,3 +521,4 @@ window.onload = function(){
 </body>
 
 </html>
+l>
