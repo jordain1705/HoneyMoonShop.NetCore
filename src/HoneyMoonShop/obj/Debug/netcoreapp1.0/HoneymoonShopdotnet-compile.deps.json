@@ -17,7 +17,6 @@
       "HoneymoonShop/1.0.0": {
         "dependencies": {
           "Microsoft.NETCore.App": "1.0.0",
-          "xunit": "2.2.0-beta2-build3300",
           "dotnet-test-xunit": "2.2.0-preview2-build1029",
           "Microsoft.AspNetCore.Diagnostics": "1.0.0",
           "Microsoft.AspNetCore.Mvc": "1.0.1",
@@ -34,8 +33,10 @@
           "Microsoft.Extensions.Logging.Console": "1.0.0",
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
+          "Microsoft.Extensions.Testing.Abstractions": "1.0.0-preview2-003121",
           "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
           "Moq": "4.6.38-alpha",
+          "xunit": "2.2.0-beta2-build3300",
           "xunit.core": "2.1.0"
         },
         "compile": {
@@ -3049,7 +3050,6 @@
       "HoneymoonShop/1.0.0": {
         "dependencies": {
           "Microsoft.NETCore.App": "1.0.0",
-          "xunit": "2.2.0-beta2-build3300",
           "dotnet-test-xunit": "2.2.0-preview2-build1029",
           "Microsoft.AspNetCore.Diagnostics": "1.0.0",
           "Microsoft.AspNetCore.Mvc": "1.0.1",
@@ -3066,8 +3066,10 @@
           "Microsoft.Extensions.Logging.Console": "1.0.0",
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
+          "Microsoft.Extensions.Testing.Abstractions": "1.0.0-preview2-003121",
           "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
           "Moq": "4.6.38-alpha",
+          "xunit": "2.2.0-beta2-build3300",
           "xunit.core": "2.1.0"
         },
         "runtime": {
