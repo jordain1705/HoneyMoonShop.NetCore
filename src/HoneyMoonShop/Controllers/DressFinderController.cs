@@ -73,7 +73,7 @@ namespace HoneymoonShop.Controllers
                     jurken = jurken.Intersect(context.Jurken.Where(g => g.Silhouette == silhouetteDd)).ToList();
                 if (slider.Count() == 2)//deze controle is als de slider 2 waarde heeft(zodat hij het niet doet bij de eerste opstart)
                 {
-                    //zorgt dat alleen resultaaten binnen de aangegeven prijsgrens worden gebruikt
+                    //zorgt dat alleen resultaten binnen de aangegeven prijsgrens worden gebruikt
                     //bug: de slider update soms random niet (ligt denk ik aan de functieaanroep)
                     jurken = jurken.Intersect(context.Jurken.Where(g => (g.MinPrijs >= Convert.ToInt32(slider[0])) && (g.MaxPrijs <= Convert.ToInt32(slider[1]))).ToList()).ToList();
                 }
@@ -101,20 +101,5 @@ namespace HoneymoonShop.Controllers
                 return PartialView("ProductsPartial", sortedJurken);
             }
         }
-       /* public IActionResult dressListOrderChanger(List<Jurk> jurken, string orderType)
-        {
-            List<Jurk> sortedJurken = new List<Jurk>();
-
-            if (orderType == "ascending")
-            {
-               sortedJurken = jurken.OrderBy(g => g.MinPrijs).ToList();
-            }
-            else
-            {
-               sortedJurken = jurken.OrderByDescending(g => g.MinPrijs).ToList();
-            }
-
-            return PartialView("ProductsPartial", sortedJurken);
-        }*/
     }
 }

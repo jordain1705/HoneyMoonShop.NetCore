@@ -50,9 +50,9 @@ namespace HoneymoonShop.Controllers
                 //hieronder laad het de bijbehorende accesoires(random)
                 var alleAccessoires = context.Accessoire.ToList();
                 var juisteAccessoires = new List<Accessoire>();
-                List<string> AccesoiresPlaatjes = new List<string>();
-                List<string> Accessoirelinks = new List<string>();
-                List<string> AccessoireMerk = new List<string>();
+                List<string> accesoiresPlaatjes = new List<string>();
+                List<string> accessoirelinks = new List<string>();
+                List<string> accessoireMerk = new List<string>();
                 Random rnd = new Random();
                 int hoogste = alleAccessoires.Count();
                 for (int i = 0; i < hoogste; i++)
@@ -61,15 +61,15 @@ namespace HoneymoonShop.Controllers
                    int actualRandom = rnd.Next(0, hoogste-1);
                    juisteAccessoires.Add(alleAccessoires.ElementAt(actualRandom));
                    alleAccessoires.RemoveAt(actualRandom);
-                   Accessoirelinks.Add(juisteAccessoires[i].LinkNaarWebshop);
-                   AccessoireMerk.Add(juisteAccessoires[i].Merk);
+                   accessoirelinks.Add(juisteAccessoires[i].LinkNaarWebshop);
+                   accessoireMerk.Add(juisteAccessoires[i].Merk);
                    String plaatje = Convert.ToString(juisteAccessoires.ElementAt(i).AccessoireCode);
                    String afr = "/Images/Accessoire/" + plaatje + ".jpg";
-                   AccesoiresPlaatjes.Add(afr);
+                   accesoiresPlaatjes.Add(afr);
                 }
-                ViewData["AccessoireLink"] = Accessoirelinks;
-                ViewData["AccessoiresNum"] = AccesoiresPlaatjes;
-                ViewData["AccessoireMerk"] = AccessoireMerk;
+                ViewData["AccessoireLink"] = accessoirelinks;
+                ViewData["AccessoiresNum"] = accesoiresPlaatjes;
+                ViewData["AccessoireMerk"] = accessoireMerk;
                 ViewData["Accessoires"] = juisteAccessoires;
                 //hier laad het random jurken 
                 var alleJurken = context.Jurken.ToList();

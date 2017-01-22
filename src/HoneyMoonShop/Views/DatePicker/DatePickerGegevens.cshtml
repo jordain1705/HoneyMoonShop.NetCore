@@ -13,13 +13,13 @@
     <script type="text/javascript">
         function validateForm() {
             var x = document.forms["gegevensAfspraak"]["naam"].value;
-            if (x == "") {
+            if (x === "") {
                 alert("Het veld naam is verplicht.");
                 var y = document.forms["gegevensAfspraak"]["tel"].value;
-                if (y == "") {
+                if (y === "") {
                     alert("Vul uw telefoonnummer in.");
                     var z = document.forms["gegevensAfspraak"]["mail"].value;
-                    if (z == "") {
+                    if (z === "") {
                         alert("Vul uw emailadress in.");
 
                         return false;

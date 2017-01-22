@@ -16,7 +16,11 @@ namespace HoneymoonShop.Controllers
          {
              return View() ;
          }*/
-        
+
+        public IActionResult DatePicker()
+        {
+            return View();
+        }
 
         public IActionResult DatePickerDatum()
         {
@@ -51,7 +55,7 @@ namespace HoneymoonShop.Controllers
         {
             using (var context = new HoneyMoonShopContext())
             {
-                Models.Afspraak afspraak = new Models.Afspraak();
+                Afspraak afspraak = new Afspraak();
                 //get available times on the date and return them to the view
                 var date = new DateTime(2017, 1, 20, 0, 0, 0);
                 afspraak.DatumTijd = date;
@@ -72,7 +76,7 @@ namespace HoneymoonShop.Controllers
 
         public IActionResult DatePickerGegevens(DateTime tijd)
         {
-            Models.Afspraak afs = new Afspraak {DatumTijd = tijd};
+            Afspraak afs = new Afspraak {DatumTijd = tijd};
             return View(afs);
         }
 
