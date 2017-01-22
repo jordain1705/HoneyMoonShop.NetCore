@@ -8605,7 +8605,36 @@ font-family: 'Raleway', sans-serif;
 
 }
 
+#Hbutton {
+    /* http://stackoverflow.com/questions/22672368/how-to-make-a-transparent-html-button */
+    position: absolute;
+     background-color: Transparent; 
+    bottom: 70%;
+    right: 54%;
+    width: 10%;
+    outline:none;
+    height: 10%;
+    margin: 0px -50px -15px 0px;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+}
 
+#H2button{
+           position: absolute;
+    background-color: Transparent;
+    bottom: 70%;
+    right: 41%;
+    width: 10%;
+    outline: none;
+    height: 10%;
+    margin: 0px -50px -15px 0px;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden
+   }
 /*Afspraak maken*/
 #datepickerinvoervelden{
         float: left;padding-top: 15px; padding-left:35px;padding-right: 20px;padding-bottom: 300px;
@@ -8801,8 +8830,19 @@ width:220px;
     .navbar-nav > li > a{
         font-size:20%;
     }
+   #Hbutton{   
+       
+        right: 66%;
+  
    
+    height: 14%;
 
+   }
+   #H2button{
+         right: 49%;
+    height: 14%;
+
+   }
     .videoImage{
        
     width: 100%;
