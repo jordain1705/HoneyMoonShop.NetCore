@@ -21,7 +21,7 @@ namespace HoneymoonShop.Data
 
         public DbSet<Afspraak> Afspraak { get; set; }
         public DbSet<Accessoire> Accessoire { get; set; }
-        public DbSet<Jurk> Jurken { get; set; }
+        public virtual DbSet<Jurk> Jurken { get; set; }
         public DbSet<Pak> Pakken { get; set; }
         public DbSet<Kleur> Kleuren { get; set; }
         public DbSet<Afbeelding> Afbeeldingen { get; set; }

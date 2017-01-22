@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Microsoft.DotNet.Tools.Test;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace HoneymoonShop.Models
 {
@@ -8,6 +12,9 @@ namespace HoneymoonShop.Models
         public int AfspraakId { get; set; }
 
         public String Voornaam { get; set; }
+
+        [Required
+        (ErrorMessage = "Zorg dat u uw achternaam invult.")]
         public String Achternaam { get; set; }
         public String EmailAdres { get; set; }
         public String SoortAfspraak { get; set; }

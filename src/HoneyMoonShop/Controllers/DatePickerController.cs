@@ -76,7 +76,7 @@ namespace HoneymoonShop.Controllers
 
         public IActionResult DatePickerBevestigen(String naam, DateTime datum, int tel, String email)
         {
-            Models.Afspraak afs = new Afspraak
+            Models.Afspraak afs = new Afspraak()
             {
                 Achternaam = naam,
                 DatumTijd = datum,
@@ -94,6 +94,9 @@ namespace HoneymoonShop.Controllers
                 HoneyMoonShopContext context = new HoneyMoonShopContext();
                 context.Afspraak.Add(afspraak);
                 context.SaveChanges();
+            }
+            else {
+                TempData["Message"] = "Er is iets mis gegaan. Ga terug en probeer het nog een keer, of bel om telefonisch eeen afspraak te maken.";
             }
             // puts the afspraak into the database
 
