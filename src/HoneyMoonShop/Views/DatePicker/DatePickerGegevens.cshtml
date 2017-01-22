@@ -57,7 +57,7 @@
    
                       <form name="gegevensAfspraak" action=@Url.Action("DatePickerBevestigen", "DatePicker") method="post" autocomplete="off" onsubmit="return validateForm()">
                         <h3><strong>Stap 2, Gegevens invullen</strong></h3>
-
+                          <input type="hidden" name="datum" value="@Model.DatumTijd">
                         <p>Voor- en achternaam*</p>
                         <input type="text" runat="server" name="naam" id="name" style="height: 30px" size="35" ><br /><br />
                         <p>Trouwdatum*</p>

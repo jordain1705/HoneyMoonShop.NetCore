@@ -80,12 +80,12 @@ namespace HoneymoonShop.Controllers
             return View(afs);
         }
 
-        public IActionResult DatePickerBevestigen(String naam, DateTime datum, DateTime Trouwdatum, int tel, String email)
+        public IActionResult DatePickerBevestigen(String naam, DateTime tijd, DateTime Trouwdatum, int tel, String email)
         {
             Models.Afspraak afs = new Afspraak()
             {
                 Achternaam = naam,
-                DatumTijd = datum,
+                DatumTijd = tijd,
                 Trouwdatum = Trouwdatum,
                 TelefoonNummer = tel,
                 EmailAdres = email
