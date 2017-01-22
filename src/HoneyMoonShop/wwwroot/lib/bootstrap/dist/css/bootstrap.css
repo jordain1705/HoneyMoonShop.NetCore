@@ -8635,6 +8635,23 @@ font-family: 'Raleway', sans-serif;
     cursor: pointer;
     overflow: hidden
    }
+
+.bevestingstekst{
+  text-align: center;  padding-bottom: 26px; font-family: Verdana, Geneva, sans-serif; font-size: 18px; font-weight: 200; display:inline;
+}
+.bevestingstekstpart{
+   text-align: center; padding-bottom: 26px; 
+   font-family: Verdana, Geneva, sans-serif, underlined; 
+   font-size: 18px; 
+   font-weight: 200;
+    display:inline;
+}
+
+#bevestingstekstHolder{
+  display: inline-block; max-width: 640px; margin-left: 40%;
+}
+
+
 /*Afspraak maken*/
 #datepickerinvoervelden{
         float: left;padding-top: 15px; padding-left:35px;padding-right: 20px;padding-bottom: 300px;
