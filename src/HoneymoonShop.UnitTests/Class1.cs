@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using Xunit;
+﻿using Xunit;
 using HoneymoonShop.Controllers;
 using HoneymoonShop.Data;
 using HoneymoonShop.Models;
@@ -73,56 +71,48 @@ namespace HoneymoonShop.UnitTests
         //    // Assert
         //    Assert.True(((IEnumerable<Jurk>)result.ViewData.Model).Count(j => j.Merk == "Maggie Sottero") == 1);
         //}
+
+            // INTEGRATION TEST!
         [Fact]
         public void FilterverwerkenInDressfinderController()
         {
             string[] filterMerk = { "Maggie Sottero" };
             string[] filterStijl = { };
             string neklijnDd = "strapless";
-            //string silhouetteDd = "Fishtail";
             string[] slider = { "1999", "2300" };
             string kleurenDd = null;
 
             var mockDbContext = new Mock<HoneyMoonShopContext>();
             var mockDbSetJurk = new Mock<DbSet<Jurk>>();
-            
             var dummyData = new List<Jurk>() {
                 new Jurk() { JurkId = 34, Artikelnummer = 34, Merk = "Maggie Sottero", Stijl = "Kant", MinPrijs = 1200, MaxPrijs = 2300, Neklijn = "strapless", Silhouette = "Fishtail" },
                 new Jurk() { JurkId = 35, Artikelnummer = 012, Merk = "Ladybird", Stijl = "Kant", MinPrijs = 1200, MaxPrijs = 2300, Neklijn = "strapless", Silhouette = "Fishtail" } }.AsQueryable();
-            
-            
+ 
+
+            //alle property van IQueryable correct toekennen
             mockDbSetJurk.As<IQueryable<Jurk>>().Setup(j => j.Provider).Returns(dummyData.Provider);
             mockDbSetJurk.As<IQueryable<Jurk>>().Setup(j => j.Expression).Returns(dummyData.Expression);
             mockDbSetJurk.As<IQueryable<Jurk>>().Setup(j => j.ElementType).Returns(dummyData.ElementType);
             mockDbSetJurk.As<IQueryable<Jurk>>().Setup(j => j.GetEnumerator()).Returns(dummyData.GetEnumerator());
-          // mockDbSetJurk.Setup(m => m.Add(It.IsAny<Jurk>())).Callback<Jurk>(dummyData.Add);
+            mockDbContext.Setup(x => x.Jurken).Returns(mockDbSetJurk.Object);
 
+            var dfc = new DressFinderController(mockDbContext.Object);
+        
+    
 
-
-            var mockContext = new Mock<HoneyMoonShopContext>();
-            mockContext.Setup(c => c.Jurken).Returns(mockDbSetJurk.Object);
-
-            
-
-            //alle property van IQueryable correct toekennen
-
-
-            var result = mockContext.FilterVerwerken(filterMerk, filterStijl, neklijnDd, null, kleurenDd, slider, null);
+            var result = dfc.FilterVerwerken(filterMerk, filterStijl, neklijnDd, null, kleurenDd, slider, null);
 
             var viewResult = Assert.IsType<PartialViewResult>(result);
             //check model data
-            var model = viewResult.ViewData.Model as IList<HoneymoonShop.Models.Jurk>;
-            //var model = (IQueryable < Jurk > viewResult.ViewData.Model);
-            var tes2 = model.Count();
-            Assert.Equal(1, model.Count());
-            // int aantal = model.Count(); 
-            string test = model.ToString();
-            var bonus = 0;
-           // Assert.Equal("Maggie Sottero", model.ElementAt(0).Merk);
-     
+           // var model = viewResult.ViewData.Model;
 
-           
-       }
+            var modelm = (IQueryable<Jurk>)viewResult.ViewData.Model;
+            int aantal = modelm.Count();
+
+
+            // int aantal = model.Count(); 
+            // Assert.Equal("Maggie Sottero", model.ElementAt(0).Merk);
         }
+    }
     }
  

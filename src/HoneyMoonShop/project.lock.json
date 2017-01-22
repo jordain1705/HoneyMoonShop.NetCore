@@ -37,6 +37,16 @@
           "lib/netstandard1.3/Castle.Core.dll": {}
         }
       },
+      "DataAnnotationsExtensions/1.1.2": {
+        "type": "package"
+      },
+      "DataAnnotationsExtensions.MVC3/5.0.1.16": {
+        "type": "package",
+        "dependencies": {
+          "DataAnnotationsExtensions": "1.1.2",
+          "WebActivator": "1.2.0"
+        }
+      },
       "dotnet-test-xunit/2.2.0-preview2-build1029": {
         "type": "package",
         "dependencies": {
@@ -4317,6 +4327,9 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "WebActivator/1.2.0": {
+        "type": "package"
+      },
       "xunit/2.2.0-beta2-build3300": {
         "type": "package",
         "dependencies": {
@@ -4404,6 +4417,27 @@
         "lib/netstandard1.3/Castle.Core.dll",
         "lib/netstandard1.3/Castle.Core.xml",
         "readme.txt"
+      ]
+    },
+    "DataAnnotationsExtensions/1.1.2": {
+      "sha512": "1FDhZY+WL7m1/S69mEs6Xh8Bak2K515L6epVOnpt57jkPKsxekQY0+S7Z1PcUuz1RSFobxup/B8+fIjohcB7/g==",
+      "type": "package",
+      "path": "DataAnnotationsExtensions/1.1.2",
+      "files": [
+        "DataAnnotationsExtensions.1.1.2.nupkg.sha512",
+        "DataAnnotationsExtensions.nuspec",
+        "lib/NETFramework40/DataAnnotationsExtensions.dll"
+      ]
+    },
+    "DataAnnotationsExtensions.MVC3/5.0.1.16": {
+      "sha512": "01QL8Cbs8YDqErzVZRfELZGGAW4ENscSwh4wzwsTq9JorJgcDpjLaqP3nwYikWY4n8dSU1ngJak52NJjzByvMQ==",
+      "type": "package",
+      "path": "DataAnnotationsExtensions.MVC3/5.0.1.16",
+      "files": [
+        "DataAnnotationsExtensions.MVC3.5.0.1.16.nupkg.sha512",
+        "DataAnnotationsExtensions.MVC3.nuspec",
+        "content/App_Start/RegisterClientValidationExtensions.cs.pp",
+        "lib/NETFramework40/DataAnnotationsExtensions.ClientValidation.dll"
       ]
     },
     "dotnet-test-xunit/2.2.0-preview2-build1029": {
@@ -11131,6 +11165,16 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
+    "WebActivator/1.2.0": {
+      "sha512": "5ngaEifHDU7c6Ar3fGjLx4tOeMXw5Alnj3LYAPxB6c2TuU9ueliM0AXllsF+OGRBKxUUG9emLqFnO92Ya2g31w==",
+      "type": "package",
+      "path": "WebActivator/1.2.0",
+      "files": [
+        "WebActivator.1.2.0.nupkg.sha512",
+        "WebActivator.nuspec",
+        "lib/NETFramework40/WebActivator.dll"
+      ]
+    },
     "xunit/2.2.0-beta2-build3300": {
       "sha512": "jUMf+Hrw8+XZN56TfO+JjoibR5L806/kgDIkwCg9OXLlfnA4li4JTmH342ifYj1QMR10is8hfYYFTyjHq0+aQg==",
       "type": "package",
@@ -11217,6 +11261,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "DataAnnotationsExtensions.MVC3 >= 5.0.1.16",
       "Microsoft.AspNetCore.Diagnostics >= 1.0.0",
       "Microsoft.AspNetCore.Mvc >= 1.0.1",
       "Microsoft.AspNetCore.Razor.Tools >= 1.0.0-preview2-final",
@@ -11233,6 +11278,7 @@
       "Microsoft.Extensions.Logging.Console >= 1.0.0",
       "Microsoft.Extensions.Logging.Debug >= 1.0.0",
       "Microsoft.Extensions.Options.ConfigurationExtensions >= 1.0.0",
+      "Microsoft.Extensions.Testing.Abstractions >= 1.0.0-preview2-003121",
       "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0",
       "Moq >= 4.6.38-alpha",
       "dotnet-test-xunit >= 2.2.0-preview2-build1029",
